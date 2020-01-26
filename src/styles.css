@@ -1,0 +1,9 @@
+/* You can add global styles to this file, and also import other style files */
+@import url(https://unpkg.com/bootstrap@4.1.1/dist/css/bootstrap.min.css);
+@import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700);
+@import url(./assets/css/adminlte.css);
+@import url(./assets/css/style.css);
+@import url(./assets/css/style1.css);
+@import url(./assets/css/demo.css);
+@import url(./assets/plugins/fontawesome-free/css/all.min.css);
