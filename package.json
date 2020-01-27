@@ -1,5 +1,5 @@
 {
-  "name": "template2",
+  "name": "template",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -21,8 +21,11 @@
     "@angular/router": "~8.2.14",
     "angular-datatables": "^8.0.0",
     "bootstrap": "^4.4.1",
+<<<<<<< HEAD
     "datatables.net": "^1.10.20",
     "datatables.net-dt": "^1.10.20",
+=======
+>>>>>>> 8734f84b43c61c5fc71aa99bd77748cf1f3a9a79
     "jquery": "^3.4.1",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
