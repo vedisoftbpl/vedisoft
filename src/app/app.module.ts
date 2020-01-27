@@ -9,6 +9,9 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { ContentComponent } from './content/content.component';
 import { LoginComponent } from './login/login.component';
 import { SigninComponent } from './signin/signin.component';
+import { CertiRequestComponent } from './certi-request/certi-request.component';
+import { DataTablesModule } from 'angular-datatables';
+import { InstallmentComponent } from './installment/installment.component';
 
 @NgModule({
   declarations: [
@@ -17,12 +20,15 @@ import { SigninComponent } from './signin/signin.component';
     SidebarComponent,
     ContentComponent,
     LoginComponent,
-    SigninComponent
+    SigninComponent,
+    CertiRequestComponent,
+    InstallmentComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    DataTablesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
