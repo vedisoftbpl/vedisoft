@@ -1,0 +1,53 @@
+<div class="wrapper">
+
+    <div class="container-fluid flu mb-5">
+        <div class="service">
+            <h1 class="logo pt-5">Colleges</h1>
+        </div>
+    </div>
+
+
+
+    <div class="container mb-5 pb-5 pt-3 mt-3">
+       
+        <div class="row justify-content-center pt-6">
+            <article class="card-body col-md-11">
+                <table [dtOptions]="dtOptions" datatable class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Group</th>
+                            <th>Name</th>
+                            <th>City</th>
+                            <th>Students</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let college of colleges">
+                            <td>{{college.id}}</td>
+                            <td>{{college.group}}</td>
+                            <td>{{college.name}}</td>
+                            <td>{{college.city}}</td>
+                            <td><button (click)="showStudents()" class="btn btn-primary">Show Students</button></td>
+                            <!-- <td><button (click)="deleteTodo(todo.id)" class="btn btn-warning">Delete</button></td> -->
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+            </div> <!-- row.//-->
+
+            <div class="container">
+                <button (click)="addCollege()" class="btn btn-success">Add College</button>
+            </div>
+
+                        
+                    
+
+
+
+
+
+        </div>
+
+        <!--container end.//-->
+    </div>

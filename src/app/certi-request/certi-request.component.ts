@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { Subject } from 'rxjs';
 import { DataTableDirective } from 'angular-datatables';
 
@@ -9,7 +9,7 @@ import { DataTableDirective } from 'angular-datatables';
 })
 
 
-export class CertiRequestComponent implements OnInit {
+export class CertiRequestComponent implements OnInit, OnDestroy {
 
   constructor() { }
 
@@ -17,6 +17,9 @@ export class CertiRequestComponent implements OnInit {
   @ViewChild(DataTableDirective, {static: false})
   datatableElement: DataTableDirective;
   dtOptions: DataTables.Settings = {};
+
+
+  
 
   ngOnInit() {
     this.dtTrigger.next();
@@ -31,6 +34,10 @@ export class CertiRequestComponent implements OnInit {
       ]
       
     };
+  }
+
+  ngOnDestroy() {
+    this.dtTrigger.unsubscribe();
   }
 
 }

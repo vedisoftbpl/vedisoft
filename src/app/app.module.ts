@@ -11,6 +11,13 @@ import { LoginComponent } from './login/login.component';
 import { SigninComponent } from './signin/signin.component';
 import { CertiRequestComponent } from './certi-request/certi-request.component';
 import { InstallmentComponent } from './installment/installment.component';
+import { PersonTypeComponent } from './person-type/person-type.component';
+import { PersonComponent } from './person/person.component';
+import { CollegeComponent } from './college/college.component';
+import { AddCollegeComponent } from './add/add-college/add-college.component';
+import { AddPersonComponent } from './add/add-person/add-person.component'
+
+
 
 @NgModule({
   declarations: [
@@ -20,7 +27,12 @@ import { InstallmentComponent } from './installment/installment.component';
     LoginComponent,
     SigninComponent,
     CertiRequestComponent,
-    InstallmentComponent
+    InstallmentComponent,
+    PersonTypeComponent,
+    PersonComponent,
+    CollegeComponent,
+    AddCollegeComponent,
+    AddPersonComponent
   ],
   imports: [
     BrowserModule,

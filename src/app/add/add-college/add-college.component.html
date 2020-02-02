@@ -1,0 +1,58 @@
+<div class="main-header">
+    <div class="container-fluid flu mb-5">
+        <div class="service">
+            <h1 class="logo pt-5">Colleges</h1>
+        </div>
+    </div>
+
+
+
+    <div class="container mb-5 pb-5 pt-3 mt-3">
+        <div class="row justify-content-center pt-6">
+
+            <div class="col-md-10">
+
+                <div class="card">
+
+                    <article class="card-body">
+
+                        <form>
+
+                            <div class="form-group">
+
+                                <label>College Name</label>
+
+                                <input [(ngModel)]="college.name" type="text" class="form-control" placeholder="Name" required name="name">
+
+                            </div> <!-- form-group end.// -->
+
+                            <div class="form-group">
+
+                               <label>College Group</label>
+
+                                <input [(ngModel)]="college.group" class="form-control" type="text" required placeholder="Group" name="group">
+                            </div> <!-- form-group end.// -->
+
+                            <div class="form-group">
+
+                                <label>College City</label>
+ 
+                                 <input [(ngModel)]="college.city" class="form-control" type="text" required placeholder="City" name="city">
+                             </div> <!-- form-group end.// -->
+
+                        </form>
+
+                    </article> <!-- card-body end .// -->
+
+                    <div class="border-top card-body text-center"><button type="submit" class="btn btn-success">Submit</button></div>
+
+
+                </div> <!-- card.// -->
+            </div> <!-- col.//-->
+
+
+        </div> <!-- row.//-->
+
+
+    </div>
+</div>
