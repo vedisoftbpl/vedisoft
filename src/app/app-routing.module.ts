@@ -8,6 +8,8 @@ import { PersonTypeComponent } from './person-type/person-type.component';
 import { PersonComponent } from './person/person.component';
 import { CollegeComponent } from './college/college.component';
 import { AddCollegeComponent } from './add/add-college/add-college.component';
+import { BranchesComponent } from './branches/branches.component';
+import { BranchFormComponent } from './branch-form/branch-form.component';
 
 
 const routes: Routes = [
@@ -18,7 +20,11 @@ const routes: Routes = [
   {path: 'personType', component: PersonTypeComponent},
   {path: 'person', component: PersonComponent},
   {path: 'college', component: CollegeComponent},
-  {path: 'addCollege', component: AddCollegeComponent}
+  {path: 'addCollege', component: AddCollegeComponent},
+  {path: 'branches', component: BranchesComponent},
+  {path: 'branchform/:id/:isEnabled', component: BranchFormComponent}
+
+
 ];
 
 @NgModule({

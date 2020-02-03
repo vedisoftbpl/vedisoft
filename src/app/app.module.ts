@@ -15,7 +15,9 @@ import { PersonTypeComponent } from './person-type/person-type.component';
 import { PersonComponent } from './person/person.component';
 import { CollegeComponent } from './college/college.component';
 import { AddCollegeComponent } from './add/add-college/add-college.component';
-import { AddPersonComponent } from './add/add-person/add-person.component'
+import { AddPersonComponent } from './add/add-person/add-person.component';
+import { BranchesComponent } from './branches/branches.component';
+import { BranchFormComponent } from './branch-form/branch-form.component'
 
 
 
@@ -32,7 +34,9 @@ import { AddPersonComponent } from './add/add-person/add-person.component'
     PersonComponent,
     CollegeComponent,
     AddCollegeComponent,
-    AddPersonComponent
+    AddPersonComponent,
+    BranchesComponent,
+    BranchFormComponent
   ],
   imports: [
     BrowserModule,

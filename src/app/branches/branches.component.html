@@ -1,0 +1,53 @@
+<div class="wrapper">
+
+    <div class="container-fluid flu mb-5">
+        <div class="service">
+            <h1 class="logo pt-5">BRANCHES</h1>
+        </div>
+    </div>
+
+
+
+    <div class="container mb-5 pb-5 pt-3 mt-3">
+       
+        <div class="row justify-content-center pt-6">
+            <article class="card-body col-md-11">
+                <table [dtOptions]="dtOptions" datatable class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>BRANCH NAME</th>
+                            <th>CITY</th>
+                            <th>EDIT/VIEW</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let branch of branches">
+                            <td>{{branch.id}}</td>
+                            <td>{{branch.branchName}}</td>
+                            <td>{{branch.city}}</td>
+                            <td><button (click)="editBranchDetails(branch.id)" class="btn btn-primary">EDIT</button>/
+                                <button (click)="viewBranchDetails(branch.id)" class="btn btn-warning">VIEW</button>
+                            </td>
+                            <!-- <td><button (click)="deleteTodo(todo.id)" class="btn btn-warning">Delete</button></td> -->
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+            </div> <!-- row.//-->
+
+            <div class="container">
+                <button (click)="addBranch()" class="btn btn-success">New Branch</button>
+            </div>
+
+                        
+                    
+
+
+
+
+
+        </div>
+
+        <!--container end.//-->
+    </div>
