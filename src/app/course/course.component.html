@@ -1,0 +1,54 @@
+<div class="wrapper">
+
+    <div class="container-fluid flu mb-5">
+        <div class="service">
+            <h1 class="logo pt-5">Courses</h1>
+        </div>
+    </div>
+
+
+
+    <div class="container mb-5 pb-5 pt-3 mt-3">
+       
+        <div class="row justify-content-center pt-6">
+            <article class="card-body col-md-11">
+                <table [dtOptions]="dtOptions" datatable class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Course Name</th>
+                            <th>Course Prefix</th>
+                            <th>VIEW/EDIT/DELETE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let course of courses">
+                            <td>{{course.id}}</td>
+                            <td>{{course.courseName}}</td>
+                            <td>{{course.coursePrefix}}</td>
+                            <td><button (click)="viewCourseDetails(course.id)" class="btn btn-primary">VIEW</button>/
+                                <button (click)="editBranchDetails(course.id)" class="btn btn-warning">EDIT</button>/
+                                <button (click)="deleteBranchDetails(course.id)" class="btn btn-danger">DELETE</button>
+                            </td>
+                            
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+            </div> <!-- row.//-->
+
+            <div class="container">
+                <button (click)="addCourse()" class="btn btn-success">New Course</button>
+            </div>
+
+                        
+                    
+
+
+
+
+
+        </div>
+
+        <!--container end.//-->
+    </div>

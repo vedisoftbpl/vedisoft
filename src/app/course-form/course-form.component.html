@@ -1,0 +1,63 @@
+<div class="main-header">
+    <div class="container-fluid flu mb-5">
+        <div class="service">
+            <h1 class="logo pt-5">Courses</h1>
+        </div>
+    </div>
+
+
+
+    <div class="container mb-5 pb-5 pt-3 mt-3">
+        <div class="row justify-content-center pt-6">
+
+            <div class="col-md-10">
+
+                <div class="card">
+
+                    <article class="card-body">
+
+                        <form #BranchForm = "ngForm" >
+
+                            <div class="form-group">
+
+                                <label>Course Name</label>
+
+                                <input [(ngModel)]="course.courseName" type="text" class="form-control" placeholder="Course Name"  name="name">
+
+                            </div> <!-- form-group end.// -->
+
+                            <div class="form-group">
+
+                               <label>Course Prefix</label>
+
+                               <input [(ngModel)]="course.coursePrefix" type="text" class="form-control" placeholder="Course Prefix"  name="Prefix">
+
+
+                            </div> <!-- form-group end.// -->
+
+                            <div class="form-group">
+
+                                <label>Certificate Name</label>
+                                <input [(ngModel)]="course.certificateTitle" type="text" class="form-control" placeholder="Certificate Name"  name="certificate">
+
+                             </div> <!-- form-group end.// -->
+                             
+                            <div class="form-group">
+
+                                <label>Duration</label>
+                                <input [(ngModel)]="course.duration" type="text" class="form-control" placeholder="course duration"  name="duration">
+
+                             </div> <!-- form-group end.// -->
+                             
+                        </form>
+
+                    </article> <!-- card-body end .// -->
+
+                    <div class="border-top card-body text-center"><button type="submit" class="btn btn-success">Submit</button></div>
+
+
+                </div> <!-- card.// -->
+            </div> <!-- col.//-->
+
+
+        </div> 

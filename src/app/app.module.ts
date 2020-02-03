@@ -17,7 +17,11 @@ import { CollegeComponent } from './college/college.component';
 import { AddCollegeComponent } from './add/add-college/add-college.component';
 import { AddPersonComponent } from './add/add-person/add-person.component';
 import { BranchesComponent } from './branches/branches.component';
-import { BranchFormComponent } from './branch-form/branch-form.component'
+import { BranchFormComponent } from './branch-form/branch-form.component';
+import { SessionComponent } from './session/session.component';
+import { SessionFormComponent } from './session-form/session-form.component';
+import { CourseComponent } from './course/course.component';
+import { CourseFormComponent } from './course-form/course-form.component'
 
 
 
@@ -36,7 +40,11 @@ import { BranchFormComponent } from './branch-form/branch-form.component'
     AddCollegeComponent,
     AddPersonComponent,
     BranchesComponent,
-    BranchFormComponent
+    BranchFormComponent,
+    SessionComponent,
+    SessionFormComponent,
+    CourseComponent,
+    CourseFormComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,58 @@
+<div class="main-header">
+    <div class="container-fluid flu mb-5">
+        <div class="service">
+            <h1 class="logo pt-5">Sessions</h1>
+        </div>
+    </div>
+
+
+
+    <div class="container mb-5 pb-5 pt-3 mt-3">
+        <div class="row justify-content-center pt-6">
+
+            <div class="col-md-10">
+
+                <div class="card">
+
+                    <article class="card-body">
+
+                        <form #BranchForm = "ngForm" >
+
+                            <div class="form-group">
+
+                                <label>Session Name</label>
+
+                                <input [(ngModel)]="session.sessionName" type="text" class="form-control" placeholder="Branch Name"  name="name">
+
+                            </div> <!-- form-group end.// -->
+
+                            <div class="form-group">
+
+                               <label>Start Date</label>
+
+                                
+                               <input [ngModel]="session.startDate|date:'yyyy-MM-dd' "
+                               (ngModelChange)="session.startDate= $event" class="form-control" type="date" required placeholder="startDate" name="startDate">
+                            </div> <!-- form-group end.// -->
+
+                            <div class="form-group">
+
+                                <label>End Date</label>
+ 
+                                <input [ngModel]="session.endDate|date:'yyyy-MM-dd' "
+                                (ngModelChange)="session.endDate= $event" class="form-control" type="date" required placeholder="endDate" name="endDate">
+
+                             </div> <!-- form-group end.// -->
+                             
+                        </form>
+
+                    </article> <!-- card-body end .// -->
+
+                    <div class="border-top card-body text-center"><button type="submit" class="btn btn-success">Submit</button></div>
+
+
+                </div> <!-- card.// -->
+            </div> <!-- col.//-->
+
+
+        </div> 

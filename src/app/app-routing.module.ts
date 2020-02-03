@@ -10,6 +10,10 @@ import { CollegeComponent } from './college/college.component';
 import { AddCollegeComponent } from './add/add-college/add-college.component';
 import { BranchesComponent } from './branches/branches.component';
 import { BranchFormComponent } from './branch-form/branch-form.component';
+import { SessionComponent } from './session/session.component';
+import { SessionFormComponent } from './session-form/session-form.component';
+import { CourseComponent } from './course/course.component';
+import { CourseFormComponent } from './course-form/course-form.component';
 
 
 const routes: Routes = [
@@ -22,7 +26,11 @@ const routes: Routes = [
   {path: 'college', component: CollegeComponent},
   {path: 'addCollege', component: AddCollegeComponent},
   {path: 'branches', component: BranchesComponent},
-  {path: 'branchform/:id/:isEnabled', component: BranchFormComponent}
+  {path: 'branchform/:id/:isEnabled', component: BranchFormComponent},
+  {path: 'session', component: SessionComponent},
+  {path: 'sessionform/:id/:isEnabled', component: SessionFormComponent},
+  {path: 'course', component: CourseComponent},
+  {path: 'courseform/:id/:isEnabled', component: CourseFormComponent}
 
 
 ];
