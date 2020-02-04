@@ -16,8 +16,8 @@ export class CourseList{
   courses: Course[] 
   constructor(){
     this.courses = [
-      new Course(1, "JAVA","jav","Java","3Months"),
-      new Course(2, "C++","cpp","C++","3Months")
+      new Course(1, "JAVA","jav","merit","3Months"),
+      new Course(2, "C++","cpp","training","3Months")
     ]
   }
 }
@@ -57,6 +57,21 @@ export class CourseComponent implements OnInit ,OnDestroy {
   }
   viewCourseDetails(id){
     this.router.navigate(['courseform',id,1])
+
+
+  }
+  deleteCourseDetails(id){
+    let count:number=0;
+    for(var c of this.courses){
+      if(c.id==id){
+        this.courses.splice(count,1)
+        break
+      }
+      else{
+        count++
+      }
+
+    }
 
 
   }

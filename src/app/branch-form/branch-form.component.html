@@ -16,93 +16,117 @@
 
                     <article class="card-body">
 
-                        <form #BranchForm = "ngForm" >
+                        <form #BranchForm="ngForm">
 
                             <div class="form-group">
 
                                 <label>Branch Name</label>
 
-                                <input [(ngModel)]="branch.branchName" type="text" class="form-control" placeholder="Branch Name"  name="name">
+                                <input [(ngModel)]="branch.branchName" type="text" class="form-control"
+                                    placeholder="Branch Name" name="name">
 
                             </div> <!-- form-group end.// -->
 
                             <div class="form-group">
 
-                               <label>Branch Prefix</label>
+                                <label>Branch Prefix</label>
 
-                                <input [(ngModel)]="branch.branchPrefix" class="form-control" type="text" required placeholder="Prefix" name="prefix">
+                                <input [(ngModel)]="branch.branchPrefix" class="form-control" type="text" required
+                                    placeholder="Prefix" name="prefix">
                             </div> <!-- form-group end.// -->
 
                             <div class="form-group">
 
                                 <label>Plot No.</label>
- 
-                                 <input [(ngModel)]="branch.plotNumber" class="form-control" type="text" required placeholder="plotno" name="plotno">
-                             </div> <!-- form-group end.// -->
 
-                             <div class="form-group">
+                                <input [(ngModel)]="branch.plotNumber" class="form-control" type="text" required
+                                    placeholder="plotno" name="plotno">
+                            </div> <!-- form-group end.// -->
+
+                            <div class="form-group">
 
                                 <label>Locality</label>
- 
-                                 <input [(ngModel)]="branch.Locality" class="form-control" type="text" required placeholder="locality" name="locality">
-                             </div>
 
-                             <div class="form-group">
+                                <input [(ngModel)]="branch.Locality" class="form-control" type="text" required
+                                    placeholder="locality" name="locality">
+                            </div>
+
+                            <div class="form-group">
 
                                 <label>Street</label>
- 
-                                 <input [(ngModel)]="branch.street" class="form-control" type="text" required placeholder="street" name="street">
-                             </div>
 
-                             <div class="form-group">
+                                <input [(ngModel)]="branch.street" class="form-control" type="text" required
+                                    placeholder="street" name="street">
+                            </div>
+
+                            <div class="form-group">
 
                                 <label>City</label>
- 
-                                 <input [(ngModel)]="branch.city" class="form-control" type="text" required placeholder="City" name="city">
-                             </div>
 
-                             <div class="form-group">
+                                <input [(ngModel)]="branch.city" class="form-control" type="text" required
+                                    placeholder="City" name="city">
+                            </div>
+
+                            <div class="form-group">
 
                                 <label>State</label>
- 
-                                 <input [(ngModel)]="branch.state" class="form-control" type="text" required placeholder="state" name="state">
-                             </div>
 
-                             <div class="form-group">
+                                <input [(ngModel)]="branch.state" class="form-control" type="text" required
+                                    placeholder="state" name="state">
+                            </div>
+
+                            <div class="form-group">
+
+                                <label>Branch Manager</label>
+
+                                <select name="multiple" [(ngModel)]="branch.branchManager"
+                                    class="form-control">
+                                    <option value="Rohit Ahuja">Rohit Ahuja</option>
+                                    <option value="Rohit Ahuja">Rohit Ahuja</option>
+                                    <option value="Rohit Ahuja">Rohit Ahuja</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
 
                                 <label>Branch Contact Number</label>
- 
-                                 <input [(ngModel)]="branch.contactNumber" class="form-control" type="number" required placeholder="contactNumber" name="contactNumber">
-                             </div>
 
-                             <div class="form-group">
+                                <input [(ngModel)]="branch.contactNumber" class="form-control" type="number" required
+                                    placeholder="contactNumber" name="contactNumber">
+                            </div>
+
+                            <div class="form-group">
 
                                 <label>Courses</label>
- 
-                                 <textarea [(ngModel)]="branch.courses" rows="4" cols="50" class="form-control" type="" required placeholder="courses" name="courses"></textarea>
-                             </div>
 
-                             <div class="form-group">
+                                <textarea [(ngModel)]="branch.courses" rows="4" cols="50" class="form-control" type=""
+                                    required placeholder="courses" name="courses"></textarea>
+                            </div>
+
+                            <div class="form-group">
 
                                 <label>Established Date</label>
- 
-                                 <input [ngModel]="branch.estbDate|date:'yyyy-MM-dd' "
-                                 (ngModelChange)="branch.estbDate= $event" class="form-control" type="date" required placeholder="estbDate" name="estbDate">
-                             </div>
 
-                             <div class="form-group">
+                                <input [ngModel]="branch.estbDate|date:'yyyy-MM-dd' "
+                                    (ngModelChange)="branch.estbDate= $event" class="form-control" type="date" required
+                                    placeholder="estbDate" name="estbDate">
+                            </div>
+
+                            <div class="form-group">
 
                                 <label>Lattitude & Longitude</label>
- 
-                                 <input [(ngModel)]="branch.latLong" class="form-control" type="text" required placeholder="LatLong" name="LatLong">
-                             </div>
 
-                             
+                                <input [(ngModel)]="branch.latLong" class="form-control" type="text" required
+                                    placeholder="LatLong" name="LatLong">
+                            </div>
+
+
                         </form>
 
                     </article> <!-- card-body end .// -->
 
-                    <div class="border-top card-body text-center"><button type="submit" class="btn btn-success">Submit</button></div>
+                    <div class="border-top card-body text-center"><button type="submit"
+                            class="btn btn-success">Submit</button></div>
 
 
                 </div> <!-- card.// -->
