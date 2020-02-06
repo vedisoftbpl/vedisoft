@@ -1,0 +1,131 @@
+<div class="main-header">
+    <div class="container-fluid flu mb-5">
+        <div class="service">
+            <h1 class="logo pt-5">Batches</h1>
+        </div>
+    </div>
+
+
+
+    <div class="container mb-5 pb-5 pt-3 mt-3">
+        <div class="row justify-content-center pt-6">
+
+            <div class="col-md-10">
+
+                <div class="card">
+
+                    <article class="card-body">
+
+                        <form #batchForm="ngForm">
+
+                            <div class="form-group">
+
+                                <label>Faculty</label>
+
+                                <select name="faculty"  [(ngModel)]="batch.faculty" class="form-control">
+                                    <option value="Rohit Ahuja">Rohit Ahuja</option>
+                                    <option value="Ram">Ram</option>
+                                    <option value="Raveesh">Raveesh</option>
+                                </select>
+
+                            </div> <!-- form-group end.// -->
+                            <!-- public batchId:number,
+    public faculty:string[],
+    public course:string[],
+    public timings:string,
+    public startDate:Date,
+    public days:string,
+    public endDate:Date,
+    public session:Session,
+    public status:string,
+    public branch:string -->
+
+                            <div class="form-group">
+                                
+
+                                <label>Course</label>
+
+                                <select name="course"  [(ngModel)]="batch.course" class="form-control">
+                                    <option value="JAVA">Java</option>
+                                    <option value="C++">C++</option>
+                                    <option value="Python">Python</option>
+                                    <option value="Spring">Spring</option>
+                                </select>
+                            </div> <!-- form-group end.// -->
+
+                            <div class="form-group">
+
+                                <label>Timimgs</label>
+
+                                <input [(ngModel)]="batch.timings" class="form-control" type="text" required
+                                    placeholder="timings" name="timings">
+                            </div> <!-- form-group end.// -->
+
+                            <div class="form-group">
+
+                                <label>Starting Date</label>
+
+                                <input [ngModel]="batch.startDate|date:'yyyy-MM-dd'" (ngModelChange)="batch.startDate=$event" class="form-control" type="date" required
+                                    placeholder="startDate" name="startDate">
+                            </div>
+
+                            <div class="form-group">
+
+                                <label>Days</label>
+
+                                <input [(ngModel)]="batch.days" class="form-control" type="text" required
+                                    placeholder="days" name="days">
+                            </div>
+
+                            <div class="form-group">
+
+                                <label>End Date</label>
+
+                                <input [ngModel]="batch.endDate|date:'yyyy-MM-dd'" (ngModelChange)="batch.endDate=$event" class="form-control" type="date" required
+                                    placeholder="endDate" name="endDate">
+                            </div>
+
+                            <div class="form-group">
+
+                                <label>Sessions</label>
+
+                                <select [(ngModel)]="batch.session.sessionName" class="form-control"name="session" >
+                                    <option value="ABC">s1</option>
+                                    <option value="xyz">s2</option>
+                                    <option value="s3">s3</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+
+                                <label>Status</label>
+
+                                <input [(ngModel)]="batch.status" class="form-control" type="text" required
+                                    placeholder="status" name="status">
+                            </div>
+
+                            <div class="form-group">
+
+                                <label>Branch</label>
+
+                                <input [(ngModel)]="batch.branch" class="form-control" type="text" required
+                                    placeholder="branch" name="branch">
+                            </div>
+
+                        </form>
+
+                    </article> <!-- card-body end .// -->
+
+                    <div class="border-top card-body text-center"><button type="submit"
+                            class="btn btn-success">Submit</button></div>
+
+
+                </div> <!-- card.// -->
+            </div> <!-- col.//-->
+
+
+        </div> <!-- row.//-->
+
+
+    </div>
+</div>

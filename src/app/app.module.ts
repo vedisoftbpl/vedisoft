@@ -21,7 +21,11 @@ import { BranchFormComponent } from './branch-form/branch-form.component';
 import { SessionComponent } from './session/session.component';
 import { SessionFormComponent } from './session-form/session-form.component';
 import { CourseComponent } from './course/course.component';
-import { CourseFormComponent } from './course-form/course-form.component'
+import { CourseFormComponent } from './course-form/course-form.component';
+import { BatchComponent } from './batch/batch.component';
+import { BatchFormComponent } from './batch-form/batch-form.component';
+import { FeesComponent } from './fees/fees.component';
+import { FeesFormComponent } from './fees-form/fees-form.component'
 
 
 
@@ -44,7 +48,11 @@ import { CourseFormComponent } from './course-form/course-form.component'
     SessionComponent,
     SessionFormComponent,
     CourseComponent,
-    CourseFormComponent
+    CourseFormComponent,
+    BatchComponent,
+    BatchFormComponent,
+    FeesComponent,
+    FeesFormComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,71 @@
+<div class="main-header">
+    <div class="container-fluid flu mb-5">
+        <div class="service">
+            <h1 class="logo pt-5">Fees</h1>
+        </div>
+    </div>
+    <div class="container mb-5 pb-5 pt-3 mt-3">
+        <div class="row justify-content-center pt-6">
+
+            <div class="col-md-10">
+
+                <div class="card">
+
+                    <article class="card-body">
+
+                        <form #BranchForm="ngForm">
+
+                            <div class="form-group">
+
+                                <label>Batch Id</label>
+
+                                <input [(ngModel)]="fees.batchId" type="text" class="form-control"
+                                    placeholder="Batch Id" name="batchId">
+
+                            </div> <!-- form-group end.// -->
+
+                            <div class="form-group">
+
+                                <label>Fees Amount</label>
+
+                                <input [(ngModel)]="fees.feeAmount" type="text" class="form-control"
+                                    placeholder="Fees Amount" name="feeAmount">
+
+
+                            </div> <!-- form-group end.// -->
+
+                            <div class="form-group">
+
+                                <label>Due Date</label>
+
+                                <input [ngModel]="fees.dueDate|date:'yyyy-MM-dd'" (ngModelChange)="fees.dueDate=$event"
+                                    type="text" class="form-control" placeholder="Due Date" name="dueDate">
+
+
+                            </div> <!-- form-group end.// -->
+
+                            <div class="form-group">
+
+                                <label>Mode</label><br>
+                                <div class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input" id="merit" name="merit"
+                                        [(ngModel)]="fees.mode" value="merit">
+                                    <label class="form-check-label" for="merit">Merit</label>
+                                </div>
+
+                                <div class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input" id="training" name="training"
+                                        [(ngModel)]="fees.mode" value="training">
+                                    <label class="form-check-label" for="training">Training</label>
+                                </div>
+
+                            </div> <!-- form-group end.// -->
+                        </form>
+
+                    </article> <!-- card-body end .// -->
+
+                    <div class="border-top card-body text-center"><button type="submit"
+                            class="btn btn-success">Submit</button></div>
+                </div> <!-- card.// -->
+            </div> <!-- col.//-->
+        </div>

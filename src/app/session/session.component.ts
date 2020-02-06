@@ -54,6 +54,9 @@ export class SessionComponent implements OnInit ,OnDestroy {
 
 
   }
+  public getSession(){
+    return this.sessions;
+  }
 
   ngOnDestroy() {
     this.dtTrigger.unsubscribe();

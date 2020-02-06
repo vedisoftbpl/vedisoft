@@ -40,7 +40,7 @@ export class CourseComponent implements OnInit ,OnDestroy {
   ngOnInit() {
     this.dtOptions = {
       pagingType: 'full_numbers',
-      lengthMenu: [1,5, 10, 15, 20],
+      lengthMenu: [5, 10, 15, 20],
     };
   }
 
