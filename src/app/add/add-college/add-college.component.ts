@@ -13,7 +13,7 @@ export class AddCollegeComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.college = new College(null, "", "", "", "", [""]);
+    this.college = new College(1, "", "", "", "", [""]);
   }
 
 }

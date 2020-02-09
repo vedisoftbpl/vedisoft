@@ -16,71 +16,71 @@
 
                     <article class="card-body">
 
-                        <form #BranchForm="ngForm">
+                        <form #branchForm="ngForm">
 
                             <div class="form-group">
-
+                                <div class="alert alert-warning" *ngIf='branchName.touched && branchName.invalid'>Please enter branch name.</div>
                                 <label>Branch Name</label>
 
                                 <input [(ngModel)]="branch.branchName" type="text" class="form-control"
-                                    placeholder="Branch Name" name="name">
+                                    placeholder="Branch Name" name="name" #branchName = "ngModel" required>
 
                             </div> <!-- form-group end.// -->
 
                             <div class="form-group">
 
                                 <label>Branch Prefix</label>
-
+                                <div class="alert alert-warning" *ngIf='branchPrefix.invalid && branchPrefix.touched'>Please enter branch prefix.</div>
                                 <input [(ngModel)]="branch.branchPrefix" class="form-control" type="text" required
-                                    placeholder="Prefix" name="prefix">
+                                    placeholder="Prefix" name="prefix" #branchPrefix = "ngModel">
                             </div> <!-- form-group end.// -->
 
                             <div class="form-group">
 
                                 <label>Plot No.</label>
-
+                                <div class="alert alert-warning" *ngIf='plotNo.invalid && plotNo.touched'>Please enter Plot Number.</div>
                                 <input [(ngModel)]="branch.plotNumber" class="form-control" type="text" required
-                                    placeholder="plotno" name="plotno">
+                                    placeholder="plotno" name="plotno" #plotNo="ngModel">
                             </div> <!-- form-group end.// -->
 
                             <div class="form-group">
 
                                 <label>Locality</label>
-
+                                <div class="alert alert-warning" *ngIf='locality.invalid && locality.touched'>Please enter locality.</div>
                                 <input [(ngModel)]="branch.Locality" class="form-control" type="text" required
-                                    placeholder="locality" name="locality">
+                                    placeholder="locality" name="locality" #locality="ngModel">
                             </div>
 
                             <div class="form-group">
 
                                 <label>Street</label>
-
+                                <div class="alert alert-warning" *ngIf='street.invalid && street.touched'>Please enter street.</div>
                                 <input [(ngModel)]="branch.street" class="form-control" type="text" required
-                                    placeholder="street" name="street">
+                                    placeholder="street" name="street" #street="ngModel">
                             </div>
 
                             <div class="form-group">
 
                                 <label>City</label>
-
+                                <div class="alert alert-warning" *ngIf='city.invalid && city.touched'>Please enter city.</div>
                                 <input [(ngModel)]="branch.city" class="form-control" type="text" required
-                                    placeholder="City" name="city">
+                                    placeholder="City" name="city" #city="ngModel">
                             </div>
 
                             <div class="form-group">
 
                                 <label>State</label>
-
+                                <div class="alert alert-warning" *ngIf='state.invalid && state.touched'>Please enter state.</div>
                                 <input [(ngModel)]="branch.state" class="form-control" type="text" required
-                                    placeholder="state" name="state">
+                                    placeholder="state" name="state" #state="ngModel">
                             </div>
 
                             <div class="form-group">
 
                                 <label>Branch Manager</label>
-
+                                <div class="alert alert-warning" *ngIf='manager.errors.required && contactNumber.dirty'>Please select branch manager.</div>
                                 <select name="multiple" [(ngModel)]="branch.branchManager"
-                                    class="form-control">
+                                    class="form-control" required #manager="ngModel">
                                     <option value="Rohit Ahuja">Rohit Ahuja</option>
                                     <option value="Rohit Ahuja">Rohit Ahuja</option>
                                     <option value="Rohit Ahuja">Rohit Ahuja</option>
@@ -90,34 +90,34 @@
                             <div class="form-group">
 
                                 <label>Branch Contact Number</label>
-
+                                <div class="alert alert-warning" *ngIf='contactNumber.invalid && contactNumber.touched'>Please enter contact number.</div>
                                 <input [(ngModel)]="branch.contactNumber" class="form-control" type="number" required
-                                    placeholder="contactNumber" name="contactNumber">
+                                    placeholder="contactNumber" name="contactNumber" #contactNumber="ngModel">
                             </div>
 
                             <div class="form-group">
 
                                 <label>Courses</label>
-
+                                <div class="alert alert-warning" *ngIf='courses.invalid && courses.touched'>Please enter courses.</div>
                                 <textarea [(ngModel)]="branch.courses" rows="4" cols="50" class="form-control" type=""
-                                    required placeholder="courses" name="courses"></textarea>
+                                    required placeholder="courses" name="courses" required #courses="ngModel"></textarea>
                             </div>
 
                             <div class="form-group">
 
                                 <label>Established Date</label>
-
+                                <div class="alert alert-warning" *ngIf='estbDate.invalid && estbDate.touched'>Please enter established date.</div>
                                 <input [ngModel]="branch.estbDate|date:'yyyy-MM-dd' "
                                     (ngModelChange)="branch.estbDate= $event" class="form-control" type="date" required
-                                    placeholder="estbDate" name="estbDate">
+                                    placeholder="estbDate" name="estbDate" #estbDate>
                             </div>
 
                             <div class="form-group">
 
                                 <label>Lattitude & Longitude</label>
-
+                                <div class="alert alert-warning" *ngIf='latLong.invalid && latLong.touched'>Please enter Latitude and Longitude.</div>
                                 <input [(ngModel)]="branch.latLong" class="form-control" type="text" required
-                                    placeholder="LatLong" name="LatLong">
+                                    placeholder="LatLong" name="LatLong" #latLong="ngModel">
                             </div>
 
 
@@ -127,6 +127,7 @@
 
                     <div class="border-top card-body text-center"><button type="submit"
                             class="btn btn-success">Submit</button></div>
+                    
 
 
                 </div> <!-- card.// -->

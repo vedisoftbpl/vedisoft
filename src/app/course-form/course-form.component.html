@@ -21,28 +21,28 @@
                             <div class="form-group">
 
                                 <label>Course Name</label>
-
+                                <div class="alert alert-warning" *ngIf='course.invalid && course.touched'>Please enter course name.</div>
                                 <input [(ngModel)]="course.courseName" type="text" class="form-control"
-                                    placeholder="Course Name" name="name">
+                                    placeholder="Course Name" name="name" required #course="ngModel">
 
                             </div> <!-- form-group end.// -->
 
                             <div class="form-group">
 
                                 <label>Course Prefix</label>
-
+                                <div class="alert alert-warning" *ngIf='prefix.invalid && prefix.touched'>Please enter course prefix.</div>
                                 <input [(ngModel)]="course.coursePrefix" type="text" class="form-control"
-                                    placeholder="Course Prefix" name="Prefix">
+                                    placeholder="Course Prefix" name="Prefix" required #prefix="ngModel">
 
 
                             </div> <!-- form-group end.// -->
 
                             <div class="form-group">
-
+                                
                                 <label>Certificate Name</label><br>
                                 <div class="form-check form-check-inline">
                                     <input type="radio" class="form-check-input" id="merit" name="Certificate"
-                                        [(ngModel)]="course.certificateTitle" value="merit">
+                                        [(ngModel)]="course.certificateTitle" value="merit" >
                                     <label class="form-check-label" for="merit">Merit</label>
                                 </div>
 
@@ -55,10 +55,10 @@
                             </div> <!-- form-group end.// -->
 
                             <div class="form-group">
-
+                                <div class="alert alert-warning" *ngIf='duration.invalid && duration.touched'>Please enter duration.</div>
                                 <label>Duration</label>
                                 <input [(ngModel)]="course.duration" type="text" class="form-control"
-                                    placeholder="course duration" name="duration">
+                                    placeholder="course duration" name="duration" #duration="ngModel" required>
 
                             </div> <!-- form-group end.// -->
 

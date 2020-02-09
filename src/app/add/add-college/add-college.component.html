@@ -21,23 +21,23 @@
                             <div class="form-group">
 
                                 <label>College Name</label>
-
-                                <input [(ngModel)]="college.name" type="text" class="form-control" placeholder="Name" required name="name">
+                                <div class="alert alert-warning" *ngIf='college.invalid && college.touched'>Please enter college name.</div>
+                                <input  name="col" [(ngModel)]="college.collegeName" type="text" class="form-control" placeholder="Name" required #college="ngModel">
 
                             </div> <!-- form-group end.// -->
 
                             <div class="form-group">
-
+                                <div class="alert alert-warning" *ngIf='group.invalid && group.touched'>Please enter college group.</div>
                                <label>College Group</label>
 
-                                <input [(ngModel)]="college.group" class="form-control" type="text" required placeholder="Group" name="group">
+                                <input [(ngModel)]="college.group" class="form-control" type="text" required placeholder="Group" name="group" #group="ngModel">
                             </div> <!-- form-group end.// -->
 
                             <div class="form-group">
-
+                                <div class="alert alert-warning" *ngIf='city.invalid && city.touched'>Please enter session name.</div>
                                 <label>College City</label>
  
-                                 <input [(ngModel)]="college.city" class="form-control" type="text" required placeholder="City" name="city">
+                                 <input [(ngModel)]="college.city" class="form-control" type="text" required placeholder="City" name="city" #city="ngModel">
                              </div> <!-- form-group end.// -->
 
                         </form>

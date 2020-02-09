@@ -4,7 +4,7 @@ import { DataTableDirective } from 'angular-datatables';
 import { Router } from '@angular/router';
 
 export class College {
-  constructor(public id: number, public city: string, public group: string, public name: string, public prefix: string, 
+  constructor(public id: number, public city: string, public group: string, public collegeName: string, public prefix: string, 
     public Student: any[]) {}
  }
 

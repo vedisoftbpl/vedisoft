@@ -21,26 +21,25 @@
                             <div class="form-group">
 
                                 <label>Session Name</label>
-
-                                <input [(ngModel)]="session.sessionName" type="text" class="form-control" placeholder="Branch Name"  name="name">
+                                <div class="alert alert-warning" *ngIf='session.invalid && session.touched'>Please enter session name.</div>
+                                <input [(ngModel)]="session.sessionName" type="text" class="form-control" required placeholder="Branch Name"  name="name" #session="ngModel"> 
 
                             </div> <!-- form-group end.// -->
 
                             <div class="form-group">
 
                                <label>Start Date</label>
-
-                                
+                               <div class="alert alert-warning" *ngIf='startDate.invalid && startDate.touched'>Please enter session start date.</div>
                                <input [ngModel]="session.startDate|date:'yyyy-MM-dd' "
-                               (ngModelChange)="session.startDate= $event" class="form-control" type="date" required placeholder="startDate" name="startDate">
+                               (ngModelChange)="session.startDate= $event" class="form-control" type="date" required placeholder="startDate" name="startDate" #startDate="ngModel">
                             </div> <!-- form-group end.// -->
 
                             <div class="form-group">
 
                                 <label>End Date</label>
- 
+                                <div class="alert alert-warning" *ngIf='endDate.invalid && endDate.touched'>Please enter session end date.</div>
                                 <input [ngModel]="session.endDate|date:'yyyy-MM-dd' "
-                                (ngModelChange)="session.endDate= $event" class="form-control" type="date" required placeholder="endDate" name="endDate">
+                                (ngModelChange)="session.endDate= $event" class="form-control" type="date" required placeholder="endDate" name="endDate" #endDate="ngModel">
 
                              </div> <!-- form-group end.// -->
                              
