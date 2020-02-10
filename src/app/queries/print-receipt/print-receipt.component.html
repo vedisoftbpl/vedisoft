@@ -24,11 +24,11 @@
                             <td>{{student.course}}</td>
                             <td>{{student.batch}}</td>
                             <td>Rs.{{student.fees}}</td>
-                            <table>
+                            <td>
                                 <tr *ngFor="let inst of student.installments">
                                     <td>{{inst}}</td>
                                 </tr>
-                            </table>
+                            </td>
                             <td>
                                 <button (click)="printReceipt()" class="btn btn-primary">Print</button>
                             </td>
