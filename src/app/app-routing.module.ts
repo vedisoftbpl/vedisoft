@@ -18,6 +18,7 @@ import { BatchComponent } from './batch/batch.component';
 import { BatchFormComponent } from './batch-form/batch-form.component';
 import { FeesComponent } from './fees/fees.component';
 import { FeesFormComponent } from './fees-form/fees-form.component';
+import { PrintReceiptComponent } from './queries/print-receipt/print-receipt.component';
 
 
 const routes: Routes = [
@@ -37,8 +38,9 @@ const routes: Routes = [
   { path: 'courseform/:id/:isEnabled', component: CourseFormComponent },
   { path: 'batch', component: BatchComponent },
   { path: 'batchform/:id/:isEnabled', component: BatchFormComponent },
-  { path: 'fees', component: FeesComponent},
+  { path: 'fees', component: FeesComponent },
   { path: 'feesform/:id/:isEnabled', component: FeesFormComponent },
+  { path: 'queries/printreceipt', component: PrintReceiptComponent }
 
 ];
 

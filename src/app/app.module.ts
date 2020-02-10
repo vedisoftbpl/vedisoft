@@ -25,7 +25,8 @@ import { CourseFormComponent } from './course-form/course-form.component';
 import { BatchComponent } from './batch/batch.component';
 import { BatchFormComponent } from './batch-form/batch-form.component';
 import { FeesComponent } from './fees/fees.component';
-import { FeesFormComponent } from './fees-form/fees-form.component'
+import { FeesFormComponent } from './fees-form/fees-form.component';
+import { PrintReceiptComponent } from './queries/print-receipt/print-receipt.component'
 
 
 
@@ -52,7 +53,8 @@ import { FeesFormComponent } from './fees-form/fees-form.component'
     BatchComponent,
     BatchFormComponent,
     FeesComponent,
-    FeesFormComponent
+    FeesFormComponent,
+    PrintReceiptComponent
   ],
   imports: [
     BrowserModule,
