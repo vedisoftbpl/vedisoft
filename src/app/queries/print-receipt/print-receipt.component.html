@@ -25,8 +25,8 @@
                             <td>{{student.batch}}</td>
                             <td>Rs.{{student.fees}}</td>
                             <td>
-                                <tr *ngFor="let inst of student.installments">
-                                    <td>{{inst}}</td>
+                                <tr *ngFor="let inst of student.installments; let i=index ">
+                                    <td>{{i+1}}. Rs.{{inst}}</td>
                                 </tr>
                             </td>
                             <td>
