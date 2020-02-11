@@ -19,6 +19,8 @@ import { BatchFormComponent } from './batch-form/batch-form.component';
 import { FeesComponent } from './fees/fees.component';
 import { FeesFormComponent } from './fees-form/fees-form.component';
 import { PrintReceiptComponent } from './queries/print-receipt/print-receipt.component';
+import { DaybookComponent } from './reports/daybook/daybook.component';
+import { GstComponent } from './reports/gst/gst.component';
 
 
 const routes: Routes = [
@@ -40,7 +42,9 @@ const routes: Routes = [
   { path: 'batchform/:id/:isEnabled', component: BatchFormComponent },
   { path: 'fees', component: FeesComponent },
   { path: 'feesform/:id/:isEnabled', component: FeesFormComponent },
-  { path: 'queries/printreceipt', component: PrintReceiptComponent }
+  { path: 'queries/printreceipt', component: PrintReceiptComponent },
+  { path: 'reports/daybook', component: DaybookComponent},
+  { path: 'reports/gst', component: GstComponent}
 
 ];
 

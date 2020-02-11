@@ -1,0 +1,43 @@
+<div class="wrapper">
+    <div class="container-fluid flu mb-5">
+        <div class="service">
+            <h1 class="logo pt-5">DAY BOOK</h1>
+        </div>
+    </div>
+    <div class="container mb-5 pb-5 pt-3 mt-3">
+        <div class="row justify-content-center pt-6">
+            <div>
+                Date: <input type="date" [ngModel]="currentDate | date:'yyyy-MM-dd'" (ngModel)="currentDate= $event" name="date"  value="date">&nbsp;
+                <button class="btn btn-primary" (click)="showDayBook(currentDate)">Go</button>
+            </div><br>
+            <article class="card-body col-md-11">
+                <table  *ngIf="isEnabled" [dtOptions]="dtOptions" datatable class="table" >
+                    <thead>
+                        <tr>
+                            <th>S.No</th>
+                            <th>Student</th>
+                            <th>Registration number</th>
+                            <th>Course</th>
+                            <th>Batch</th>
+                            <th>Amount</th>
+                            <th>Mode</th>
+                            <th>Received By</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let daybook of daybookDetailList">
+                            <td>{{daybook.id}}</td>
+                            <td>{{daybook.student}}</td>
+                            <td>{{daybook.regId}}</td>
+                            <td>{{daybook.courseName}}</td>
+                            <td>{{daybook.batchCode}}</td>
+                            <td>{{daybook.amount}}</td>
+                            <td>{{daybook.mode}}</td>
+                            <td>{{daybook.receivedBy}}</td>
+                        </tr>
+                        <!-- <tr><td>Total Rs.</td></tr> -->
+                    </tbody>
+                </table>
+            </article>
+        </div>
+    </div>

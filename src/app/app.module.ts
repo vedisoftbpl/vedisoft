@@ -26,7 +26,9 @@ import { BatchComponent } from './batch/batch.component';
 import { BatchFormComponent } from './batch-form/batch-form.component';
 import { FeesComponent } from './fees/fees.component';
 import { FeesFormComponent } from './fees-form/fees-form.component';
-import { PrintReceiptComponent } from './queries/print-receipt/print-receipt.component'
+import { PrintReceiptComponent } from './queries/print-receipt/print-receipt.component';
+import { DaybookComponent } from './reports/daybook/daybook.component';
+import { GstComponent } from './reports/gst/gst.component'
 
 
 
@@ -54,7 +56,9 @@ import { PrintReceiptComponent } from './queries/print-receipt/print-receipt.com
     BatchFormComponent,
     FeesComponent,
     FeesFormComponent,
-    PrintReceiptComponent
+    PrintReceiptComponent,
+    DaybookComponent,
+    GstComponent
   ],
   imports: [
     BrowserModule,
