@@ -19,19 +19,16 @@ import { BatchFormComponent } from './batch-form/batch-form.component';
 import { FeesComponent } from './fees/fees.component';
 import { FeesFormComponent } from './fees-form/fees-form.component';
 import { PrintReceiptComponent } from './queries/print-receipt/print-receipt.component';
-<<<<<<< HEAD
 import { DaybookComponent } from './reports/daybook/daybook.component';
 import { GstComponent } from './reports/gst/gst.component';
-=======
+
 import { RouterGuardService } from './service/router-guard.service';
 import { WelcomeComponent } from './welcome/welcome.component';
->>>>>>> 1be9f36c605bfa0af59884ea1e9a0523033e01a7
 
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
-<<<<<<< HEAD
   { path: 'signup', component: SigninComponent },
   { path: 'certi', component: CertiRequestComponent },
   { path: 'installments', component: InstallmentComponent },
@@ -51,8 +48,8 @@ const routes: Routes = [
   { path: 'feesform/:id/:isEnabled', component: FeesFormComponent },
   { path: 'queries/printreceipt', component: PrintReceiptComponent },
   { path: 'reports/daybook', component: DaybookComponent},
-  { path: 'reports/gst', component: GstComponent}
-=======
+  { path: 'reports/gst', component: GstComponent},
+
   { path: 'welcome', component: WelcomeComponent , canActivate: [RouterGuardService]},
   { path: 'signup', component: SigninComponent  },
   { path: 'certi', component: CertiRequestComponent, canActivate: [RouterGuardService]},
@@ -72,7 +69,6 @@ const routes: Routes = [
   { path: 'fees', component: FeesComponent, canActivate: [RouterGuardService]},
   { path: 'feesform/:id/:isEnabled', component: FeesFormComponent, canActivate: [RouterGuardService]},
   { path: 'queries/printreceipt', component: PrintReceiptComponent, canActivate: [RouterGuardService]}
->>>>>>> 1be9f36c605bfa0af59884ea1e9a0523033e01a7
 
 ];
 
