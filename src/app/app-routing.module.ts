@@ -19,28 +19,32 @@ import { BatchFormComponent } from './batch-form/batch-form.component';
 import { FeesComponent } from './fees/fees.component';
 import { FeesFormComponent } from './fees-form/fees-form.component';
 import { PrintReceiptComponent } from './queries/print-receipt/print-receipt.component';
+import { RouterGuardService } from './service/router-guard.service';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 
 const routes: Routes = [
+  { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'signup', component: SigninComponent },
-  { path: 'certi', component: CertiRequestComponent },
-  { path: 'installments', component: InstallmentComponent },
-  { path: 'personType', component: PersonTypeComponent },
-  { path: 'person', component: PersonComponent },
-  { path: 'college', component: CollegeComponent },
-  { path: 'addCollege', component: AddCollegeComponent },
-  { path: 'branches', component: BranchesComponent },
-  { path: 'branchform/:id/:isEnabled', component: BranchFormComponent },
-  { path: 'session', component: SessionComponent },
-  { path: 'sessionform/:id/:isEnabled', component: SessionFormComponent },
-  { path: 'course', component: CourseComponent },
-  { path: 'courseform/:id/:isEnabled', component: CourseFormComponent },
-  { path: 'batch', component: BatchComponent },
-  { path: 'batchform/:id/:isEnabled', component: BatchFormComponent },
-  { path: 'fees', component: FeesComponent },
-  { path: 'feesform/:id/:isEnabled', component: FeesFormComponent },
-  { path: 'queries/printreceipt', component: PrintReceiptComponent }
+  { path: 'welcome', component: WelcomeComponent , canActivate: [RouterGuardService]},
+  { path: 'signup', component: SigninComponent  },
+  { path: 'certi', component: CertiRequestComponent, canActivate: [RouterGuardService]},
+  { path: 'installments', component: InstallmentComponent, canActivate: [RouterGuardService]},
+  { path: 'personType', component: PersonTypeComponent, canActivate: [RouterGuardService]},
+  { path: 'person', component: PersonComponent, canActivate: [RouterGuardService]},
+  { path: 'college', component: CollegeComponent, canActivate: [RouterGuardService]},
+  { path: 'addCollege', component: AddCollegeComponent, canActivate: [RouterGuardService]},
+  { path: 'branches', component: BranchesComponent, canActivate: [RouterGuardService]},
+  { path: 'branchform/:id/:isEnabled', component: BranchFormComponent, canActivate: [RouterGuardService]},
+  { path: 'session', component: SessionComponent, canActivate: [RouterGuardService]},
+  { path: 'sessionform/:id/:isEnabled', component: SessionFormComponent, canActivate: [RouterGuardService]},
+  { path: 'course', component: CourseComponent ,canActivate: [RouterGuardService]},
+  { path: 'courseform/:id/:isEnabled', component: CourseFormComponent, canActivate: [RouterGuardService]},
+  { path: 'batch', component: BatchComponent ,canActivate: [RouterGuardService]},
+  { path: 'batchform/:id/:isEnabled', component: BatchFormComponent, canActivate: [RouterGuardService]},
+  { path: 'fees', component: FeesComponent, canActivate: [RouterGuardService]},
+  { path: 'feesform/:id/:isEnabled', component: FeesFormComponent, canActivate: [RouterGuardService]},
+  { path: 'queries/printreceipt', component: PrintReceiptComponent, canActivate: [RouterGuardService]}
 
 ];
 
