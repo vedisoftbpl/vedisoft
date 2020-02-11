@@ -28,7 +28,8 @@ import { BatchFormComponent } from './batch-form/batch-form.component';
 import { FeesComponent } from './fees/fees.component';
 import { FeesFormComponent } from './fees-form/fees-form.component';
 import { PrintReceiptComponent } from './queries/print-receipt/print-receipt.component';
-import { WelcomeComponent } from './welcome/welcome.component'
+import { WelcomeComponent } from './welcome/welcome.component';
+import { StudentComponent } from './queries/student/student.component'
 
 
 
@@ -57,7 +58,8 @@ import { WelcomeComponent } from './welcome/welcome.component'
     FeesComponent,
     FeesFormComponent,
     PrintReceiptComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    StudentComponent
   ],
   imports: [
     BrowserModule,

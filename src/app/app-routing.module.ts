@@ -21,6 +21,7 @@ import { FeesFormComponent } from './fees-form/fees-form.component';
 import { PrintReceiptComponent } from './queries/print-receipt/print-receipt.component';
 import { RouterGuardService } from './service/router-guard.service';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { StudentComponent } from './queries/student/student.component';
 
 
 const routes: Routes = [
@@ -44,7 +45,8 @@ const routes: Routes = [
   { path: 'batchform/:id/:isEnabled', component: BatchFormComponent, canActivate: [RouterGuardService]},
   { path: 'fees', component: FeesComponent, canActivate: [RouterGuardService]},
   { path: 'feesform/:id/:isEnabled', component: FeesFormComponent, canActivate: [RouterGuardService]},
-  { path: 'queries/printreceipt', component: PrintReceiptComponent, canActivate: [RouterGuardService]}
+  { path: 'queries/printreceipt', component: PrintReceiptComponent, canActivate: [RouterGuardService]},
+  { path: 'queries/student', component: StudentComponent, canActivate: [RouterGuardService]}
 
 ];
 
