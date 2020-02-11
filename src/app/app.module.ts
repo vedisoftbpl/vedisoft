@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import{HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { DataTablesModule } from 'angular-datatables';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -26,7 +27,8 @@ import { BatchComponent } from './batch/batch.component';
 import { BatchFormComponent } from './batch-form/batch-form.component';
 import { FeesComponent } from './fees/fees.component';
 import { FeesFormComponent } from './fees-form/fees-form.component';
-import { PrintReceiptComponent } from './queries/print-receipt/print-receipt.component'
+import { PrintReceiptComponent } from './queries/print-receipt/print-receipt.component';
+import { WelcomeComponent } from './welcome/welcome.component'
 
 
 
@@ -54,13 +56,15 @@ import { PrintReceiptComponent } from './queries/print-receipt/print-receipt.com
     BatchFormComponent,
     FeesComponent,
     FeesFormComponent,
-    PrintReceiptComponent
+    PrintReceiptComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     DataTablesModule,
+    HttpClientModule,
     AppRoutingModule
   ],
   providers: [],
