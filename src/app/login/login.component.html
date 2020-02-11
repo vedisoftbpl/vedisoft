@@ -6,7 +6,7 @@
     </div>
 
 
-
+    <div class="alert alert-warning" *ngIf='invalidLogin'>{{errorMessage}}</div>
     <div class="container mb-5 pb-5 pt-3 mt-3">
         <div class="row justify-content-center pt-6">
 
@@ -25,13 +25,13 @@
 
                     <article class="card-body">
 
-                        <form>
+                        <form (ngSubmit)="login()">
 
                             <div class="form-group">
 
                                 <label>Email address</label>
 
-                                <input type="email" class="form-control" placeholder="Email address" required>
+                                <input type="email" [(ngModel)]='email' class="form-control"  placeholder="Email address"  name = "email" required>
 
                                 <small class="form-text text-muted">We'll never share your email with anyone
                                     else.</small>
@@ -43,7 +43,7 @@
 
                                 <label>Password</label>
 
-                                <input class="form-control" type="password" required placeholder="Password">
+                                <input class="form-control" [(ngModel)]="password"  type="password" name="password" required placeholder="Password">
                             </div> <!-- form-group end.// -->
 
 

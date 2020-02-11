@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import{HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { DataTablesModule } from 'angular-datatables';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -27,8 +28,12 @@ import { BatchFormComponent } from './batch-form/batch-form.component';
 import { FeesComponent } from './fees/fees.component';
 import { FeesFormComponent } from './fees-form/fees-form.component';
 import { PrintReceiptComponent } from './queries/print-receipt/print-receipt.component';
+<<<<<<< HEAD
 import { DaybookComponent } from './reports/daybook/daybook.component';
 import { GstComponent } from './reports/gst/gst.component'
+=======
+import { WelcomeComponent } from './welcome/welcome.component'
+>>>>>>> 1be9f36c605bfa0af59884ea1e9a0523033e01a7
 
 
 
@@ -57,14 +62,19 @@ import { GstComponent } from './reports/gst/gst.component'
     FeesComponent,
     FeesFormComponent,
     PrintReceiptComponent,
+<<<<<<< HEAD
     DaybookComponent,
     GstComponent
+=======
+    WelcomeComponent
+>>>>>>> 1be9f36c605bfa0af59884ea1e9a0523033e01a7
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     DataTablesModule,
+    HttpClientModule,
     AppRoutingModule
   ],
   providers: [],

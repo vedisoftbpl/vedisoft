@@ -12,36 +12,22 @@
     </li>
   </ul>
 
-  <!-- SEARCH FORM -->
-  <!-- <form class="form-inline ml-3">
-      <div class="input-group input-group-sm">
-        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-        <div class="input-group-append">
-          <button class="btn btn-navbar" type="submit">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-      </div>
-    </form> -->
-
-  
-  <!-- <ul class="navbar-nav ml-auto"> 
-      <li class="nav-item">
-        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#">
-          <i class="fas fa-th-large"></i>
-        </a>
-      </li>
-    </ul> -->
+<!--  
     <div class="dropdown ml-auto dropleft float-right">
       <a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <i class='fa fa-user fa-2x'></i>
       </a>
-      <div class="dropdown-menu">
-        <a class="dropdown-item" routerLink="login" (click)="login()">Login</a>
-        <a class="dropdown-item" routerLink="">Logout</a>
+      <div class="dropdown-menu" *ngIf="this.basicAuth.isUserLoggedIn()"> -->
+        <!-- <a class="dropdown-item"  routerLink="">Login</a> -->
+        <!-- <a class="dropdown-item"  routerLink="login" >Logout</a>
       </div>
       
     </div>
-    
+     -->
+     <div class="dropdown ml-auto dropleft float-right" *ngIf="this.basicAuth.isUserLoggedIn()">
+       <button class="btn btn-danger" routerLink="login" (click)="logout()">Logout</button>
+
+
+     </div>
   
 </nav>
