@@ -30,6 +30,8 @@ import { FeesFormComponent } from './fees-form/fees-form.component';
 import { PrintReceiptComponent } from './queries/print-receipt/print-receipt.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { StudentComponent } from './queries/student/student.component'
+import { DaybookComponent } from './reports/daybook/daybook.component';
+import { GstComponent } from './reports/gst/gst.component';
 
 
 
@@ -58,8 +60,11 @@ import { StudentComponent } from './queries/student/student.component'
     FeesComponent,
     FeesFormComponent,
     PrintReceiptComponent,
-    WelcomeComponent,
-    StudentComponent
+    StudentComponent,
+    DaybookComponent,
+    GstComponent,
+    WelcomeComponent
+
   ],
   imports: [
     BrowserModule,
