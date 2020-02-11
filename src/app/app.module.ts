@@ -29,6 +29,7 @@ import { FeesComponent } from './fees/fees.component';
 import { FeesFormComponent } from './fees-form/fees-form.component';
 import { PrintReceiptComponent } from './queries/print-receipt/print-receipt.component';
 import { WelcomeComponent } from './welcome/welcome.component'
+import { HttpIntercepterBasicAuthService } from './service/http/http-intercepter-basic-auth.service';
 
 
 
@@ -67,7 +68,9 @@ import { WelcomeComponent } from './welcome/welcome.component'
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS , useClass: HttpIntercepterBasicAuthService , multi:true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

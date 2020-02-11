@@ -10,8 +10,8 @@ import { Course, CourseList } from '../course/course.component';
 })
 export class CourseFormComponent implements OnInit  {
 
-  course= new Course(-1," ","","","")
-  courseL = new CourseList()
+  course= new Course(-1,"",1,"","")
+  // courseL = new CourseList()
   courses: Course[]
   id:number
   isEnabled:number
@@ -31,7 +31,7 @@ export class CourseFormComponent implements OnInit  {
     console.log(this.disable)
     if(this.id!=-1){
       console.log('else working')
-      this.courses = this.courseL.courses
+      // this.courses = this.courseL.courses
       for(var c of this.courses){
         // console.log(b)
         if(c.id==this.id){

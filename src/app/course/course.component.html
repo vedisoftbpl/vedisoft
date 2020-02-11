@@ -1,4 +1,4 @@
-<div class="wrapper">
+<div class="wrapper main-header">
 
     <div class="container-fluid flu mb-5">
         <div class="service">
@@ -24,8 +24,8 @@
                     <tbody>
                         <tr *ngFor="let course of courses">
                             <td>{{course.id}}</td>
-                            <td>{{course.courseName}}</td>
-                            <td>{{course.coursePrefix}}</td>
+                            <td>{{course.name}}</td>
+                            <td>{{course.prefix}}</td>
                             <td><button (click)="viewCourseDetails(course.id)" class="btn btn-primary">VIEW</button>/
                                 <button (click)="editCourseDetails(course.id)" class="btn btn-warning">EDIT</button>/
                                 <button (click)="deleteCourseDetails(course.id)" class="btn btn-danger">DELETE</button>

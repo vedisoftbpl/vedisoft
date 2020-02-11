@@ -41,6 +41,7 @@ export class BasicAuthenticationService {
    isUserLoggedIn(){
      let user = sessionStorage.getItem(AUTHENTICATED_USER)
      return !(user===null)
+    // return true
    }
    logout(){
      sessionStorage.clear()

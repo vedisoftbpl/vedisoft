@@ -2,22 +2,23 @@ import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { Subject } from 'rxjs';
 import { DataTableDirective } from 'angular-datatables';
 import { Router } from '@angular/router';
+import { CourseDataService } from '../service/data/course-data.service';
 
 export class Course{
   constructor
     (public id: number,
-      public courseName: string,
-      public coursePrefix:string,
       public certificateTitle:string,
-      public duration:string,
+      public duration:number,
+      public courseName: string,
+      public coursePrefix:string
       ) { }
 }
 export class CourseList{
   courses: Course[] 
   constructor(){
     this.courses = [
-      new Course(1, "JAVA","jav","merit","3Months"),
-      new Course(2, "C++","cpp","training","3Months")
+      new Course(1, "JAVA",3,"merit","3Months"),
+      new Course(2, "C++",2,"training","3Months")
     ]
   }
 }
@@ -32,16 +33,34 @@ export class CourseComponent implements OnInit ,OnDestroy {
   datatableElement: DataTableDirective;
   dtOptions: DataTables.Settings = {};
 
-  constructor( public router:Router) { }
+  constructor( public router:Router, public courseData:CourseDataService) { }
 
-    courseL = new CourseList()
-    courses:Course[] = this.courseL.courses
+    // courseL = new CourseList()
+
+    courses:Course[]
+    username = ' '
 
   ngOnInit() {
     this.dtOptions = {
       pagingType: 'full_numbers',
       lengthMenu: [5, 10, 15, 20],
     };
+
+    this.username = sessionStorage.getItem('authenticatedUser')
+    this.refreshCourses();
+  }
+
+  refreshCourses(){
+    this.courseData.getAllCourses().subscribe(
+      response => {
+        this.courses = response
+        console.log(response)
+        console.log('now courses')
+        console.log(this.courses)
+      }
+    )
+
+
   }
 
   addCourse(){
