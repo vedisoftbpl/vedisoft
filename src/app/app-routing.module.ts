@@ -19,13 +19,38 @@ import { BatchFormComponent } from './batch-form/batch-form.component';
 import { FeesComponent } from './fees/fees.component';
 import { FeesFormComponent } from './fees-form/fees-form.component';
 import { PrintReceiptComponent } from './queries/print-receipt/print-receipt.component';
+import { DaybookComponent } from './reports/daybook/daybook.component';
+import { GstComponent } from './reports/gst/gst.component';
+
 import { RouterGuardService } from './service/router-guard.service';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { StudentComponent } from './queries/student/student.component';
 
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'signup', component: SigninComponent },
+  { path: 'certi', component: CertiRequestComponent },
+  { path: 'installments', component: InstallmentComponent },
+  { path: 'personType', component: PersonTypeComponent },
+  { path: 'person', component: PersonComponent },
+  { path: 'college', component: CollegeComponent },
+  { path: 'addCollege', component: AddCollegeComponent },
+  { path: 'branches', component: BranchesComponent },
+  { path: 'branchform/:id/:isEnabled', component: BranchFormComponent },
+  { path: 'session', component: SessionComponent },
+  { path: 'sessionform/:id/:isEnabled', component: SessionFormComponent },
+  { path: 'course', component: CourseComponent },
+  { path: 'courseform/:id/:isEnabled', component: CourseFormComponent },
+  { path: 'batch', component: BatchComponent },
+  { path: 'batchform/:id/:isEnabled', component: BatchFormComponent },
+  { path: 'fees', component: FeesComponent },
+  { path: 'feesform/:id/:isEnabled', component: FeesFormComponent },
+  { path: 'queries/printreceipt', component: PrintReceiptComponent },
+  { path: 'reports/daybook', component: DaybookComponent},
+  { path: 'reports/gst', component: GstComponent},
+
   { path: 'welcome', component: WelcomeComponent , canActivate: [RouterGuardService]},
   { path: 'signup', component: SigninComponent  },
   { path: 'certi', component: CertiRequestComponent, canActivate: [RouterGuardService]},
@@ -44,7 +69,8 @@ const routes: Routes = [
   { path: 'batchform/:id/:isEnabled', component: BatchFormComponent, canActivate: [RouterGuardService]},
   { path: 'fees', component: FeesComponent, canActivate: [RouterGuardService]},
   { path: 'feesform/:id/:isEnabled', component: FeesFormComponent, canActivate: [RouterGuardService]},
-  { path: 'queries/printreceipt', component: PrintReceiptComponent, canActivate: [RouterGuardService]}
+  { path: 'queries/printreceipt', component: PrintReceiptComponent, canActivate: [RouterGuardService]},
+  { path: 'queries/student', component: StudentComponent, canActivate: [RouterGuardService]}
 
 ];
 

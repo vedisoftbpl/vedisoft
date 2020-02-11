@@ -28,8 +28,15 @@ import { BatchFormComponent } from './batch-form/batch-form.component';
 import { FeesComponent } from './fees/fees.component';
 import { FeesFormComponent } from './fees-form/fees-form.component';
 import { PrintReceiptComponent } from './queries/print-receipt/print-receipt.component';
+<<<<<<< HEAD
 import { WelcomeComponent } from './welcome/welcome.component'
 import { HttpIntercepterBasicAuthService } from './service/http/http-intercepter-basic-auth.service';
+=======
+import { WelcomeComponent } from './welcome/welcome.component';
+import { StudentComponent } from './queries/student/student.component'
+import { DaybookComponent } from './reports/daybook/daybook.component';
+import { GstComponent } from './reports/gst/gst.component';
+>>>>>>> c21529eb5c09b5c324e885b6417dda9df60e6968
 
 
 
@@ -58,7 +65,11 @@ import { HttpIntercepterBasicAuthService } from './service/http/http-intercepter
     FeesComponent,
     FeesFormComponent,
     PrintReceiptComponent,
+    StudentComponent,
+    DaybookComponent,
+    GstComponent,
     WelcomeComponent
+
   ],
   imports: [
     BrowserModule,

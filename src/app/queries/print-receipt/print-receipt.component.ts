@@ -27,7 +27,10 @@ export class PrintReceiptComponent implements OnInit,OnDestroy {
   ngOnInit() {
     this.dtOptions = {
       pagingType: 'full_numbers',
-      lengthMenu:[5,10,15,20]
+      lengthMenu:[5,10,15,20],
+      language:{
+        search:"Search Student Name"
+      }
     };
     this.studentDetails = [new StudentFeeReceiptDetails(1,["Core java"],"Morning",5000.00,[2000,3000]),
     new StudentFeeReceiptDetails(2,["Adv JAVA"],"Evening",6000.00,[2000,4000])      

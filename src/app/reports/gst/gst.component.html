@@ -1,0 +1,40 @@
+<div class="wrapper">
+    <div class="container-fluid flu mb-5">
+        <div class="service">
+            <h1 class="logo pt-5">GST</h1>
+        </div>
+    </div>
+    <div class="container mb-5 pb-5 pt-3 mt-3">
+        <div class="row justify-content-center pt-6">
+            <article class="card-body col-md-11">
+                <table [dtOptions]="dtOptions" datatable class="table">
+                    <thead>
+                        <tr>
+                            <th>S.No</th>
+                            <th>Course</th>
+                            <th>Batch</th>
+                            <th>Total Fees</th>
+                            <th>Installments</th>
+                            <th>Print Receipt</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let student of studentDetails">
+                            <td>{{student.id}}</td>
+                            <td>{{student.course}}</td>
+                            <td>{{student.batch}}</td>
+                            <td>Rs.{{student.fees}}</td>
+                            <td>
+                                <tr *ngFor="let inst of student.installments; let i=index ">
+                                    <td>{{i+1}}. Rs.{{inst}}</td>
+                                </tr>
+                            </td>
+                            <td>
+                                <button (click)="printReceipt()" class="btn btn-primary">Print</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+        </div>
+    </div>
