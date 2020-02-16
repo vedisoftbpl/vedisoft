@@ -11,12 +11,16 @@
         margin-left:45px;
         margin-top: 15px;
         margin-bottom: 15px;
-        
     }   
 
 }
 .main-sidebar {
     height: 200%;
+    width: 270px;
+    }
+
+.report {
+    font-size: 13px;
 }
 
 

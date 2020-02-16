@@ -1,0 +1,57 @@
+<div class="wrapper">
+    <div class="container-fluid flu mb-5">
+        <div class="service">
+            <h1 class="logo pt-5">SESSION-WISE FEE COLLECTION</h1>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-light bg-light justify-content-center" *ngIf='!isEnabled'>
+
+        <form class="form-inline" (ngSubmit)='search()'>
+            <label for="session">Session: </label>
+        <select name="session" [(ngModel)] = "session" class="select">
+            <option value="2018">2018</option>
+            <option value="2019">2019</option>
+            <option value="2020">2020</option>
+        </select>    
+            
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Go</button>
+        </form>
+    </nav>
+
+    <div class="container mb-5 pb-5 pt-3 mt-3">
+        <div class="row justify-content-center pt-6">
+            
+            <article class="card-body col-md-11">
+                <table  *ngIf="isEnabled" [dtOptions]="dtOptions" datatable class="table" >
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Student</th>
+                            <th>Session</th>
+                            <th>Registration number</th>
+                            <th>Course</th>
+                            <th>Batch</th>
+                            <th>Amount</th>
+                            <th>Mode</th>
+                            <th>Received By</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let sessionwiseCollection of sessionwiseCollections">
+                            <td>{{sessionwiseCollection.id}}</td>
+                            <td>{{sessionwiseCollection.student}}</td>
+                            <td>{{sessionwiseCollection.session}}</td>
+                            <td>{{sessionwiseCollection.registrationNumber}}</td>
+                            <td>{{sessionwiseCollection.course}}</td>
+                            <td>{{sessionwiseCollection.batch}}</td>
+                            <td>{{sessionwiseCollection.amount}}</td>
+                            <td>{{sessionwiseCollection.mode}}</td>
+                            <td>{{sessionwiseCollection.receivedBy}}</td>
+                        </tr>
+                        <!-- <tr><td>Total Rs.</td></tr> -->
+                    </tbody>
+                </table>
+            </article>
+        </div>
+    </div>

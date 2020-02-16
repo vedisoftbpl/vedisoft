@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { College } from 'src/app/college/college.component';
+import { CollegeList } from 'src/app/college/college.component';
 
 @Component({
   selector: 'app-add-college',
@@ -8,12 +8,12 @@ import { College } from 'src/app/college/college.component';
 })
 export class AddCollegeComponent implements OnInit {
 
-  college: College;
+  college: CollegeList;
 
   constructor() { }
 
   ngOnInit() {
-    this.college = new College(1, "", "", "", "", [""]);
+    this.college = new CollegeList(1, "", "", "", "", [""]);
   }
 
 }

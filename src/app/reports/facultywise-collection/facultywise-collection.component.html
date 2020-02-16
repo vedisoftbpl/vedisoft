@@ -1,0 +1,57 @@
+<div class="wrapper">
+    <div class="container-fluid flu mb-5">
+        <div class="service">
+            <h1 class="logo pt-5">FACULTY-WISE FEE COLLECTION</h1>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-light bg-light justify-content-center" *ngIf='!isEnabled'>
+
+        <form class="form-inline" (ngSubmit)='search()'>
+            <label for="faculty">Faculty: </label>
+        <select name="faculty" [(ngModel)] = "faculty" class="select">
+            <option value="Rohit">Rohit Sir</option>
+            <option value="Jeetendra">Jeetendra Sir</option>
+            <option value="Pankaj">Pankaj Sir</option>
+        </select>    
+            
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Go</button>
+        </form>
+    </nav>
+
+    <div class="container mb-5 pb-5 pt-3 mt-3">
+        <div class="row justify-content-center pt-6">
+            
+            <article class="card-body col-md-11">
+                <table  *ngIf="isEnabled" [dtOptions]="dtOptions" datatable class="table" >
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Student</th>
+                            <th>Faculty</th>
+                            <th>Registration number</th>
+                            <th>Course</th>
+                            <th>Batch</th>
+                            <th>Amount</th>
+                            <th>Mode</th>
+                            <th>Received By</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let facultywiseCollection of facultywiseCollections">
+                            <td>{{facultywiseCollection.id}}</td>
+                            <td>{{facultywiseCollection.student}}</td>
+                            <td>{{facultywiseCollection.faculty}}</td>
+                            <td>{{facultywiseCollection.registrationNumber}}</td>
+                            <td>{{facultywiseCollection.course}}</td>
+                            <td>{{facultywiseCollection.batch}}</td>
+                            <td>{{facultywiseCollection.amount}}</td>
+                            <td>{{facultywiseCollection.mode}}</td>
+                            <td>{{facultywiseCollection.receivedBy}}</td>
+                        </tr>
+                        <!-- <tr><td>Total Rs.</td></tr> -->
+                    </tbody>
+                </table>
+            </article>
+        </div>
+    </div>

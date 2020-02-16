@@ -8,13 +8,57 @@
 
 
 
-    <nav class="navbar navbar-light bg-light" *ngIf='!isEnabled'>
+    <nav class="navbar navbar-light bg-light justify-content-center" *ngIf='!isEnabled'>
 
         <form class="form-inline" (ngSubmit)='!studentForm.invalid && searchStudent()' #studentForm="ngForm">
-        <div class="alert alert-warning" *ngIf='search.touched && search.invalid'>Please enter valid input.
-        </div>
-        <input [(ngModel)]="studentName" class="form-control mr-sm-2" type="search" placeholder="Search Student" aria-label="Search" required
-            #search='ngModel' name="search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <div class="alert alert-warning mainNavBarTop" *ngIf='search.touched && search.invalid'>Please enter valid
+                input.</div>
+            <input [(ngModel)]="studentName" class="form-control mr-sm-2" type="search" placeholder="Search Student"
+                aria-label="Search" required #search='ngModel' name="search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
     </nav>
+
+
+    <div class="container mb-5 pb-5 pt-3 mt-3">
+
+        <div class="row justify-content-center pt-6">
+            <article class="card-body col-md-11">
+                <table [dtOptions]="dtOptions" datatable class="table" *ngIf="isEnabled">
+                    <thead>
+                        <tr>
+                            <th>Registration ID</th>
+                            <th>Name</th>
+                            <th>Address</th>
+                            <th>Mobile</th>
+                            <th>Course</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let student of students">
+                            <td>{{student.registrationId}}</td>
+                            <td>{{student.name}}</td>
+                            <td>{{student.laddress}}</td>
+                            <td>{{student.pno}}</td>
+                            <td>{{student.course}}</td>
+                            <!-- <td><button (click)="showStudents()" class="btn btn-primary">Show Students</button></td> -->
+                            <!-- <td><button (click)="deleteTodo(todo.id)" class="btn btn-warning">Delete</button></td> -->
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+        </div> <!-- row.//-->
+
+        
+
+
+
+
+
+
+
+
+    </div>
+
+    <!--container end.//-->
+</div>

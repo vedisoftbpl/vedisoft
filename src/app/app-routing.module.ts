@@ -25,6 +25,10 @@ import { GstComponent } from './reports/gst/gst.component';
 import { RouterGuardService } from './service/router-guard.service';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { StudentComponent } from './queries/student/student.component';
+import { BranchwiseCollectionComponent } from './reports/branchwise-collection/branchwise-collection.component';
+import { FacultywiseCollectionComponent } from './reports/facultywise-collection/facultywise-collection.component';
+import { SessionwiseCollectionComponent } from './reports/sessionwise-collection/sessionwise-collection.component';
+import { CoursewiseCollectionComponent } from './reports/coursewise-collection/coursewise-collection.component';
 
 
 const routes: Routes = [
@@ -70,7 +74,11 @@ const routes: Routes = [
   { path: 'fees', component: FeesComponent, canActivate: [RouterGuardService]},
   { path: 'feesform/:id/:isEnabled', component: FeesFormComponent, canActivate: [RouterGuardService]},
   { path: 'queries/printreceipt', component: PrintReceiptComponent, canActivate: [RouterGuardService]},
-  { path: 'queries/student', component: StudentComponent, canActivate: [RouterGuardService]}
+  { path: 'queries/student', component: StudentComponent, canActivate: [RouterGuardService]},
+  { path: 'reports/branchwiseCollection', component: BranchwiseCollectionComponent, canActivate: [RouterGuardService]},
+  { path: 'reports/facultywiseCollection', component: FacultywiseCollectionComponent, canActivate: [RouterGuardService]},
+  { path: 'reports/sessionwiseCollection', component: SessionwiseCollectionComponent, canActivate: [RouterGuardService]},
+  { path: 'reports/coursewiseCollection', component: CoursewiseCollectionComponent, canActivate: [RouterGuardService]}
 
 ];
 
