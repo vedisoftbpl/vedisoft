@@ -37,6 +37,7 @@ import { BranchwiseCollectionComponent } from './reports/branchwise-collection/b
 import { FacultywiseCollectionComponent } from './reports/facultywise-collection/facultywise-collection.component';
 import { SessionwiseCollectionComponent } from './reports/sessionwise-collection/sessionwise-collection.component';
 import { CoursewiseCollectionComponent } from './reports/coursewise-collection/coursewise-collection.component';
+import { BadDebtsComponent } from './reports/bad-debts/bad-debts.component';
 
 
 
@@ -72,7 +73,8 @@ import { CoursewiseCollectionComponent } from './reports/coursewise-collection/c
     BranchwiseCollectionComponent,
     FacultywiseCollectionComponent,
     SessionwiseCollectionComponent,
-    CoursewiseCollectionComponent
+    CoursewiseCollectionComponent,
+    BadDebtsComponent
 
   ],
   imports: [

@@ -29,6 +29,7 @@ import { BranchwiseCollectionComponent } from './reports/branchwise-collection/b
 import { FacultywiseCollectionComponent } from './reports/facultywise-collection/facultywise-collection.component';
 import { SessionwiseCollectionComponent } from './reports/sessionwise-collection/sessionwise-collection.component';
 import { CoursewiseCollectionComponent } from './reports/coursewise-collection/coursewise-collection.component';
+import { BadDebtsComponent } from './reports/bad-debts/bad-debts.component';
 
 
 const routes: Routes = [
@@ -78,7 +79,8 @@ const routes: Routes = [
   { path: 'reports/branchwiseCollection', component: BranchwiseCollectionComponent, canActivate: [RouterGuardService]},
   { path: 'reports/facultywiseCollection', component: FacultywiseCollectionComponent, canActivate: [RouterGuardService]},
   { path: 'reports/sessionwiseCollection', component: SessionwiseCollectionComponent, canActivate: [RouterGuardService]},
-  { path: 'reports/coursewiseCollection', component: CoursewiseCollectionComponent, canActivate: [RouterGuardService]}
+  { path: 'reports/coursewiseCollection', component: CoursewiseCollectionComponent, canActivate: [RouterGuardService]},
+  { path: 'reports/badDebts', component: BadDebtsComponent, canActivate: [RouterGuardService]}
 
 ];
 
