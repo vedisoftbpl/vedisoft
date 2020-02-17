@@ -7,7 +7,11 @@
     <div class="container mb-5 pb-5 pt-3 mt-3">
         <div class="row justify-content-center pt-6">
             <article class="card-body col-md-11">
-                <table [dtOptions]="dtOptions" datatable class="table">
+                <div>Search Student:&nbsp;
+                    <input type="text" name="name" [(ngModel)]="this.studentName" id="name" required> &nbsp; &nbsp;
+                    <button class="btn btn-primary" (click)="showStudentList(this.studentName)">Go</button><br><br>
+                </div>
+                <table [dtOptions]="dtOptions" datatable class="table" *ngIf="isEnabled">
                     <thead>
                         <tr>
                             <th>S.No</th>
@@ -30,7 +34,7 @@
                                 </tr>
                             </td>
                             <td>
-                                <button (click)="printReceipt()" class="btn btn-primary">Print</button>
+                                <button (click)="printReceipt(student.id)" class="btn btn-primary">Print</button>
                             </td>
                         </tr>
                     </tbody>

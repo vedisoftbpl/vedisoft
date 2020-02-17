@@ -1,0 +1,60 @@
+<div class="wrapper">
+    <div class="container-fluid flu mb-5">
+        <div class="service">
+            <h1 class="logo pt-5">College Wise Students</h1>
+        </div>
+    </div>
+    <div class="container mb-5 pb-5 pt-3 mt-3">
+        <div class="row justify-content-center pt-6">
+            <article class="card-body col-md-11">
+                <div>
+                    <label>Session:</label>&nbsp;&nbsp;&nbsp;
+                    <select  [(ngModel)]="this.session" name="session">
+                        <option selected  value="All">All</option>
+                        <option  *ngFor="let s of this.session" value="s.sessionName">{{s.sessionName}}</option>
+                    </select><br><br>
+                    <label>College Group:</label>&nbsp;&nbsp;&nbsp;
+                    <select  [(ngModel)]="this.college" name="collegegroup">
+                        <option  value="All">All</option>
+                        <option  *ngFor="let c of this.college" value="c.group">{{c.group}}</option>
+                    </select><br><br>
+                    <label>College:</label>&nbsp;&nbsp;&nbsp;
+                    <select  [(ngModel)]="this.college" name="collegegroup">
+                        <option  value="All">All</option>
+                        <option  *ngFor="let cg of this.college" value="g.collegeName}}">{{cg.collegeName}}</option>
+                    </select><br><br>
+                    <!-- <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" 
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Session</button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <option class="dropdown-item" value="All">All</option>
+                            <option class="dropdown-item" *ngFor="let s of this.session" value="{{s.sessionName}}">{{s.sessionName}}</option>
+                        </div>
+                        </div> -->
+                    
+                        <br/><br/>
+
+                </div>
+                <table [dtOptions]="dtOptions" datatable class="table" *ngIf="isEnabled">
+                    <thead>
+                        <tr>
+                            <th>Registration Id</th>
+                            <th>Registration Date</th>
+                            <th>Student Name</th>
+                            <th>Course</th>
+                            <th>Semester</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let student of studentList">
+                            <td>{{student.regId}}</td>
+                            <td>{{student.regDate}}</td>
+                            <td>{{student.studentName}}</td>
+                            <td>{{student.course}}</td>
+                            <td>{{student.sem}}</td>
+                        </tr> 
+                    </tbody>
+                </table>
+            </article>
+        </div>
+    </div>

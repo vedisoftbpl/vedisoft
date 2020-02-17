@@ -45,9 +45,12 @@ export class CourseComponent implements OnInit ,OnDestroy {
       pagingType: 'full_numbers',
       lengthMenu: [5, 10, 15, 20],
     };
+    
 
     this.username = sessionStorage.getItem('authenticatedUser')
     this.refreshCourses();
+    this.dtTrigger.next()
+    // this.dtTrigger.subscribe();
   }
 
   refreshCourses(){

@@ -33,6 +33,8 @@ import { HttpIntercepterBasicAuthService } from './service/http/http-intercepter
 import { StudentComponent } from './queries/student/student.component';
 import { DaybookComponent } from './reports/daybook/daybook.component';
 import { GstComponent } from './reports/gst/gst.component';
+import { CollegeWiseStudentsComponent } from './reports/college-wise-students/college-wise-students.component';
+import { BranchWiseStudentEnrollmentsComponent } from './reports/branch-wise-student-enrollments/branch-wise-student-enrollments.component';
 
 
 @NgModule({
@@ -63,7 +65,9 @@ import { GstComponent } from './reports/gst/gst.component';
     StudentComponent,
     DaybookComponent,
     GstComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    CollegeWiseStudentsComponent,
+    BranchWiseStudentEnrollmentsComponent
 
   ],
   imports: [

@@ -1,39 +1,45 @@
 <div class="wrapper">
     <div class="container-fluid flu mb-5">
         <div class="service">
-            <h1 class="logo pt-5">GST</h1>
+            <h1 class="logo pt-5">GST Details</h1>
         </div>
     </div>
     <div class="container mb-5 pb-5 pt-3 mt-3">
         <div class="row justify-content-center pt-6">
             <article class="card-body col-md-11">
-                <table [dtOptions]="dtOptions" datatable class="table">
+                <div>
+                    From Date: <input type="date"  name="fdate" id="fdate" [ngModel]="fromDate | date:'yyyy-MM-dd'"
+                        (ngModel)="this.fromDate= $event">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;To Date: <input type="date" name="tdate" id="tdate"
+                        [ngModel]="this.toDate | date:'yyyy-MM-dd'" (ngModel)="this.toDate= $event">&nbsp;&nbsp;
+                    <button class="btn btn-primary" (click)="activeDataTable(this.fromDate,this.toDate)">Go</button>
+                        <br/><br/>
+
+                </div>
+                <table [dtOptions]="dtOptions" datatable class="table" *ngIf="isEnabled">
                     <thead>
                         <tr>
                             <th>S.No</th>
-                            <th>Course</th>
-                            <th>Batch</th>
-                            <th>Total Fees</th>
-                            <th>Installments</th>
-                            <th>Print Receipt</th>
+                            <th>From Date</th>
+                            <th>Amount</th>
+                            <th>CGST</th>
+                            <th>SGST</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let student of studentDetails">
-                            <td>{{student.id}}</td>
-                            <td>{{student.course}}</td>
-                            <td>{{student.batch}}</td>
-                            <td>Rs.{{student.fees}}</td>
-                            <td>
-                                <tr *ngFor="let inst of student.installments; let i=index ">
-                                    <td>{{i+1}}. Rs.{{inst}}</td>
-                                </tr>
-                            </td>
-                            <td>
-                                <button (click)="printReceipt()" class="btn btn-primary">Print</button>
-                            </td>
+                        <tr *ngFor="let gstDetails of gstDetailList">
+                            <td>{{gstDetails.id}}</td>
+                            <td>{{gstDetails.fromDate}}</td>
+                            <td>{{gstDetails.amount}}</td>
+                            <td>{{gstDetails.cgst}}</td>
+                            <td>{{gstDetails.sgst}}</td>
                         </tr>
                     </tbody>
+                    <tfoot>
+                        <tr>
+                            <th colspan="5" style="text-align:right">Total:Rs.10000</th>
+                        </tr>
+                    </tfoot>
                 </table>
             </article>
         </div>

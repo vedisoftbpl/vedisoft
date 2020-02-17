@@ -7,11 +7,12 @@
     <div class="container mb-5 pb-5 pt-3 mt-3">
         <div class="row justify-content-center pt-6">
             <div>
-                Date: <input type="date" [ngModel]="currentDate | date:'yyyy-MM-dd'" (ngModel)="currentDate= $event" name="date"  value="date">&nbsp;
+                Date: <input type="date" [ngModel]="currentDate | date:'yyyy-MM-dd'" (ngModel)="currentDate= $event"
+                    name="date" value="date">&nbsp;
                 <button class="btn btn-primary" (click)="showDayBook(currentDate)">Go</button>
             </div><br>
             <article class="card-body col-md-11">
-                <table  *ngIf="isEnabled" [dtOptions]="dtOptions" datatable class="table" >
+                <table *ngIf="isEnabled" [dtOptions]="dtOptions" datatable class="table">
                     <thead>
                         <tr>
                             <th>S.No</th>
@@ -35,8 +36,12 @@
                             <td>{{daybook.mode}}</td>
                             <td>{{daybook.receivedBy}}</td>
                         </tr>
-                        <!-- <tr><td>Total Rs.</td></tr> -->
                     </tbody>
+                    <tfoot>
+                        <tr>
+                            <th colspan="6" style="text-align:right">Total:Rs.10000</th>
+                        </tr>
+                    </tfoot>
                 </table>
             </article>
         </div>

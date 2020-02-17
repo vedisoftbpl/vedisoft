@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { Subject } from 'rxjs';
 import { DataTableDirective } from 'angular-datatables';
+import { isEmpty } from 'rxjs/operators';
 
 export class StudentFeeReceiptDetails{
   constructor(
@@ -21,10 +22,30 @@ export class PrintReceiptComponent implements OnInit,OnDestroy {
   dtOptions:DataTables.Settings = {}
   private studentDetails : StudentFeeReceiptDetails[] ;
   student: StudentFeeReceiptDetails;
+  isEnabled:boolean =false
+
+  studentName:string
 
   constructor() { }
 
   ngOnInit() {
+    this.studentDetails = [new StudentFeeReceiptDetails(1,["Core java"],"Morning",5000.00,[2000,3000]),
+    new StudentFeeReceiptDetails(2,["Adv JAVA"],"Evening",6000.00,[2000,4000])      
+  ];
+  }
+
+  public showStudentList(name){
+    this.studentName = name;
+    this.isEnabled = true
+    if(name == null){
+      this.isEnabled = false
+    }
+    else{
+      this.dataTableActive()
+    }
+  }
+
+  public dataTableActive(){
     this.dtOptions = {
       pagingType: 'full_numbers',
       lengthMenu:[5,10,15,20],
@@ -32,11 +53,7 @@ export class PrintReceiptComponent implements OnInit,OnDestroy {
         search:"Search Student Name"
       }
     };
-    this.studentDetails = [new StudentFeeReceiptDetails(1,["Core java"],"Morning",5000.00,[2000,3000]),
-    new StudentFeeReceiptDetails(2,["Adv JAVA"],"Evening",6000.00,[2000,4000])      
-  ];
   }
-
 
   public printReceipt(id){
     console.log("Receipt is printing")
