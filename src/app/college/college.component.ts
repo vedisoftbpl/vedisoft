@@ -3,7 +3,7 @@ import { Subject } from 'rxjs';
 import { DataTableDirective } from 'angular-datatables';
 import { Router } from '@angular/router';
 
-export class CollegeList {
+export class College {
   constructor(public id: number, public city: string, public group: string, public collegeName: string, public prefix: string, 
     public Student: any) {}
  }
@@ -20,10 +20,10 @@ export class CollegeComponent implements OnInit, OnDestroy {
   datatableElement: DataTableDirective;
   dtOptions: DataTables.Settings = {};
 
-  colleges: CollegeList[] = [
-    new CollegeList(1, "Bhopal", "LNCT", "LNCTS", "LN", ["Aman", "Bharat", "Aashray"]),
-    new CollegeList(2, "Bhopal", "Oriental", "OIST", "OI", ["Kapil", "Somil"]),
-    new CollegeList(3, "Bhopal", "Sagar", "SIRT", "SI", ["Abhishek"]),
+  colleges: College[] = [
+    new College(1, "Bhopal", "LNCT", "LNCTS", "LN", ["Aman", "Bharat", "Aashray"]),
+    new College(2, "Bhopal", "Oriental", "OIST", "OI", ["Kapil", "Somil"]),
+    new College(3, "Bhopal", "Sagar", "SIRT", "SI", ["Abhishek"]),
   ]
 
   constructor(public router: Router) { }
