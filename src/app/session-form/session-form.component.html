@@ -16,13 +16,13 @@
 
                     <article class="card-body">
 
-                        <form #BranchForm = "ngForm" >
+                        <form #BranchForm = "ngForm" (ngSubmit)="submitForm()" >
 
                             <div class="form-group">
 
                                 <label>Session Name</label>
-                                <div class="alert alert-warning" *ngIf='session.invalid && session.touched'>Please enter session name.</div>
-                                <input [(ngModel)]="session.sessionName" type="text" class="form-control" required placeholder="Branch Name"  name="name" #session="ngModel"> 
+                                <div class="alert alert-warning" *ngIf='sessionName.invalid && sessionName.touched'>Please enter session name.</div>
+                                <input [(ngModel)]="session.sessionName" type="text" class="form-control" required placeholder="Session Name"  name="sessionName" #sessionName="ngModel"> 
 
                             </div> <!-- form-group end.// -->
 
@@ -42,12 +42,13 @@
                                 (ngModelChange)="session.endDate= $event" class="form-control" type="date" required placeholder="endDate" name="endDate" #endDate="ngModel">
 
                              </div> <!-- form-group end.// -->
+                             <div class="border-top card-body text-center"><button type="submit" class="btn btn-success">Submit</button></div>
                              
                         </form>
 
                     </article> <!-- card-body end .// -->
 
-                    <div class="border-top card-body text-center"><button type="submit" class="btn btn-success">Submit</button></div>
+                   
 
 
                 </div> <!-- card.// -->

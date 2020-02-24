@@ -16,58 +16,61 @@
 
                     <article class="card-body">
 
-                        <form #BranchForm="ngForm">
+                        <form #BranchForm="ngForm" (ngSubmit)="submitForm()">
 
                             <div class="form-group">
 
                                 <label>Course Name</label>
-                                <div class="alert alert-warning" *ngIf='course.invalid && course.touched'>Please enter course name.</div>
-                                <input [(ngModel)]="course.courseName" type="text" class="form-control"
-                                    placeholder="Course Name" name="name" required #course="ngModel">
+                                <div class="alert alert-warning" *ngIf='name.invalid && name.touched'>Please enter course name.</div>
+                                <input [(ngModel)]="course.name" type="text" class="form-control"
+                                    placeholder="Course Name" name="name" required #name="ngModel">
 
-                            </div> <!-- form-group end.// -->
+                            </div> 
 
                             <div class="form-group">
 
                                 <label>Course Prefix</label>
                                 <div class="alert alert-warning" *ngIf='prefix.invalid && prefix.touched'>Please enter course prefix.</div>
-                                <input [(ngModel)]="course.coursePrefix" type="text" class="form-control"
+                                <input [(ngModel)]="course.prefix" type="text" class="form-control"
                                     placeholder="Course Prefix" name="Prefix" required #prefix="ngModel">
 
 
-                            </div> <!-- form-group end.// -->
+                            </div> 
 
                             <div class="form-group">
                                 
                                 <label>Certificate Name</label><br>
                                 <div class="form-check form-check-inline">
                                     <input type="radio" class="form-check-input" id="merit" name="Certificate"
-                                        [(ngModel)]="course.certificateTitle" value="merit" >
+                                        [(ngModel)]="course.certiTitle" value="merit" >
                                     <label class="form-check-label" for="merit">Merit</label>
                                 </div>
 
                                 <div class="form-check form-check-inline">
                                     <input type="radio" class="form-check-input" id="training" name="Certificate"
-                                        [(ngModel)]="course.certificateTitle" value="training">
+                                        [(ngModel)]="course.certiTitle" value="training">
                                     <label class="form-check-label" for="training">Training</label>
                                 </div>
 
-                            </div> <!-- form-group end.// -->
+                            </div>  
 
                             <div class="form-group">
                                 <div class="alert alert-warning" *ngIf='duration.invalid && duration.touched'>Please enter duration.</div>
                                 <label>Duration</label>
                                 <input [(ngModel)]="course.duration" type="text" class="form-control"
                                     placeholder="course duration" name="duration" #duration="ngModel" required>
+                                    <div class="alert alert-warning" *ngIf='duration.invalid && duration.touched'>Please enter duration.</div>
+                                
+                            </div>
 
-                            </div> <!-- form-group end.// -->
-
+                            <div class="border-top card-body text-center"><button type="submit"
+                                class="btn btn-success" >Submit</button></div>
+                    
                         </form>
 
                     </article> <!-- card-body end .// -->
 
-                    <div class="border-top card-body text-center"><button type="submit"
-                            class="btn btn-success">Submit</button></div>
+                    
 
 
                 </div> <!-- card.// -->

@@ -34,7 +34,7 @@ import { BadDebtsComponent } from './reports/bad-debts/bad-debts.component';
 
 
 const routes: Routes = [
-  { path: '', component: LoginComponent },
+  { path: '', component: WelcomeComponent, canActivate: [RouterGuardService]},
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SigninComponent },
   { path: 'certi', component: CertiRequestComponent },

@@ -2,20 +2,22 @@ import { Injectable } from '@angular/core';
 import {map} from 'rxjs/operators';
 import {API_URL} from 'src/app/app.constants'
 import { HttpClient } from '@angular/common/http';
+import { UserDataService } from './data/user-data.service';
 
 
 export const TOKEN = 'token'
 export const AUTHENTICATED_USER = 'autenticatedUser'
+export const USER_ID = 'userId'
 @Injectable({
   providedIn: 'root'
 })
 export class BasicAuthenticationService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient , private userData:UserDataService) { }
 
   authentication(username,password){
     console.log(username + ' '+ password)
-    return this.http.post<any>(`http://localhost:8081/authenticate`,{username,password})
+    return this.http.post<any>(`http://localhost:8080/authenticate`,{username,password})
     .pipe(
       map(
         data => {
