@@ -17,7 +17,7 @@ export class BasicAuthenticationService {
 
   authentication(username,password){
     console.log(username + ' '+ password)
-    return this.http.post<any>(`http://localhost:8080/authenticate`,{username,password})
+    return this.http.post<any>(`${API_URL}/authenticate`,{username,password})
     .pipe(
       map(
         data => {

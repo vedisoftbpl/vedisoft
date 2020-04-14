@@ -44,7 +44,7 @@ const routes: Routes = [
   { path: 'college', component: CollegeComponent },
   { path: 'addCollege', component: AddCollegeComponent },
   { path: 'branches', component: BranchesComponent },
-  { path: 'branchform/:id/:isEnabled', component: BranchFormComponent },
+  { path: 'branchForm/:id', component: BranchFormComponent },
   { path: 'session', component: SessionComponent },
   { path: 'sessionform/:id/:isEnabled', component: SessionFormComponent },
   { path: 'course', component: CourseComponent },

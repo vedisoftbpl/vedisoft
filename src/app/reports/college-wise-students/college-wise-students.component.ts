@@ -33,9 +33,9 @@ export class CollegeWiseStudentsComponent implements OnInit {
   ngOnInit() {
     // this.session = [new Session(1,"abc",new Date(),new Date()),new Session(2,"xyz",new Date(),new Date()),
     // new Session(3,"aash",new Date(),new Date())]
-    this.college = [new College(1, "Bhopal", "LNCT", "LNCTS", "LN", ["Aman", "Bharat", "Aashray"]),
-    new College(2, "Bhopal", "Oriental", "OIST", "OI", ["Kapil", "Somil"]),
-    new College(3, "Bhopal", "Sagar", "SIRT", "SI", ["Abhishek"]),]
+    // this.college = [new College(1, "Bhopal", "LNCT", "LNCTS", "LN", ["Aman", "Bharat", "Aashray"]),
+    // new College(2, "Bhopal", "Oriental", "OIST", "OI", ["Kapil", "Somil"]),
+    // new College(3, "Bhopal", "Sagar", "SIRT", "SI", ["Abhishek"]),]
     this.dtOptions = {
       pagingType: 'full_numbers',
       lengthMenu: [5, 10, 15, 20],

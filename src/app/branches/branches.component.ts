@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { Subject } from 'rxjs';
 import { DataTableDirective } from 'angular-datatables';
 import { Router } from '@angular/router';
+import { BranchesService } from '../service/data/branches.service';
 
 export class Branch {
   constructor
@@ -20,15 +21,15 @@ export class Branch {
       public latLong: string
       ) { }
 }
-export class BranchList{
-  branches: Branch[] 
-  constructor(){
-    this.branches = [
-      new Branch(1, "M.P. NAGAR", "mpn", "3rd Floor, 275", "above Andhra Bank, Near Time Coaching", "Zone-II, Maharana Pratap Nagar", "Bhopal", " Madhya Pradesh",["Rohit Ahuja"],1234556778,"JAVA,C++,C",new Date(),"23.2524° N, 77.4646° E"),
-      new Branch(2, "Indrapuri", "ind", "219-B", " near Gaurav Dairy, Indrapuri C sector", "Sector C, Indrapuri", "Bhopal", "Madhya Pradesh",["Rohit Ahuja"],1234556778,"JAVA,C++,C",new Date(),"23.2524° N, 77.4646° E")
-    ]
-  }
-}
+// export class BranchList{
+//   branches: Branch[] 
+//   constructor(){
+//     this.branches = [
+//       new Branch(1, "M.P. NAGAR", "mpn", "3rd Floor, 275", "above Andhra Bank, Near Time Coaching", "Zone-II, Maharana Pratap Nagar", "Bhopal", " Madhya Pradesh",["Rohit Ahuja"],1234556778,"JAVA,C++,C",new Date(),"23.2524° N, 77.4646° E"),
+//       new Branch(2, "Indrapuri", "ind", "219-B", " near Gaurav Dairy, Indrapuri C sector", "Sector C, Indrapuri", "Bhopal", "Madhya Pradesh",["Rohit Ahuja"],1234556778,"JAVA,C++,C",new Date(),"23.2524° N, 77.4646° E")
+//     ]
+//   }
+//}
 @Component({
   selector: 'app-branches',
   templateUrl: './branches.component.html',
@@ -40,41 +41,48 @@ export class BranchesComponent implements OnInit,OnDestroy {
   datatableElement: DataTableDirective;
   dtOptions: DataTables.Settings = {};
 
-  constructor( public router:Router) { }
+  constructor( public router:Router, private branchService: BranchesService ) { }
 
   // branches: Branch[] = [
   //   new Branch(1, "M.P. NAGAR", "mpn", "3rd Floor, 275", "above Andhra Bank, Near Time Coaching", "Zone-II, Maharana Pratap Nagar", "Bhopal", " Madhya Pradesh",["Rohit Ahuja"],1234556778,"JAVA,C++,C",new Date(),"23.2524° N, 77.4646° E"),
   //   new Branch(2, "Indrapuri", "ind", "219-B", " near Gaurav Dairy, Indrapuri C sector", "Sector C, Indrapuri", "Bhopal", "Madhya Pradesh",["Rohit Ahuja"],1234556778,"JAVA,C++,C",new Date(),"23.2524° N, 77.4646° E")
   // ]
-    branchL = new BranchList()
-    branches:Branch[] = this.branchL.branches
+    // branchL = new BranchList()
+    // branches:Branch[] = this.branchL.branches
+
+    branches: Branch[];
 
   ngOnInit() {
     this.dtOptions = {
       pagingType: 'full_numbers',
-      lengthMenu: [1,5, 10, 15, 20],
+      lengthMenu: [2, 5, 10, 15, 20],
     };
+    this.refreshBranches();
   }
 
-  addBranch(){
-    this.router.navigate(['branchform',-1,1])
-    // alert('add clicked')
+  refreshBranches(){
+    this.branchService.getAllBranches().subscribe(
+      response =>{
+        this.branches = response
+      },
+      error =>{
+        console.log(error)
+      }
+    )
 
   }
 
-  editBranchDetails(id){
-    this.router.navigate(['branchform',id,1])
+ 
 
-
+  addBranch() {
+      this.router.navigate(['branchForm', -1]);
+      console.log("ADD PRESSED")
   }
 
-  viewBranchDetails(id){
-    this.router.navigate(['branchform',id,0])
+  getBranchById(id) {
+    this.branchService.getBranchById(id);
   }
 
-  getList(){
-    return this.branches;
-  }
 
   ngOnDestroy() {
     this.dtTrigger.unsubscribe();
