@@ -30,6 +30,7 @@ import { FacultywiseCollectionComponent } from './reports/facultywise-collection
 import { SessionwiseCollectionComponent } from './reports/sessionwise-collection/sessionwise-collection.component';
 import { CoursewiseCollectionComponent } from './reports/coursewise-collection/coursewise-collection.component';
 import { BadDebtsComponent } from './reports/bad-debts/bad-debts.component';
+import { PersonFormComponent } from './person-form/person-form.component';
 
 
 
@@ -63,7 +64,8 @@ const routes: Routes = [
   { path: 'reports/facultywiseCollection', component: FacultywiseCollectionComponent, canActivate: [RouterGuardService]},
   { path: 'reports/sessionwiseCollection', component: SessionwiseCollectionComponent, canActivate: [RouterGuardService]},
   { path: 'reports/coursewiseCollection', component: CoursewiseCollectionComponent, canActivate: [RouterGuardService]},
-  { path: 'reports/badDebts', component: BadDebtsComponent, canActivate: [RouterGuardService]}
+  { path: 'reports/badDebts', component: BadDebtsComponent, canActivate: [RouterGuardService]},
+  { path: 'personForm/:id', component: PersonFormComponent, canActivate: [RouterGuardService]}
 
 ];
 

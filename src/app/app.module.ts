@@ -40,6 +40,7 @@ import { FacultywiseCollectionComponent } from './reports/facultywise-collection
 import { SessionwiseCollectionComponent } from './reports/sessionwise-collection/sessionwise-collection.component';
 import { CoursewiseCollectionComponent } from './reports/coursewise-collection/coursewise-collection.component';
 import { BadDebtsComponent } from './reports/bad-debts/bad-debts.component';
+import { PersonFormComponent } from './person-form/person-form.component';
 
 
 
@@ -78,7 +79,8 @@ import { BadDebtsComponent } from './reports/bad-debts/bad-debts.component';
     FacultywiseCollectionComponent,
     SessionwiseCollectionComponent,
     CoursewiseCollectionComponent,
-    BadDebtsComponent
+    BadDebtsComponent,
+    PersonFormComponent
 
   ],
   imports: [
