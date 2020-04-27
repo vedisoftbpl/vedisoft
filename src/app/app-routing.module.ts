@@ -21,21 +21,29 @@ import { FeesFormComponent } from './fees-form/fees-form.component';
 import { PrintReceiptComponent } from './queries/print-receipt/print-receipt.component';
 import { DaybookComponent } from './reports/daybook/daybook.component';
 import { GstComponent } from './reports/gst/gst.component';
-
 import { RouterGuardService } from './service/router-guard.service';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { StudentComponent } from './queries/student/student.component';
+<<<<<<< HEAD
 
 import { CollegeWiseStudentsComponent } from './reports/college-wise-students/college-wise-students.component';
 
+=======
+import { CollegeWiseStudentsComponent } from './reports/college-wise-students/college-wise-students.component';
+>>>>>>> 0f9530ab5ac29362665e2d648a001df16b1d76c8
 import { BranchwiseCollectionComponent } from './reports/branchwise-collection/branchwise-collection.component';
 import { FacultywiseCollectionComponent } from './reports/facultywise-collection/facultywise-collection.component';
 import { SessionwiseCollectionComponent } from './reports/sessionwise-collection/sessionwise-collection.component';
 import { CoursewiseCollectionComponent } from './reports/coursewise-collection/coursewise-collection.component';
 import { BadDebtsComponent } from './reports/bad-debts/bad-debts.component';
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 0f9530ab5ac29362665e2d648a001df16b1d76c8
 
 const routes: Routes = [
-  { path: '', component: LoginComponent },
+  { path: '', component: WelcomeComponent, canActivate: [RouterGuardService]},
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SigninComponent },
   { path: 'certi', component: CertiRequestComponent },
@@ -45,7 +53,7 @@ const routes: Routes = [
   { path: 'college', component: CollegeComponent },
   { path: 'addCollege', component: AddCollegeComponent },
   { path: 'branches', component: BranchesComponent },
-  { path: 'branchform/:id/:isEnabled', component: BranchFormComponent },
+  { path: 'branchForm/:id', component: BranchFormComponent },
   { path: 'session', component: SessionComponent },
   { path: 'sessionform/:id/:isEnabled', component: SessionFormComponent },
   { path: 'course', component: CourseComponent },
@@ -57,6 +65,7 @@ const routes: Routes = [
   { path: 'queries/printreceipt', component: PrintReceiptComponent },
   { path: 'reports/daybook', component: DaybookComponent },
   { path: 'reports/gst', component: GstComponent },
+<<<<<<< HEAD
   { path: 'reports/collegewisestudents', component: CollegeWiseStudentsComponent },
   { path: 'welcome', component: WelcomeComponent, canActivate: [RouterGuardService] },
   { path: 'signup', component: SigninComponent },
@@ -103,6 +112,16 @@ const routes: Routes = [
   { path: 'reports/sessionwiseCollection', component: SessionwiseCollectionComponent, canActivate: [RouterGuardService] },
   { path: 'reports/coursewiseCollection', component: CoursewiseCollectionComponent, canActivate: [RouterGuardService] },
   { path: 'reports/badDebts', component: BadDebtsComponent, canActivate: [RouterGuardService] }
+=======
+  { path: 'reports/collegewisestudents', component: CollegeWiseStudentsComponent},
+  { path: 'welcome', component: WelcomeComponent, canActivate: [RouterGuardService]},
+  { path: 'queries/student', component: StudentComponent, canActivate: [RouterGuardService]},
+  { path: 'reports/branchwiseCollection', component: BranchwiseCollectionComponent, canActivate: [RouterGuardService]},
+  { path: 'reports/facultywiseCollection', component: FacultywiseCollectionComponent, canActivate: [RouterGuardService]},
+  { path: 'reports/sessionwiseCollection', component: SessionwiseCollectionComponent, canActivate: [RouterGuardService]},
+  { path: 'reports/coursewiseCollection', component: CoursewiseCollectionComponent, canActivate: [RouterGuardService]},
+  { path: 'reports/badDebts', component: BadDebtsComponent, canActivate: [RouterGuardService]}
+>>>>>>> 0f9530ab5ac29362665e2d648a001df16b1d76c8
 
 ];
 

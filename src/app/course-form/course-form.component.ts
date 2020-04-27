@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Course, CourseList } from '../course/course.component';
+import { Course} from '../course/course.component';
+import { CourseDataService } from '../service/data/course-data.service';
 
 
 @Component({
@@ -10,39 +11,54 @@ import { Course, CourseList } from '../course/course.component';
 })
 export class CourseFormComponent implements OnInit  {
 
-  course= new Course(-1,"",1,"","")
-  // courseL = new CourseList()
-  courses: Course[]
+  course:Course
+  courses:Course[]
   id:number
   isEnabled:number
   x:Boolean = true
 
   disable:boolean = true
   constructor(private router:ActivatedRoute,
-    private route:Router) { }
+    private route:Router , private courseData:CourseDataService) { }
 
   ngOnInit() {
     this.id = this.router.snapshot.params['id']
     this.isEnabled = this.router.snapshot.params['isEnabled']
-    if(this.isEnabled==0){
-      console.log('if working')
-      this.disable = true
-    }
-    console.log(this.disable)
+    this.course = new Course(-1,"",1,"","") 
     if(this.id!=-1){
-      console.log('else working')
-      // this.courses = this.courseL.courses
-      for(var c of this.courses){
-        // console.log(b)
-        if(c.id==this.id){
-          console.log(c)
-          this.course = c
-          break
+      this.courseData.getCourseById(this.id).subscribe(
+        data => {
+          this.course = data
         }
-      }
+      )
+      
       
     }
-  }
+   }
 
+   submitForm(){
+     if(this.id!=-1){
+      this.courseData.saveCourse(this.course,this.course.id).subscribe(
+        response =>{
+          this.route.navigate(['course'])
+        },
+        error =>{
+          // console.log(error)
+        }
+      )
+     }
+
+     else{
+       this.courseData.addCourse(this.course).subscribe(
+        response =>{
+          this.route.navigate(['course'])
+        },
+        error =>{
+          console.log(error)
+        }
+       )
+     }
+     
+   }
 }
 

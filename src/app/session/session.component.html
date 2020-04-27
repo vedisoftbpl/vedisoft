@@ -24,11 +24,11 @@
                     </thead>
                     <tbody>
                         <tr *ngFor="let session of sessions">
-                            <td>{{session.id}}</td>
+                            <td>{{session.sessionId}}</td>
                             <td>{{session.sessionName}}</td>
                             <td>{{session.startDate}}</td>
                             <td>{{session.endDate}}</td>
-                            <td><button (click)="editSessionDetails(session.id)" class="btn btn-primary">EDIT</button>
+                            <td><button (click)="editSessionDetails(session.sessionId)" class="btn btn-primary">EDIT</button>
                                 <!-- <button (click)="viewBranchDetails(branch.id)" class="btn btn-warning">VIEW</button> -->
                             </td>
                             <!-- <td><button (click)="deleteTodo(todo.id)" class="btn btn-warning">Delete</button></td> -->

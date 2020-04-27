@@ -7,20 +7,11 @@ import { CourseDataService } from '../service/data/course-data.service';
 export class Course{
   constructor
     (public id: number,
-      public certificateTitle:string,
+      public certiTitle:string,
       public duration:number,
-      public courseName: string,
-      public coursePrefix:string
+      public name: string,
+      public prefix:string
       ) { }
-}
-export class CourseList{
-  courses: Course[] 
-  constructor(){
-    this.courses = [
-      new Course(1, "JAVA",3,"merit","3Months"),
-      new Course(2, "C++",2,"training","3Months")
-    ]
-  }
 }
 @Component({
   selector: 'app-course',
@@ -57,9 +48,6 @@ export class CourseComponent implements OnInit ,OnDestroy {
     this.courseData.getAllCourses().subscribe(
       response => {
         this.courses = response
-        console.log(response)
-        console.log('now courses')
-        console.log(this.courses)
       }
     )
 
@@ -83,17 +71,14 @@ export class CourseComponent implements OnInit ,OnDestroy {
 
   }
   deleteCourseDetails(id){
-    let count:number=0;
-    for(var c of this.courses){
-      if(c.id==id){
-        this.courses.splice(count,1)
-        break
+    this.courseData.deleteCourse(id).subscribe(
+      response =>{
+        this.refreshCourses()
+      },
+      error =>{
+        console.log(error)
       }
-      else{
-        count++
-      }
-
-    }
+    )
 
 
   }

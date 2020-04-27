@@ -16,13 +16,13 @@
 
                     <article class="card-body">
 
-                        <form>
+                        <form #CollegeForm="ngForm" (ngSubmit)="submitForm()">
 
                             <div class="form-group">
 
                                 <label>College Name</label>
-                                <div class="alert alert-warning" *ngIf='college.invalid && college.touched'>Please enter college name.</div>
-                                <input  name="col" [(ngModel)]="college.collegeName" type="text" class="form-control" placeholder="Name" required #college="ngModel">
+                                <div class="alert alert-warning" *ngIf='name.invalid && name.touched'>Please enter college name.</div>
+                                <input  name="col" [(ngModel)]="college.name" type="text" class="form-control" placeholder="Name" name="name" required #name="ngModel">
 
                             </div> <!-- form-group end.// -->
 
@@ -40,11 +40,13 @@
                                  <input [(ngModel)]="college.city" class="form-control" type="text" required placeholder="City" name="city" #city="ngModel">
                              </div> <!-- form-group end.// -->
 
+                             <div class="border-top card-body text-center"><button type="submit" class="btn btn-success">Submit</button></div>
+
                         </form>
 
                     </article> <!-- card-body end .// -->
 
-                    <div class="border-top card-body text-center"><button type="submit" class="btn btn-success">Submit</button></div>
+                    
 
 
                 </div> <!-- card.// -->

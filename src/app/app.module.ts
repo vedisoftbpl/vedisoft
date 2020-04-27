@@ -33,17 +33,25 @@ import { HttpIntercepterBasicAuthService } from './service/http/http-intercepter
 import { StudentComponent } from './queries/student/student.component';
 import { DaybookComponent } from './reports/daybook/daybook.component';
 import { GstComponent } from './reports/gst/gst.component';
+<<<<<<< HEAD
 
 import { CollegeWiseStudentsComponent } from './reports/college-wise-students/college-wise-students.component';
 import { BranchWiseStudentEnrollmentsComponent } from './reports/branch-wise-student-enrollments/branch-wise-student-enrollments.component';
 
+=======
+import { CollegeWiseStudentsComponent } from './reports/college-wise-students/college-wise-students.component';
+import { BranchWiseStudentEnrollmentsComponent } from './reports/branch-wise-student-enrollments/branch-wise-student-enrollments.component';
+>>>>>>> 0f9530ab5ac29362665e2d648a001df16b1d76c8
 import { BranchwiseCollectionComponent } from './reports/branchwise-collection/branchwise-collection.component';
 import { FacultywiseCollectionComponent } from './reports/facultywise-collection/facultywise-collection.component';
 import { SessionwiseCollectionComponent } from './reports/sessionwise-collection/sessionwise-collection.component';
 import { CoursewiseCollectionComponent } from './reports/coursewise-collection/coursewise-collection.component';
 import { BadDebtsComponent } from './reports/bad-debts/bad-debts.component';
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0f9530ab5ac29362665e2d648a001df16b1d76c8
 
 
 @NgModule({
@@ -75,16 +83,24 @@ import { BadDebtsComponent } from './reports/bad-debts/bad-debts.component';
     DaybookComponent,
     GstComponent,
     WelcomeComponent,
+<<<<<<< HEAD
 
     CollegeWiseStudentsComponent,
     BranchWiseStudentEnrollmentsComponent,
 
+=======
+    CollegeWiseStudentsComponent,
+    BranchWiseStudentEnrollmentsComponent,
+>>>>>>> 0f9530ab5ac29362665e2d648a001df16b1d76c8
     BranchwiseCollectionComponent,
     FacultywiseCollectionComponent,
     SessionwiseCollectionComponent,
     CoursewiseCollectionComponent,
     BadDebtsComponent
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0f9530ab5ac29362665e2d648a001df16b1d76c8
 
   ],
   imports: [

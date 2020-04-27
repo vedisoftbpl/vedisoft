@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Branch, BranchesComponent, BranchList } from '../branches/branches.component';
+import { Branch, BranchesComponent } from '../branches/branches.component';
 import { ActivatedRoute, Router } from '@angular/router';
+import { BranchesService } from '../service/data/branches.service';
 
 @Component({
   selector: 'app-branch-form',
@@ -9,16 +10,16 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class BranchFormComponent implements OnInit {
 
-  branch = new Branch(-1,"","","","","","","",[""],0,"",new Date(),"")
-  branchL = new BranchList()
-  branches: Branch[]
+  // branch = new Branch(-1,"","","","","","","",[""],0,"",new Date(),"")
+  // branchL = new BranchList()
+  branch: Branch;
   id:number
   isEnabled:number
   x:Boolean = true
 
   disable:boolean = true
   constructor(private router:ActivatedRoute,
-    private route:Router) { }
+    private route:Router, private branchService: BranchesService) { }
 
   ngOnInit() {
     this.id = this.router.snapshot.params['id']
@@ -27,24 +28,23 @@ export class BranchFormComponent implements OnInit {
       this.disable = true
     }
     console.log(this.disable)
-    if(this.id!=-1){ 
+    if(this.id != -1){ 
       console.log('else working')
-      this.branches = this.branchL.branches
-      for(var b of this.branches){
-        // console.log(b)
-        if(b.id==this.id){
-          console.log(b)
-          this.branch = b
-          break
-        }
-      }
-      
+      this.branchService.getBranchById(this.id).subscribe(
+        data => this.branch = data
+      ) 
     }
 
   }
 
-  saveBranch() {
-    
+  addBranch() {
+    this.branchService.addBranch(this.branch);
+  }
+  getBranchById(id) {
+    this.branchService.getBranchById(id);
+  }
+  updateBranch() {
+    this.branchService.updateBranch(this.branch, this.id);
   }
 
 }

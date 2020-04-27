@@ -2,24 +2,22 @@ import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { Subject } from 'rxjs';
 import { DataTableDirective } from 'angular-datatables';
 import { Router } from '@angular/router';
+import { SessionDataService } from '../service/data/session-data.service';
 
 export class Session {
   constructor
-    (public id: number,
+    (public sessionId: number,
       public sessionName: string,
       public startDate:Date,
-      public endDate: Date
+      public endDate: Date,
+      public createdBy:number,
+      public creationDate:Date,
+      public lastUpdatedBy:number,
+      public lastUpdationDate:Date
+
       ) { }
 }
-export class SessionList{
-  sessions: Session[] 
-  constructor(){
-    this.sessions = [
-      new Session(1, "ABC",new Date(),new Date()),
-      new Session(2, "XYZ",new Date(),new Date())
-    ]
-  }
-}
+
 @Component({
   selector: 'app-session',
   templateUrl: './session.component.html',
@@ -31,18 +29,30 @@ export class SessionComponent implements OnInit ,OnDestroy {
   datatableElement: DataTableDirective;
   dtOptions: DataTables.Settings = {};
 
-  constructor( public router:Router) { }
-
-    sessionL = new SessionList()
-    sessions:Session[] = this.sessionL.sessions
+  constructor( public router:Router , public sessionData:SessionDataService) { }
+    sessions:Session[]
 
   ngOnInit() {
     this.dtOptions = {
       pagingType: 'full_numbers',
       lengthMenu: [1,5, 10, 15, 20],
     };
+
+    this.refreshSessions();
+    this.dtTrigger.next()
   }
 
+  refreshSessions(){
+    this.sessionData.getAllSessions().subscribe(
+      response =>{
+        this.sessions = response
+      },
+      error =>{
+        console.log(error)
+      }
+    )
+
+  }
   addSession(){
     this.router.navigate(['sessionform',-1,1])
     // alert('add clicked')
@@ -53,9 +63,6 @@ export class SessionComponent implements OnInit ,OnDestroy {
     this.router.navigate(['sessionform',id,1])
 
 
-  }
-  public getSession(){
-    return this.sessions;
   }
 
   ngOnDestroy() {

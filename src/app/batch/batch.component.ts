@@ -49,9 +49,7 @@ export class BatchComponent implements OnInit,OnDestroy {
   }
 
   createBatch(){
-    this.batchList = [new Batch(1,["Ram"],["JAVA"],"06:00 pm-08:00 pm",new Date(),"MWF",new Date(),new Session(1,"ABC",new Date(),new Date()),"active","MP Nagar"),
-  new Batch(2,["Rohit Ahuja"],["Spring"],"09:00 am-11:00 am",new Date(),"TTS",new Date(),new Session(2,"xyz",new Date(),new Date()),"active","Indrapuri")]
-  }
+     }
 
   editBatchDetails(id){
     this.router.navigate(['batchform',id,1]);
@@ -72,11 +70,6 @@ export class BatchComponent implements OnInit,OnDestroy {
   }
 
   public getBatchById(id) {
-    for(let a of this.batchList) {
-       if(a.batchId == id){
-         console.log("called")
-         return a;
-       } 
-    }
+    
   }
 }

@@ -2,10 +2,15 @@ import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { Subject } from 'rxjs';
 import { DataTableDirective } from 'angular-datatables';
 import { Router } from '@angular/router';
+import { CollegeDataService } from '../service/data/college-data.service';
 
-export class CollegeList {
-  constructor(public id: number, public city: string, public group: string, public collegeName: string, public prefix: string, 
-    public Student: any) {}
+export class College {
+  constructor(public id: number, 
+    public city: string, 
+    public group: string, 
+    public name: string, 
+    public prefix: string
+    ) {}
  }
 
 @Component({
@@ -20,15 +25,9 @@ export class CollegeComponent implements OnInit, OnDestroy {
   datatableElement: DataTableDirective;
   dtOptions: DataTables.Settings = {};
 
-  colleges: CollegeList[] = [
-    new CollegeList(1, "Bhopal", "LNCT", "LNCTS", "LN", ["Aman", "Bharat", "Aashray"]),
-    new CollegeList(2, "Bhopal", "Oriental", "OIST", "OI", ["Kapil", "Somil"]),
-    new CollegeList(3, "Bhopal", "Sagar", "SIRT", "SI", ["Abhishek"]),
-  ]
+  constructor(public router: Router , private collegeData:CollegeDataService) { }
 
-  constructor(public router: Router) { }
-
-  
+  colleges:College[]
 
   ngOnInit() {
     this.dtTrigger.next();
@@ -36,6 +35,21 @@ export class CollegeComponent implements OnInit, OnDestroy {
       pagingType: 'full_numbers',
       lengthMenu: [ 5, 10, 15, 20 ],
     };
+
+    this.refreshColleges();
+    this.dtTrigger.next()
+  }
+
+  refreshColleges(){
+    this.collegeData.getAllColleges().subscribe(
+      response =>{
+        this.colleges = response
+      },
+      error =>{
+        console.log(error)
+      }
+    )
+
   }
 
   showStudents() {
