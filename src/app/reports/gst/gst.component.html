@@ -7,12 +7,15 @@
     <div class="container mb-5 pb-5 pt-3 mt-3">
         <div class="row justify-content-center pt-6">
             <article class="card-body col-md-11">
-                <div>
-                    From Date: <input type="date"  name="fdate" id="fdate" [ngModel]="fromDate | date:'yyyy-MM-dd'"
+                <div class="shadow-none p-3 mb-5 bg-light rounded"> 
+                    <label for="fdate">From Date :&nbsp;&nbsp;</label> 
+                    <input class="border border-primary" type="date" name="fdate" id="fdate" [ngModel]="fromDate | date:'yyyy-MM-dd'"
                         (ngModel)="this.fromDate= $event">
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;To Date: <input type="date" name="tdate" id="tdate"
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <label>To Date :</label> &nbsp;&nbsp;&nbsp;
+                    <input class="border border-primary" type="date" name="tdate" id="tdate"
                         [ngModel]="this.toDate | date:'yyyy-MM-dd'" (ngModel)="this.toDate= $event">&nbsp;&nbsp;
-                    <button class="btn btn-primary" (click)="activeDataTable(this.fromDate,this.toDate)">Go</button>
+                    <button class="btn btn-outline-primary btn-md size" (click)="activeDataTable(this.fromDate,this.toDate)">Go</button>
                         <br/><br/>
 
                 </div>
