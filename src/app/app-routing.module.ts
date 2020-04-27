@@ -33,8 +33,6 @@ import { FacultywiseCollectionComponent } from './reports/facultywise-collection
 import { SessionwiseCollectionComponent } from './reports/sessionwise-collection/sessionwise-collection.component';
 import { CoursewiseCollectionComponent } from './reports/coursewise-collection/coursewise-collection.component';
 import { BadDebtsComponent } from './reports/bad-debts/bad-debts.component';
->>>>>>> 1bee5d11817a34eae5a8756f96137bcb19dc57d8
-
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -108,7 +106,6 @@ const routes: Routes = [
   { path: 'reports/sessionwiseCollection', component: SessionwiseCollectionComponent, canActivate: [RouterGuardService]},
   { path: 'reports/coursewiseCollection', component: CoursewiseCollectionComponent, canActivate: [RouterGuardService]},
   { path: 'reports/badDebts', component: BadDebtsComponent, canActivate: [RouterGuardService]}
->>>>>>> 1bee5d11817a34eae5a8756f96137bcb19dc57d8
 
 ];
 
