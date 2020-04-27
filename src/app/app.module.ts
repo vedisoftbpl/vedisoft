@@ -33,17 +33,17 @@ import { HttpIntercepterBasicAuthService } from './service/http/http-intercepter
 import { StudentComponent } from './queries/student/student.component';
 import { DaybookComponent } from './reports/daybook/daybook.component';
 import { GstComponent } from './reports/gst/gst.component';
-<<<<<<< HEAD
+
 import { CollegeWiseStudentsComponent } from './reports/college-wise-students/college-wise-students.component';
 import { BranchWiseStudentEnrollmentsComponent } from './reports/branch-wise-student-enrollments/branch-wise-student-enrollments.component';
-=======
+
 import { BranchwiseCollectionComponent } from './reports/branchwise-collection/branchwise-collection.component';
 import { FacultywiseCollectionComponent } from './reports/facultywise-collection/facultywise-collection.component';
 import { SessionwiseCollectionComponent } from './reports/sessionwise-collection/sessionwise-collection.component';
 import { CoursewiseCollectionComponent } from './reports/coursewise-collection/coursewise-collection.component';
 import { BadDebtsComponent } from './reports/bad-debts/bad-debts.component';
 
->>>>>>> 1bee5d11817a34eae5a8756f96137bcb19dc57d8
+
 
 
 @NgModule({
@@ -75,16 +75,16 @@ import { BadDebtsComponent } from './reports/bad-debts/bad-debts.component';
     DaybookComponent,
     GstComponent,
     WelcomeComponent,
-<<<<<<< HEAD
+
     CollegeWiseStudentsComponent,
-    BranchWiseStudentEnrollmentsComponent
-=======
+    BranchWiseStudentEnrollmentsComponent,
+
     BranchwiseCollectionComponent,
     FacultywiseCollectionComponent,
     SessionwiseCollectionComponent,
     CoursewiseCollectionComponent,
     BadDebtsComponent
->>>>>>> 1bee5d11817a34eae5a8756f96137bcb19dc57d8
+
 
   ],
   imports: [

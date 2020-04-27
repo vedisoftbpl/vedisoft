@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Session } from 'src/app/session/session.component';
-import { College } from 'src/app/college/college.component';
+import { CollegeList } from 'src/app/college/college.component';
 import { Subject } from 'rxjs';
 import { DataTableDirective } from 'angular-datatables';
 
@@ -19,7 +19,7 @@ export class CollegeWiseStudentsComponent implements OnInit {
 
 
   session:Session[]
-  college:College[]
+  college:CollegeList[]
   studentList:CollegeWiseStudentList[]
   isEnabled:boolean = true
 
@@ -33,9 +33,9 @@ export class CollegeWiseStudentsComponent implements OnInit {
   ngOnInit() {
     this.session = [new Session(1,"abc",new Date(),new Date()),new Session(2,"xyz",new Date(),new Date()),
     new Session(3,"aash",new Date(),new Date())]
-    this.college = [new College(1, "Bhopal", "LNCT", "LNCTS", "LN", ["Aman", "Bharat", "Aashray"]),
-    new College(2, "Bhopal", "Oriental", "OIST", "OI", ["Kapil", "Somil"]),
-    new College(3, "Bhopal", "Sagar", "SIRT", "SI", ["Abhishek"]),]
+    this.college = [new CollegeList(1, "Bhopal", "LNCT", "LNCTS", "LN", ["Aman", "Bharat", "Aashray"]),
+    new CollegeList(2, "Bhopal", "Oriental", "OIST", "OI", ["Kapil", "Somil"]),
+    new CollegeList(3, "Bhopal", "Sagar", "SIRT", "SI", ["Abhishek"]),]
     this.dtOptions = {
       pagingType: 'full_numbers',
       lengthMenu: [5, 10, 15, 20],
