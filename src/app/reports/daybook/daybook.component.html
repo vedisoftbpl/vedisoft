@@ -5,11 +5,12 @@
         </div>
     </div>
     <div class="container mb-5 pb-5 pt-3 mt-3">
-        <div class="row justify-content-center pt-6">
-            <div>
-                Date: <input type="date" [ngModel]="currentDate | date:'yyyy-MM-dd'" (ngModel)="currentDate= $event"
+        <div class="row justify-content-left pt-6">
+            <div class="shadow-none p-3 mb-5 bg-light rounded">
+                <label for="date">Date : &nbsp;&nbsp;</label>
+                 <input class="border border-primary" id="date" type="date" [ngModel]="currentDate | date:'yyyy-MM-dd'" (ngModel)="currentDate= $event"
                     name="date" value="date">&nbsp;
-                <button class="btn btn-primary" (click)="showDayBook(currentDate)">Go</button>
+                <button type="button" class="btn btn-outline-primary btn-md size" (click)="showDayBook(currentDate)">Go</button>
             </div><br>
             <article class="card-body col-md-11">
                 <table *ngIf="isEnabled" [dtOptions]="dtOptions" datatable class="table">

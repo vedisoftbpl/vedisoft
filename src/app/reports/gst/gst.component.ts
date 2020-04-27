@@ -21,7 +21,7 @@ export class GstComponent implements OnInit,OnDestroy {
   dtOptions:DataTables.Settings = {}
 
   gstDetailList:GstDetailList[]
-  isEnabled:boolean = false
+  isEnabled:boolean = true
   fromDate:Date
   toDate:Date
 
@@ -29,6 +29,7 @@ export class GstComponent implements OnInit,OnDestroy {
 
   ngOnInit() {
     this.gstDetailList = [new GstDetailList(1,new Date(),120000,3,3),new GstDetailList(2,new Date(),1000000,3,3),new GstDetailList(3,new Date(),220000,3,3)]
+    this.fromDate =  new Date()
     this.toDate =  new Date()
   }
 

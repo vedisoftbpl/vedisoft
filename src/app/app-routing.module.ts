@@ -24,23 +24,15 @@ import { GstComponent } from './reports/gst/gst.component';
 import { RouterGuardService } from './service/router-guard.service';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { StudentComponent } from './queries/student/student.component';
-<<<<<<< HEAD
 
 import { CollegeWiseStudentsComponent } from './reports/college-wise-students/college-wise-students.component';
-
-=======
-import { CollegeWiseStudentsComponent } from './reports/college-wise-students/college-wise-students.component';
->>>>>>> 0f9530ab5ac29362665e2d648a001df16b1d76c8
 import { BranchwiseCollectionComponent } from './reports/branchwise-collection/branchwise-collection.component';
 import { FacultywiseCollectionComponent } from './reports/facultywise-collection/facultywise-collection.component';
 import { SessionwiseCollectionComponent } from './reports/sessionwise-collection/sessionwise-collection.component';
 import { CoursewiseCollectionComponent } from './reports/coursewise-collection/coursewise-collection.component';
 import { BadDebtsComponent } from './reports/bad-debts/bad-debts.component';
-<<<<<<< HEAD
-=======
 
 
->>>>>>> 0f9530ab5ac29362665e2d648a001df16b1d76c8
 
 const routes: Routes = [
   { path: '', component: WelcomeComponent, canActivate: [RouterGuardService]},
@@ -65,7 +57,6 @@ const routes: Routes = [
   { path: 'queries/printreceipt', component: PrintReceiptComponent },
   { path: 'reports/daybook', component: DaybookComponent },
   { path: 'reports/gst', component: GstComponent },
-<<<<<<< HEAD
   { path: 'reports/collegewisestudents', component: CollegeWiseStudentsComponent },
   { path: 'welcome', component: WelcomeComponent, canActivate: [RouterGuardService] },
   { path: 'signup', component: SigninComponent },
@@ -111,8 +102,7 @@ const routes: Routes = [
   { path: 'reports/facultywiseCollection', component: FacultywiseCollectionComponent, canActivate: [RouterGuardService] },
   { path: 'reports/sessionwiseCollection', component: SessionwiseCollectionComponent, canActivate: [RouterGuardService] },
   { path: 'reports/coursewiseCollection', component: CoursewiseCollectionComponent, canActivate: [RouterGuardService] },
-  { path: 'reports/badDebts', component: BadDebtsComponent, canActivate: [RouterGuardService] }
-=======
+  { path: 'reports/badDebts', component: BadDebtsComponent, canActivate: [RouterGuardService] },
   { path: 'reports/collegewisestudents', component: CollegeWiseStudentsComponent},
   { path: 'welcome', component: WelcomeComponent, canActivate: [RouterGuardService]},
   { path: 'queries/student', component: StudentComponent, canActivate: [RouterGuardService]},
@@ -121,7 +111,6 @@ const routes: Routes = [
   { path: 'reports/sessionwiseCollection', component: SessionwiseCollectionComponent, canActivate: [RouterGuardService]},
   { path: 'reports/coursewiseCollection', component: CoursewiseCollectionComponent, canActivate: [RouterGuardService]},
   { path: 'reports/badDebts', component: BadDebtsComponent, canActivate: [RouterGuardService]}
->>>>>>> 0f9530ab5ac29362665e2d648a001df16b1d76c8
 
 ];
 
