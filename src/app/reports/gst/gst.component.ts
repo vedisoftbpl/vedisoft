@@ -43,6 +43,7 @@ export class GstComponent implements OnInit,OnDestroy {
     else{
       this.dtOptions = {
         pagingType: 'full_numbers',
+        search: { search: this.fromDate + "-" + this.toDate},
         lengthMenu:[5,10,15,20],
       };
     }
