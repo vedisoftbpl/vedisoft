@@ -28,7 +28,7 @@ export class BranchFormComponent implements OnInit {
   }
 
   addBranch() {
-    // console.log(branch)
+    console.log(this.branch)
     this.branchService.addBranch(this.branch).subscribe(
       data => {
         console.log(data);

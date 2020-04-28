@@ -39,7 +39,7 @@
 
                                 <label>Plot No.</label>
                                 <div class="alert alert-warning" *ngIf='plotNo.invalid && plotNo.touched'>Please enter Plot Number.</div>
-                                <input [(ngModel)]="branch.plotNumber" class="form-control" type="text" required
+                                <input [(ngModel)]="branch.plotNo" class="form-control" type="text" required
                                     placeholder="plotno" name="plotno" #plotNo="ngModel">
                             </div> <!-- form-group end.// -->
 
@@ -47,7 +47,7 @@
 
                                 <label>Locality</label>
                                 <div class="alert alert-warning" *ngIf='locality.invalid && locality.touched'>Please enter locality.</div>
-                                <input [(ngModel)]="branch.Locality" class="form-control" type="text" required
+                                <input [(ngModel)]="branch.locality" class="form-control" type="text" required
                                     placeholder="locality" name="locality" #locality="ngModel">
                             </div>
 
@@ -91,7 +91,7 @@
 
                                 <label>Branch Contact Number</label>
                                 <div class="alert alert-warning" *ngIf='contactNumber.invalid && contactNumber.touched'>Please enter contact number.</div>
-                                <input [(ngModel)]="branch.contactNumber" class="form-control" type="number" required
+                                <input [(ngModel)]="branch.branchContactNumber" class="form-control" type="number" required
                                     placeholder="contactNumber" name="contactNumber" #contactNumber="ngModel">
                             </div>
 
@@ -99,7 +99,7 @@
 
                                 <label>Courses</label>
                                 <div class="alert alert-warning" *ngIf='courses.invalid && courses.touched'>Please enter courses.</div>
-                                <textarea [(ngModel)]="branch.courses" rows="4" cols="50" class="form-control" type=""
+                                <textarea [(ngModel)]="branch.multipleCourses" rows="4" cols="50" class="form-control" type=""
                                     required placeholder="courses" name="courses" required #courses="ngModel"></textarea>
                             </div>
 

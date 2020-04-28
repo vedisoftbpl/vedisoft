@@ -9,14 +9,14 @@ export class Branch {
     (public branchId: number,
       public branchName: string,
       public branchPrefix: string,
-      public plotNumber: string,
-      public Locality: string,
+      public plotNo: string,
+      public locality: string,
       public street: string,
       public city: string,
        public state: string,
        public branchManager: string[],
-       public contactNumber: string,
-       public courses: string,
+       public branchContactNumber: string,
+       public multipleCourses: string,
       public estbDate: Date,
       public latLong: string
       ) { }
