@@ -1,0 +1,141 @@
+<div class="main-header">
+    <div class="container-fluid flu mb-5">
+        <div class="service">
+            <h1 class="logo pt-5">Persons</h1>
+        </div>
+    </div>
+
+
+
+    <div class="container mb-5 pb-5 pt-3 mt-3">
+        <div class="row justify-content-center pt-6">
+
+            <div class="col-md-10">
+
+                <div class="card">
+
+                    <article class="card-body">
+
+                        <form #personForm="ngForm">
+
+                            <div class="form-group">
+                                <div class="alert alert-warning" *ngIf='active.touched && personName.invalid'>Please enter person name.</div>
+                                <label>Person Name</label>
+
+                                <input [(ngModel)]="person.personName" type="text" class="form-control"
+                                    placeholder="Person Name" name="name" #personName = "ngModel" required>
+
+                            </div> <!-- form-group end.// -->
+
+                            <div class="form-group">
+
+                                <label>Status</label>
+                                <div class="alert alert-warning" *ngIf='active.invalid && address.touched'>Status</div>
+                                <input [(ngModel)]="person.active" class="form-control" type="text" required
+                                    placeholder="Please enter 0 or 1." name="active" #active = "ngModel">
+                            </div> <!-- form-group end.// -->
+
+                            <div class="form-group">
+
+                                <label>Address</label>
+                                <div class="alert alert-warning" *ngIf='address.invalid && cardNo.touched'></div>
+                                <input [(ngModel)]="person.address" class="form-control" type="text" required
+                                    placeholder="Enter Address" name="address" #address="ngModel">
+                            </div> <!-- form-group end.// -->
+
+                            <div class="form-group">
+
+                                <label>Card Number</label>
+                                <div class="alert alert-warning" *ngIf='cardNo.invalid && contactNo.touched'></div>
+                                <input [(ngModel)]="person.cardNo" class="form-control" type="text" required
+                                    placeholder="Card Number" name="cardNo" #cardNo="ngModel">
+                            </div>
+
+                            <div class="form-group">
+
+                                <label>Contact Number</label>
+                                <div class="alert alert-warning" *ngIf='contactNo.invalid && designation.touched'></div>
+                                <input [(ngModel)]="person.contactNo" class="form-control" type="text" required
+                                    placeholder="Contact" name="conatctNo" #contactNo="ngModel">
+                            </div>
+
+                            <div class="form-group">
+
+                                <label>Designation</label>
+                                <div class="alert alert-warning" *ngIf='designation.invalid && dob.touched'></div>
+                                <input [(ngModel)]="person.designation" class="form-control" type="text" required
+                                    placeholder="Designation" name="designation" #designation="ngModel">
+                            </div>
+
+                            <div class="form-group">
+
+                                <label>Date of Birth</label>
+                                <div class="alert alert-warning" *ngIf='dob.invalid && doj.touched'></div>
+                                <input [ngModel]="person.dob|date:'yyyy-MM-dd' " (ngModelChange)="person.dob= $event" class="form-control" type="date" required
+                                    placeholder="dob" name="dob" #dob="ngModel">
+                            </div>
+
+                            
+
+                                <div class="form-group">
+
+                                    <label>Date of Joining</label>
+                                    <div class="alert alert-warning" *ngIf='doj.invalid && dol.touched'></div>
+                                    <input [ngModel]="person.doj|date:'yyyy-MM-dd' "
+                                        (ngModelChange)="person.doj= $event" class="form-control" type="date" required
+                                        placeholder="Date of Joining" name="doj" #doj="ngModel">
+                                </div>    
+                                
+                                <div class="form-group">
+
+                                    <label>Date of Leaving</label>
+                                    <div class="alert alert-warning" *ngIf='dol.invalid && email.touched'></div>
+                                    <input [ngModel]="person.dol|date:'yyyy-MM-dd' "
+                                        (ngModelChange)="person.dol= $event" class="form-control" type="date" required
+                                        placeholder="Date of Leaving" name="dol" #dol="ngModel">
+                                </div>    
+
+                            <div class="form-group">
+
+                                <label>E-Mail</label>
+                                <div class="alert alert-warning" *ngIf='email.invalid && locality.touched'></div>
+                                <input [(ngModel)]="person.email" class="form-control" type="email" required
+                                    placeholder="E-Mail" name="email" #email="ngModel">
+                            </div>
+
+                            <div class="form-group">
+
+                                <label>Locality</label>
+                                <div class="alert alert-warning" *ngIf='locality.invalid && password.touched'></div>
+                                <input [(ngModel)]="person.locality" class="form-control" type="text" required
+                                    placeholder="Locality" name="locality" #locality="ngModel">
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label>Password</label>
+                                <div class="alert alert-warning" *ngIf='password.invalid && password.touched'></div>
+                                <input [(ngModel)]="person.password" class="form-control" type="password" required
+                                    placeholder="Enter Password" name="password" #password="ngModel">
+                            </div>
+
+
+                        </form>
+
+                    </article> <!-- card-body end .// -->
+
+                    <div class="border-top card-body text-center"><button type="submit" (click) = "addBranch()"
+                            class="btn btn-success">Submit</button></div>
+                    
+
+
+                </div> <!-- card.// -->
+            </div> <!-- col.//-->
+
+
+        </div> <!-- row.//-->
+
+
+    </div>
+</div>

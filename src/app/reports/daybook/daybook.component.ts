@@ -16,7 +16,7 @@ export class DayBookDetail {
 export class DaybookComponent implements OnInit {
 
   currentDate: Date
-  isEnabled: boolean = false
+  isEnabled: boolean = true;
   dtTrigger: Subject<any> = new Subject();
   @ViewChild(DataTableDirective, { static: false })
   dataTableElement: DataTableDirective
@@ -34,6 +34,10 @@ export class DaybookComponent implements OnInit {
     //   pagingType: 'full_numbers',
     //   lengthMenu:[5,10,15,20]
     // };
+    this.createData();
+  }
+
+  createData() {
     this.daybookDetailList = [new DayBookDetail(1, "Aashray Jain", 12345, "Java", "evening", 3000, "cash", "Rohit sir"),
     new DayBookDetail(1, "Aman BAlani", 12349, "Pyhotn", "morning", 5000, "netBanking", "Rohit sir")]
   }
@@ -42,6 +46,7 @@ export class DaybookComponent implements OnInit {
     console.log("Data Table is called" + date);
     if (date) {
       this.isEnabled = true
+      this.createData();
       this.dtOptions = {
         pagingType: 'full_numbers',
         lengthMenu: [5, 10, 15, 20]

@@ -2,28 +2,28 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Subject } from 'rxjs';
 import { DataTableDirective } from 'angular-datatables';
 import { Session } from 'src/app/session/session.component';
+import { Course } from 'src/app/course/course.component';
 import { Branch } from 'src/app/branches/branches.component';
 
-export class BranchWiseStudent {
+export class SessionWiseStudent {
   public constructor(
-    public session: Session, public branchName: String
+    public session: Session, public branchName: String, course: Course
   ) {
 
   }
 }
 
 @Component({
-  selector: 'app-branch-wise-student-enrollments',
-  templateUrl: './branch-wise-student-enrollments.component.html',
-  styleUrls: ['./branch-wise-student-enrollments.component.css']
+  selector: 'app-session-wise-student',
+  templateUrl: './session-wise-student.component.html',
+  styleUrls: ['./session-wise-student.component.css']
 })
-export class BranchWiseStudentEnrollmentsComponent implements OnInit {
+export class SessionWiseStudentComponent implements OnInit {
 
 
   sessionList: Session[];
-  session: Session;
   branches: Branch[];
-  branch: Branch;
+  courseName: String;
 
   dtTrigger: Subject<any> = new Subject();
   @ViewChild(DataTableDirective, { static: false })
@@ -45,8 +45,8 @@ export class BranchWiseStudentEnrollmentsComponent implements OnInit {
     };
   }
 
-  public getSession() {
-    console.log("k");
+  getStudentByCourseName() {
+    
   }
 
 }

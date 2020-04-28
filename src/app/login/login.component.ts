@@ -10,8 +10,8 @@ import { UserDataService } from '../service/data/user-data.service';
 })
 export class LoginComponent implements OnInit {
 
-  email = 'abc@email.com'
-  password = 'abc123'
+  email = 'aashrayjain'
+  password = '7389330515'
   invalidLogin = false;
   errorMessage = "Invalid Credentials";
   constructor(private router: Router , private basicAuth:BasicAuthenticationService , private userData:UserDataService) { }

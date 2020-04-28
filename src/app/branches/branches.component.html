@@ -12,7 +12,7 @@
        
         <div class="row justify-content-center pt-6">
             <article class="card-body col-md-11">
-                <table [dtOptions]="dtOptions" datatable class="table">
+                <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -23,7 +23,7 @@
                     </thead>
                     <tbody>
                         <tr *ngFor="let branch of branches">
-                            <td>{{branch.id}}</td>
+                            <td>{{branch.branchId}}</td>
                             <td>{{branch.branchName}}</td>
                             <td>{{branch.city}}</td>
                             <td><button (click)="editBranchDetails(branch.id)" class="btn btn-primary">EDIT</button>/

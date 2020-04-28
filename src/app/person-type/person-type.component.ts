@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { Subject } from 'rxjs';
 import { DataTableDirective } from 'angular-datatables';
+import { PersonTypeService } from '../service/data/person-type.service';
 
 export class PersonType{
   constructor(public pid: number, public createdBy: number, public createdDate: Date, 
@@ -24,13 +25,14 @@ export class PersonTypeComponent implements OnInit, OnDestroy {
   datatableElement: DataTableDirective;
   dtOptions: DataTables.Settings = {};
 
-  personTypes: PersonType[] = [
-    new PersonType(1, 20200908, new Date(), 20200908, new Date(), "Front Office Incharge", "ADMIN"),
-    new PersonType(2, 20201010, new Date(), 20201228, new Date(), "Manager", "ADMIN"),
-    new PersonType(3, 20201228, new Date(), 20201119, new Date(), "Faculty", "ADMIN"),
-  ]
+  personTypes: PersonType[]
+  //  = [
+  //   new PersonType(1, 20200908, new Date(), 20200908, new Date(), "Front Office Incharge", "ADMIN"),
+  //   new PersonType(2, 20201010, new Date(), 20201228, new Date(), "Manager", "ADMIN"),
+  //   new PersonType(3, 20201228, new Date(), 20201119, new Date(), "Faculty", "ADMIN"),
+  // ]
   
-  constructor() {}
+  constructor(private personTypeService : PersonTypeService) {}
 
 
   ngOnInit() {
@@ -39,13 +41,22 @@ export class PersonTypeComponent implements OnInit, OnDestroy {
       pagingType: 'full_numbers',
       lengthMenu: [ 5, 10, 15, 20 ],
       columnDefs: [
-
-
         { targets: [2, 4], type: 'date' }
-    
       ]
-      
     };
+    this.refreshPersonTypes();
+  }
+
+  refreshPersonTypes() {
+    this.personTypeService.getAllPersonTypes().subscribe(
+      response => {
+        this.personTypes = response,
+        this.dtTrigger.next()
+      },
+      error => {
+        console.log(error)
+      }
+    )
   }
 
   ngOnDestroy() {

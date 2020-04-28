@@ -33,12 +33,12 @@ export class StudentComponent implements OnInit, OnDestroy {
   students: Student[] = [
     new Student(1, "Mp nagar", "yes", 825, "Infosys", "Java", 1, new Date(), new Date(), new Date(), "abc@gmail.com", 1, "", "Neelesh",
     "", "MPNAGRA", 1, new Date(), "Aditya Kumar", "", "Bhopal", "Businessman", "123456", "1", "879346", new Date(), "4", "78654887685", 
-    new Branch(1, "MONAGRA", "MP", "54545", "MPNAGAR", "STREET", "BHOPAL", "MP", ["ABC"], 7384542, "JAVA", new Date(), "6455455"), 
+    new Branch(1, "MONAGRA", "MP", "54545", "MPNAGAR", "STREET", "BHOPAL", "MP", ["ABC"], "7384542", "JAVA", new Date(), "6455455"), 
     new College(1, "BHOPAL", "LNCT", "LMCTS", "LN")),
 
     new Student(2, "Indrapuri", "yes", 825, "Cognizant", "C++", 1, new Date(), new Date(), new Date(), "abc@gmail.com", 1, "", "Neelesh",
     "", "MPNAGRA", 1, new Date(), "Divyanand Pandey", "", "Bhopal", "Businessman", "123456", "1", "879346", new Date(), "4", "78654887685", 
-    new Branch(1, "MONAGRA", "MP", "54545", "MPNAGAR", "STREET", "BHOPAL", "MP", ["ABC"], 7384542, "JAVA", new Date(), "6455455"), 
+    new Branch(1, "MONAGRA", "MP", "54545", "MPNAGAR", "STREET", "BHOPAL", "MP", ["ABC"], "7384542", "JAVA", new Date(), "6455455"), 
     new College(1, "BHOPAL", "LNCT", "LMCTS", "LN", ))
   ]
 

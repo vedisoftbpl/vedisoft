@@ -6,7 +6,7 @@ import { BranchesService } from '../service/data/branches.service';
 
 export class Branch {
   constructor
-    (public id: number,
+    (public branchId: number,
       public branchName: string,
       public branchPrefix: string,
       public plotNumber: string,
@@ -14,8 +14,8 @@ export class Branch {
       public street: string,
       public city: string,
        public state: string,
-       public branchManager: any[],
-       public contactNumber: number,
+       public branchManager: string[],
+       public contactNumber: string,
        public courses: string,
       public estbDate: Date,
       public latLong: string
@@ -58,12 +58,14 @@ export class BranchesComponent implements OnInit,OnDestroy {
       lengthMenu: [2, 5, 10, 15, 20],
     };
     this.refreshBranches();
+    
   }
 
   refreshBranches(){
     this.branchService.getAllBranches().subscribe(
       response =>{
-        this.branches = response
+        this.branches = response,
+        this.dtTrigger.next();
       },
       error =>{
         console.log(error)

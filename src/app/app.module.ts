@@ -33,13 +33,18 @@ import { HttpIntercepterBasicAuthService } from './service/http/http-intercepter
 import { StudentComponent } from './queries/student/student.component';
 import { DaybookComponent } from './reports/daybook/daybook.component';
 import { GstComponent } from './reports/gst/gst.component';
+
 import { CollegeWiseStudentsComponent } from './reports/college-wise-students/college-wise-students.component';
 import { BranchWiseStudentEnrollmentsComponent } from './reports/branch-wise-student-enrollments/branch-wise-student-enrollments.component';
+
 import { BranchwiseCollectionComponent } from './reports/branchwise-collection/branchwise-collection.component';
 import { FacultywiseCollectionComponent } from './reports/facultywise-collection/facultywise-collection.component';
 import { SessionwiseCollectionComponent } from './reports/sessionwise-collection/sessionwise-collection.component';
 import { CoursewiseCollectionComponent } from './reports/coursewise-collection/coursewise-collection.component';
 import { BadDebtsComponent } from './reports/bad-debts/bad-debts.component';
+import { AllotComponent } from './allot/allot.component';
+import { SessionWiseStudentComponent } from './reports/session-wise-student/session-wise-student.component';
+import { PersonFormComponent } from './person-form/person-form.component';
 
 
 
@@ -78,7 +83,10 @@ import { BadDebtsComponent } from './reports/bad-debts/bad-debts.component';
     FacultywiseCollectionComponent,
     SessionwiseCollectionComponent,
     CoursewiseCollectionComponent,
-    BadDebtsComponent
+    BadDebtsComponent,
+    AllotComponent,
+    SessionWiseStudentComponent,
+    PersonFormComponent
 
   ],
   imports: [

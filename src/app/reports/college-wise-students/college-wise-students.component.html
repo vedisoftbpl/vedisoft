@@ -7,33 +7,41 @@
     <div class="container mb-5 pb-5 pt-3 mt-3">
         <div class="row justify-content-center pt-6">
             <article class="card-body col-md-11">
-                <div>
-                    <label>Session:</label>&nbsp;&nbsp;&nbsp;
-                    <select  [(ngModel)]="this.session" name="session">
-                        <option selected  value="All">All</option>
-                        <option  *ngFor="let s of this.session" value="s.sessionName">{{s.sessionName}}</option>
-                    </select><br><br>
-                    <label>College Group:</label>&nbsp;&nbsp;&nbsp;
-                    <select  [(ngModel)]="this.college" name="collegegroup">
-                        <option  value="All">All</option>
-                        <option  *ngFor="let c of this.college" value="c.group">{{c.group}}</option>
-                    </select><br><br>
-                    <label>College:</label>&nbsp;&nbsp;&nbsp;
-                    <select  [(ngModel)]="this.college" name="collegegroup">
-                        <option  value="All">All</option>
-                        <option  *ngFor="let cg of this.college" value="g.collegeName}}">{{cg.collegeName}}</option>
-                    </select><br><br>
-                    <!-- <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" 
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Session</button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <option class="dropdown-item" value="All">All</option>
-                            <option class="dropdown-item" *ngFor="let s of this.session" value="{{s.sessionName}}">{{s.sessionName}}</option>
+                <div class="shadow-none p-3 mb-5 bg-light rounded">
+                    <div class="row">
+                        <div class="col-3">
+                            <label>Session :</label>
                         </div>
-                        </div> -->
-                    
-                        <br/><br/>
-
+                        <div class="col-9">
+                            <select style="width: 50%;" class="border border-primary" [(ngModel)]="this.session" name="session">
+                                <option  selected="selected" value="All">All</option>
+                                <option *ngFor="let s of this.session" value="s.sessionName">{{s.sessionName}}</option>
+                            </select><br><br>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                            <label>College Group :</label>
+                        </div>
+                        <div class="col-9">
+                            <select style="width: 50%;" class="border border-primary" [(ngModel)]="this.college" name="collegegroup">
+                                <option value="All">All</option>
+                                <option *ngFor="let c of this.college" value="c.group">{{c.group}}</option>
+                            </select><br><br>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                            <label>College :</label>
+                        </div>
+                        <div class="col-9">
+                            <select style="width: 50%;" class="border border-primary" [(ngModel)]="this.college" name="collegegroup">
+                                <option value="All">All</option>
+                                <option *ngFor="let cg of this.college" value="g.collegeName}}">{{cg.collegeName}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
                 </div>
                 <table [dtOptions]="dtOptions" datatable class="table" *ngIf="isEnabled">
                     <thead>
@@ -52,7 +60,7 @@
                             <td>{{student.studentName}}</td>
                             <td>{{student.course}}</td>
                             <td>{{student.sem}}</td>
-                        </tr> 
+                        </tr>
                     </tbody>
                 </table>
             </article>
