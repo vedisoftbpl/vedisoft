@@ -16,16 +16,16 @@
 
                     <article class="card-body">
 
-                        <form #batchForm="ngForm">
+                        <form #batchForm="ngForm" (ngSubmit)="submitForm()">
 
                             <div class="form-group">
 
                                 <label>Faculty</label>
                                 <div class="alert alert-warning" *ngIf='faculty.invalid && faculty.touched'>Please select faculty name.</div>
                                 <select name="faculty"  [(ngModel)]="batch.faculty" class="form-control" required #faculty="ngModel">
-                                    <option value="Rohit Ahuja">Rohit Ahuja</option>
-                                    <option value="Ram">Ram</option>
-                                    <option value="Raveesh">Raveesh</option>
+                                    <option value="1">Rohit Ahuja</option>
+                                    <option value="2">Ram</option>
+                                    <option value="3">Raveesh</option>
                                 </select>
 
                             </div> <!-- form-group end.// -->
@@ -89,7 +89,7 @@
 
                                 <label>Sessions</label>
                                 <div class="alert alert-warning" *ngIf='session.invalid && session.touched'>Please select session.</div>
-                                <select [(ngModel)]="batch.session.sessionName" class="form-control"name="session" required #session="ngModel">
+                                <select [(ngModel)]="batch.session" class="form-control"name="session" required #session="ngModel">
                                     <option value="ABC">s1</option>
                                     <option value="xyz">s2</option>
                                     <option value="s3">s3</option>
@@ -111,13 +111,14 @@
                                 <input [(ngModel)]="batch.branch" class="form-control" type="text" required
                                     placeholder="branch" name="branch" #branch="ngModel">
                             </div>
+                            
+                    <div class="border-top card-body text-center"><button type="submit"
+                        class="btn btn-success">Submit</button></div>
 
                         </form>
 
                     </article> <!-- card-body end .// -->
 
-                    <div class="border-top card-body text-center"><button type="submit"
-                            class="btn btn-success">Submit</button></div>
 
 
                 </div> <!-- card.// -->

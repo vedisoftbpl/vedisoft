@@ -3,18 +3,26 @@ import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { DataTableDirective } from 'angular-datatables';
 import { Session, SessionComponent } from '../session/session.component';
+import { BatchDataService } from '../service/data/batch-data.service';
 export class Batch {
   constructor(
     public batchId:number,
-    public faculty:string[],
-    public course:string[],
-    public timings:string,
-    public startDate:Date,
+    public branchId:number,
+    public code:string,
+    public createdBy:number,
+    public creationDate:Date,
     public days:string,
-    public endDate:Date,
-    public session:Session,
+    public enddate:string,
+    public facultyId:number,
+    public lastUpdatedBy:number,
+    public lastUpdatationDate:Date,
+    public sdate:Date,
     public status:string,
-    public branch:string
+    public timings:string,
+    public branch:string,
+    public course:number,
+    public session:string,
+    
   ){}
 }
 
@@ -33,7 +41,7 @@ export class BatchComponent implements OnInit,OnDestroy {
 
 
 
-  constructor(private router :Router) { 
+  constructor(private router :Router , private batchService : BatchDataService) { 
     
   }
   batchList: Batch[]
@@ -45,10 +53,20 @@ export class BatchComponent implements OnInit,OnDestroy {
       pagingType: 'full_numbers',
       lengthMenu: [5,10,15,20]
     };
-    this.createBatch()
+    this.refreshBatch()
   }
 
-  createBatch(){
+  refreshBatch(){
+    this.batchService.getAllBatches().subscribe(
+      response =>{
+        this.batchList = response
+      },
+      error =>{
+        console.log(error)
+      }
+
+    )
+
      }
 
   editBatchDetails(id){
