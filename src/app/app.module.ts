@@ -42,8 +42,12 @@ import { FacultywiseCollectionComponent } from './reports/facultywise-collection
 import { SessionwiseCollectionComponent } from './reports/sessionwise-collection/sessionwise-collection.component';
 import { CoursewiseCollectionComponent } from './reports/coursewise-collection/coursewise-collection.component';
 import { BadDebtsComponent } from './reports/bad-debts/bad-debts.component';
+<<<<<<< HEAD
 import { AllotComponent } from './allot/allot.component';
 import { SessionWiseStudentComponent } from './reports/session-wise-student/session-wise-student.component';
+=======
+import { PersonFormComponent } from './person-form/person-form.component';
+>>>>>>> b3791bb15579d01788d4aa6e2deb446050f8a1e0
 
 
 
@@ -83,8 +87,12 @@ import { SessionWiseStudentComponent } from './reports/session-wise-student/sess
     SessionwiseCollectionComponent,
     CoursewiseCollectionComponent,
     BadDebtsComponent,
+<<<<<<< HEAD
     AllotComponent,
     SessionWiseStudentComponent
+=======
+    PersonFormComponent
+>>>>>>> b3791bb15579d01788d4aa6e2deb446050f8a1e0
 
   ],
   imports: [

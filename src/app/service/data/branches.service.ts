@@ -19,7 +19,7 @@ export class BranchesService {
   }
 
   addBranch(branch){
-    return this.http.post(`${API_URL}/vedisoft//branch/formSubmit`, branch)
+    return this.http.post(`${API_URL}/vedisoft/branch/formSubmit`, branch)
   }
 
   updateBranch(branch,id){

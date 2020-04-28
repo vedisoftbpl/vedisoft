@@ -34,6 +34,7 @@ import { BadDebtsComponent } from './reports/bad-debts/bad-debts.component';
 import { BranchWiseStudentEnrollmentsComponent } from './reports/branch-wise-student-enrollments/branch-wise-student-enrollments.component';
 import { AllotComponent } from './allot/allot.component';
 import { SessionWiseStudentComponent } from './reports/session-wise-student/session-wise-student.component';
+import { PersonFormComponent } from './person-form/person-form.component';
 
 
 
@@ -97,7 +98,17 @@ const routes: Routes = [
   { path: 'reports/branchwisestudent', component: BranchWiseStudentEnrollmentsComponent, canActivate: [RouterGuardService] },
   { path: 'reports/sessionwisestudent', component: SessionWiseStudentComponent, canActivate: [RouterGuardService] },
   { path: 'reports/badDebts', component: BadDebtsComponent, canActivate: [RouterGuardService] },
-  { path: 'reports/collegewisestudents', component: CollegeWiseStudentsComponent, canActivate: [RouterGuardService] }
+  { path: 'reports/collegewisestudents', component: CollegeWiseStudentsComponent, canActivate: [RouterGuardService] },
+  { path: 'reports/collegewisestudents', component: CollegeWiseStudentsComponent},
+  { path: 'welcome', component: WelcomeComponent, canActivate: [RouterGuardService]},
+  { path: 'queries/student', component: StudentComponent, canActivate: [RouterGuardService]},
+  { path: 'reports/branchwiseCollection', component: BranchwiseCollectionComponent, canActivate: [RouterGuardService]},
+  { path: 'reports/facultywiseCollection', component: FacultywiseCollectionComponent, canActivate: [RouterGuardService]},
+  { path: 'reports/sessionwiseCollection', component: SessionwiseCollectionComponent, canActivate: [RouterGuardService]},
+  { path: 'reports/coursewiseCollection', component: CoursewiseCollectionComponent, canActivate: [RouterGuardService]},
+  { path: 'reports/badDebts', component: BadDebtsComponent, canActivate: [RouterGuardService]},
+  { path: 'personForm/:id', component: PersonFormComponent, canActivate: [RouterGuardService]}
+
 ];
 
 @NgModule({

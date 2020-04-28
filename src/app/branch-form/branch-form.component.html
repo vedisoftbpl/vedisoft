@@ -78,7 +78,7 @@
                             <div class="form-group">
 
                                 <label>Branch Manager</label>
-                                <div class="alert alert-warning" *ngIf='manager.errors.required && contactNumber.dirty'>Please select branch manager.</div>
+                                <div class="alert alert-warning" *ngIf='manager.invalid && contactNumber.dirty'>Please select branch manager.</div>
                                 <select name="multiple" [(ngModel)]="branch.branchManager"
                                     class="form-control" required #manager="ngModel">
                                     <option value="Rohit Ahuja">Rohit Ahuja</option>
@@ -125,7 +125,7 @@
 
                     </article> <!-- card-body end .// -->
 
-                    <div class="border-top card-body text-center"><button type="submit"
+                    <div class="border-top card-body text-center"><button type="submit" (click) = "addBranch()"
                             class="btn btn-success">Submit</button></div>
                     
 
