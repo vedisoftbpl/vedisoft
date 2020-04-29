@@ -119,13 +119,22 @@
                                 <input [(ngModel)]="person.password" class="form-control" type="password" required
                                     placeholder="Enter Password" name="password" #password="ngModel">
                             </div>
+                            
+
+                            <div class="form-group">
+
+                                <label>Branch ID</label>
+                                <div class="alert alert-warning" *ngIf='branchId.invalid'></div>
+                                <input [(ngModel)]="branch.branchId" class="form-control" type="text" required
+                                    placeholder="ID of the branch" name="locality" #branchId="ngModel">
+                            </div>
 
 
                         </form>
 
                     </article> <!-- card-body end .// -->
 
-                    <div class="border-top card-body text-center"><button type="submit" (click) = "addBranch()"
+                    <div class="border-top card-body text-center"><button type="submit" (click) = "addPerson()"
                             class="btn btn-success">Submit</button></div>
                     
 

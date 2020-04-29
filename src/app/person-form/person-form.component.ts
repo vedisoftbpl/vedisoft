@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Person } from '../person/person.component';
+import { PersonService } from '../service/data/person.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Branch } from '../branches/branches.component';
 
 @Component({
   selector: 'app-person-form',
@@ -10,12 +13,35 @@ export class PersonFormComponent implements OnInit {
 
 
   person: Person
+  id: number
+  branch: Branch
   
-  constructor() { }
+  
+  constructor(private router:ActivatedRoute,
+    private route:Router, private personService: PersonService) { }
 
   ngOnInit() {
-    this.person = new Person(1, 1, "", "", "", "", 0, new Date(), "", new Date(), new Date(), new Date(), "", "", 0, new Date(), "", "",
-    "", "", "", "", "", "", "", [""], "");
+    this.id = this.router.snapshot.params['id']
+    this.branch = new Branch(1, "", "", "", "", "", "", "", ["Rohit Ahuja"], "", "", new Date(), "");
+    this.person = new Person(this.id, 1, "", "", "", "", 0, new Date(), "", new Date(), new Date(), new Date(), "", "", 0, new Date(), "", "",
+    "", "", "", "", "", "", this.branch, [""], "");
+    if(this.id != -1) {
+      this.personService.getPersonById(this.id).subscribe(
+        data => {
+          this.person = data
+        }
+      )
+    }
+  }
+
+  addPerson() {
+    this.person.branch.branchId = this.branch.branchId
+    this.personService.addPerson(this.person).subscribe(
+      data => {
+        console.log(data);
+        this.route.navigate(['/person']);
+      }
+    )
   }
 
 }

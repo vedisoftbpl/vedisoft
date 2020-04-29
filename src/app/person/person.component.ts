@@ -4,13 +4,14 @@ import { Subject } from 'rxjs';
 import { DataTableDirective } from 'angular-datatables';
 import { Router } from '@angular/router';
 import { PersonService } from '../service/data/person.service';
+import { Branch } from '../branches/branches.component';
 
 export class Person{
   constructor(public personId: number, public active: number, public address: string, public cardNo: string, public city: string, 
     public contactNo: string, public createdBy: number, public createdDate: Date, public designation: string, public dob: Date,
     public doj: Date, public dol: Date, public email: string, public key1: string, public lastUpdatedBy: number,
     public lastUpdatedDate: Date, public locality: string, public password: string, public personName: string, public personTypeId: string,
-    public plotNo: string, public state: string, public street: string, public username: string, public branch: any,
+    public plotNo: string, public state: string, public street: string, public username: string, public branch: Branch,
     public installments: any[],
     public personType: any){}
 }
