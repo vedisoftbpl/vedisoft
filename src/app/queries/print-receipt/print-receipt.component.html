@@ -7,10 +7,17 @@
     <div class="container mb-5 pb-5 pt-3 mt-3">
         <div class="row justify-content-center pt-6">
             <article class="card-body col-md-11">
-                <div>Search Student:&nbsp;
-                    <input type="text" name="name" [(ngModel)]="this.studentName" id="name" required> &nbsp; &nbsp;
-                    <button class="btn btn-primary" (click)="showStudentList(this.studentName)">Go</button><br><br>
-                </div>
+                <nav class="navbar navbar-light bg-light justify-content-center">
+                    <form class="form-inline">
+
+                        <div>
+                            <label for="name" class="form-control"> Student :</label>&nbsp;&nbsp;
+                            
+                            <input type="text" class="form-control" name="name" placeholder="Enter Student Name" [(ngModel)]="this.studentName" id="name" required> &nbsp; &nbsp;
+                            <button class="btn btn-outline-success" (click)="showStudentList(this.studentName)">Go</button><br><br>
+                        </div>
+                    </form>
+                 </nav>
                 <table [dtOptions]="dtOptions" datatable class="table" *ngIf="isEnabled">
                     <thead>
                         <tr>
