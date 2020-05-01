@@ -35,6 +35,7 @@ import { BranchWiseStudentEnrollmentsComponent } from './reports/branch-wise-stu
 import { AllotComponent } from './allot/allot.component';
 import { SessionWiseStudentComponent } from './reports/session-wise-student/session-wise-student.component';
 import { PersonFormComponent } from './person-form/person-form.component';
+import { StudentReportComponent } from './student-report/student-report.component';
 
 
 
@@ -65,6 +66,7 @@ const routes: Routes = [
   { path: 'certi', component: CertiRequestComponent, canActivate: [RouterGuardService] },
   { path: 'installments', component: InstallmentComponent, canActivate: [RouterGuardService] },
   { path: 'allot', component: AllotComponent, canActivate: [RouterGuardService] },
+  { path: 'student-report', component: StudentReportComponent, canActivate: [RouterGuardService] },
 
 
   { path: 'certi', component: CertiRequestComponent, canActivate: [RouterGuardService] },

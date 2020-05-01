@@ -12,22 +12,18 @@
     </li>
   </ul>
 
-<!--  
-    <div class="dropdown ml-auto dropleft float-right">
-      <a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <i class='fa fa-user fa-2x'></i>
-      </a>
-      <div class="dropdown-menu" *ngIf="this.basicAuth.isUserLoggedIn()"> -->
-        <!-- <a class="dropdown-item"  routerLink="">Login</a> -->
-        <!-- <a class="dropdown-item"  routerLink="login" >Logout</a>
-      </div>
-      
+
+  <!-- <div class="dropdown ml-auto dropleft float-right">
+    <a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <i class='fa fa-user fa-2x'></i>
+    </a>
+    <div class="dropdown-menu" *ngIf="this.basicAuth.isUserLoggedIn()">
+      <a class="dropdown-item" routerLink="login">Logout</a>
     </div>
-     -->
-     <div class="dropdown ml-auto dropleft float-right" *ngIf="this.basicAuth.isUserLoggedIn()">
-       <button class="btn btn-danger" routerLink="login" (click)="logout()">Logout</button>
 
+  </div> -->
 
-     </div>
-  
+  <div class="dropdown ml-auto dropleft float-right" *ngIf="this.basicAuth.isUserLoggedIn()">
+    <button class="btn btn-outline-warning" routerLink="login" (click)="logout()">Logout</button>
+  </div>
 </nav>
