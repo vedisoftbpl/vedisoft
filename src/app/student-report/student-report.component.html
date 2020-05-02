@@ -1,0 +1,136 @@
+<div class="wrapper">
+    <div class="container-fluid flu mb-5">
+        <div class="service">
+            <h1 class="logo pt-5">Student Report</h1>
+        </div>
+    </div>
+    <div class="container mb-5 pb-5 pt-3 mt-3">
+        <div class="row justify-content-center pt-6">
+            <article class="card-body col-md-11">
+                <form #studentForm="ngForm" (ngSubmit)="buttonCall()">
+                    <div class="shadow-none p-3 mb-5 bg-light rounded">
+                        
+                        <div class="form-group">
+                        
+                        <div class="row">
+                            <div class="col-2">
+                                <label for="sname">Name :</label>
+                            </div>
+                            <div class="col-10">
+                                <input id="sname" #name="ngModel" required class="border border-primary form-control" [(ngModel)]="sname" name="name" placeholder="Enter Student Name" type="text">
+                                <div class="alert alert-warning" *ngIf='name.invalid && name.touched'>Please fill student name</div>
+                                <br>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="form-group">
+                        <div class="row">
+                            <div class="col-2">
+                                <label for="mobile">Mobile No :</label>
+                            </div>
+                            <div class="col-4">
+                                <input id="mobile" #mobileno="ngModel" class="border border-primary form-control" [(ngModel)]="mobile" name="mobile" placeholder="Enter Mobile Number" type="tel" maxlength="11" minlength="9" required>
+                                <div class="alert alert-warning" *ngIf='mobileno.invalid && mobileno.touched'>Mobile number is required.</div>
+                            </div>
+                            <div class="col-6">
+                                <button class="btn btn-outline-success" id="button" type="submit">Search</button>
+                            </div>
+                        </div>
+                        </div>
+
+                    </div>
+                    <div *ngIf="isEnabled">
+                        <div class="row form-group">
+                            <div class="col-2">
+                                <label for="address">Address :</label>
+                            </div>
+                            <div class="col-10">
+                                <input id="address" class="border border-primary form-control" [(ngModel)]="this.address" name="address" value="subhash chowk" type="text" disabled>
+                            </div>
+                        </div>
+                    </div>
+                </form><br><br><br>
+
+                <table [dtOptions]="dtOptions" datatable class="table" *ngIf="isEnabled">
+                    <thead>
+                        <tr>
+                            <th>Language</th>
+                            <th>Batch Code</th>
+                            <th>Date</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let sdetail of studentDetails">
+                            <td>{{sdetail.course}}</td>
+                            <td>{{sdetail.batchCode}}</td>
+                            <td>
+                                <tr *ngFor="let d of sdetail.installmentDates;let i=index ">
+                                    <td>Installment{{i+1}}</td>
+                                    <td>{{d}}</td>
+                                </tr>
+                            <td>
+                                <tr *ngFor="let inst of sdetail.installment">
+                                    <td>{{inst}}</td>
+                                </tr>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table><br><br><br>
+                
+                <div *ngIf="isEnabled">
+                    <nav class="navbar navbar-light bg-light justify-content-center">
+                        <form class="form-inline"><h4>Java - 203</h4></form>
+                    </nav><br><br>
+
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th scope="col">S No.</th>
+                            <th scope="col">Amount</th>
+                            <th scope="col">Certificate</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>2500</td>
+                            <td><button class="btn btn-outline-danger">Print</button></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>2400</td>
+                            <td><button class="btn btn-outline-danger">Print</button></td>
+                        </tr>
+                        </tbody>
+                    </table><br><br>
+
+                  </div>
+
+                  <div *ngIf="isEnabled">
+
+                    <nav class="navbar navbar-light bg-light justify-content-center">
+                        <form class="form-inline"><h4>Python - 204</h4></form>
+                        </nav><br>
+
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th scope="col">S No.</th>
+                            <th scope="col">Amount</th>
+                            <th scope="col">Certificate</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>6000</td>
+                            <td><button class="btn btn-outline-danger">Print</button></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                  </div>
+                
+            </article>
+        </div>
+    </div>

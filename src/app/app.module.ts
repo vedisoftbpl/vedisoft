@@ -45,6 +45,7 @@ import { BadDebtsComponent } from './reports/bad-debts/bad-debts.component';
 import { AllotComponent } from './allot/allot.component';
 import { SessionWiseStudentComponent } from './reports/session-wise-student/session-wise-student.component';
 import { PersonFormComponent } from './person-form/person-form.component';
+import { StudentReportComponent } from './student-report/student-report.component';
 
 
 
@@ -86,7 +87,8 @@ import { PersonFormComponent } from './person-form/person-form.component';
     BadDebtsComponent,
     AllotComponent,
     SessionWiseStudentComponent,
-    PersonFormComponent
+    PersonFormComponent,
+    StudentReportComponent
 
   ],
   imports: [
