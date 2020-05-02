@@ -12,7 +12,7 @@
        
         <div class="row justify-content-center pt-6">
             <article class="card-body col-md-11">
-                <table [dtOptions]="dtOptions" datatable class="table">
+                <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -26,7 +26,7 @@
                             <td>{{course.id}}</td>
                             <td>{{course.name}}</td>
                             <td>{{course.prefix}}</td>
-                            <td><button (click)="viewCourseDetails(course.id)" class="btn btn-primary mr-2">VIEW</button>
+                            <td><button (click)="viewCourseDetails(course)" class="btn btn-primary mr-2"  data-toggle="modal" data-target="#courseModalScrollable">VIEW</button>
                                 <button (click)="editCourseDetails(course.id)" class="btn btn-warning mr-2">EDIT</button>
                                 <button (click)="deleteCourseDetails(course.id)" class="btn btn-danger mr-2">DELETE</button>
                             </td>
@@ -52,3 +52,33 @@
 
         <!--container end.//-->
     </div>
+
+
+    <!-- Modal -->
+  <div class="modal fade" id="courseModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalScrollableTitle">Courses Details</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Course ID: {{course.id}}</li>
+            <li class="list-group-item">Course Name: {{course.name}}</li>
+            <li class="list-group-item">Course Prefix: {{course.prefix}}</li>
+            <li class="list-group-item">Duration: {{course.duration}}</li>
+            <li class="list-group-item">Certificate: {{course.certiTitle}}</li>
+          </ul>
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  

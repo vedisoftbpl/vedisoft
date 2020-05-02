@@ -3,6 +3,7 @@ import { Subject } from 'rxjs';
 import { DataTableDirective } from 'angular-datatables';
 import { Router } from '@angular/router';
 import { BranchesService } from '../service/data/branches.service';
+import { RouterGuardService } from '../service/router-guard.service';
 
 export class Branch {
   constructor
@@ -15,7 +16,7 @@ export class Branch {
       public city: string,
        public state: string,
        public branchManager: string[],
-       public branchContactNumber: string,
+       public branchContactNo: string,
        public multipleCourses: string,
       public estbDate: Date,
       public latLong: string
@@ -41,7 +42,7 @@ export class BranchesComponent implements OnInit,OnDestroy {
   datatableElement: DataTableDirective;
   dtOptions: DataTables.Settings = {};
 
-  constructor( public router:Router, private branchService: BranchesService ) { }
+  constructor( public router:Router, private branchService: BranchesService, private routeGuard: RouterGuardService) { }
 
   // branches: Branch[] = [
   //   new Branch(1, "M.P. NAGAR", "mpn", "3rd Floor, 275", "above Andhra Bank, Near Time Coaching", "Zone-II, Maharana Pratap Nagar", "Bhopal", " Madhya Pradesh",["Rohit Ahuja"],1234556778,"JAVA,C++,C",new Date(),"23.2524° N, 77.4646° E"),
@@ -51,6 +52,7 @@ export class BranchesComponent implements OnInit,OnDestroy {
     // branches:Branch[] = this.branchL.branches
 
     branches: Branch[];
+    branch: Branch = new Branch(1, "", "", "", "", "", "", "", [""], "", "", new Date(), "");
 
   ngOnInit() {
     this.dtOptions = {
@@ -81,8 +83,15 @@ export class BranchesComponent implements OnInit,OnDestroy {
       console.log("ADD PRESSED")
   }
 
-  getBranchById(id) {
-    this.branchService.getBranchById(id);
+  getBranchById(branch) {
+    
+        this.branch = branch;
+      
+    
+  }
+
+  editBranch(id) {
+      this.router.navigate(['branchForm', id]);
   }
 
 

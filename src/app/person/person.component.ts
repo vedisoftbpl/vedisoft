@@ -13,7 +13,7 @@ export class Person{
     public lastUpdatedDate: Date, public locality: string, public password: string, public personName: string, public personTypeId: string,
     public plotNo: string, public state: string, public street: string, public username: string, public branch: Branch,
     public installments: any[],
-    public personType: any){}
+    public personType: PersonType){}
 }
 
 @Component({
@@ -32,6 +32,7 @@ export class PersonComponent implements OnInit, OnDestroy {
   dtOptions: DataTables.Settings = {};
 
   persons: Person[]
+  person: Person = null;
   //  = [
   //   new Person(1, 54, "C112", "20200908", "Bhopal", "01012358996", 123, new Date(), "Faculty", new Date(), new Date(), new Date(), 
   //   "abc@gmail.com", "key", 123, new Date(), "Sonagiri", "0103AC", "Lokesh", "1010", "45", "MP", "Dalal Street", "lokesh", "Indrapuri", 
@@ -72,8 +73,16 @@ export class PersonComponent implements OnInit, OnDestroy {
     this.router.navigate(['/personForm', -1]);
 }
 
+  updatePerson(id) {
+    this.router.navigate(['personForm', id]);
+  }
+
   ngOnDestroy() {
     this.dtTrigger.unsubscribe();
+  }
+
+  viewPerson(person) {
+    this.person = person
   }
 
 }

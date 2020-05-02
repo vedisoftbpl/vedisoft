@@ -46,6 +46,7 @@ export class SessionComponent implements OnInit ,OnDestroy {
     this.sessionData.getAllSessions().subscribe(
       response =>{
         this.sessions = response
+        this.dtTrigger.next()
       },
       error =>{
         console.log(error)

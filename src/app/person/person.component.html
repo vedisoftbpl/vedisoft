@@ -28,8 +28,8 @@
                             <td>{{person.personName}}</td>
                             <td>{{person.designation}}</td>
                             <td>{{person.contactNo}}</td>
-                            <td><button  class="btn btn-success">Update</button> / 
-                            <button  class="btn btn-primary">View</button></td>
+                            <td><button (click) = "updatePerson(person.personId)" class="btn btn-success">Update</button> / 
+                            <button (click) = "viewPerson(person)" class="btn btn-primary" data-toggle="modal" data-target="#personModalScrollable">View</button></td>
                         </tr>
                     </tbody>
     
@@ -62,3 +62,51 @@
 
         <!--container end.//-->
     </div>
+
+    <div class="modal fade" id="personModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalScrollableTitle">Vedisoft Branch</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">ID: {{person.personId}}</li>
+                <li class="list-group-item">Name: {{person.personName}}</li>
+                <li class="list-group-item">Status: {{person.active}}</li>
+                <li class="list-group-item">Address: {{person.address}}</li>
+                <li class="list-group-item">Card Number: {{person.cardNo}}</li>
+                <li class="list-group-item">Contact Number: {{person.contactNo}}</li>
+                <li class="list-group-item">Created By: {{person.createdBy}}</li>
+                <li class="list-group-item">Created Date: {{person.createdDate | date}}</li>
+                <li class="list-group-item">Designation: {{person.designation}}</li>
+                <li class="list-group-item">Date of Birth: {{person.dob | date}}</li>
+                <li class="list-group-item">Date of Joining: {{person.doj | date}}</li>
+                <li class="list-group-item">Date of Leaving: {{person.dol | date}}</li>
+                <li class="list-group-item">E-mail: {{person.email}}</li>
+                <li class="list-group-item">Key1: {{person.key1}}</li>
+                <li class="list-group-item">Last Updated By: {{person.lastUpdatedBy}}</li>
+                <li class="list-group-item">Last Updated Date: {{person.lastUpdatedDate | date}}</li>
+                <li class="list-group-item">Locality: {{person.locality}}</li>
+                <li class="list-group-item">Person Type ID: {{person.personTypeId}}</li>
+                <li class="list-group-item">Plot Number: {{person.plotNo}}</li>
+                <li class="list-group-item">State: {{person.state}}</li>
+                <li class="list-group-item">Street: {{person.street}}</li>
+                <li class="list-group-item">Username: {{person.username}}</li>
+                <li class="list-group-item">Password: {{person.password}}</li>
+                <li class="list-group-item">Branch ID: {{person.branch.branchId}}</li>
+                <li class="list-group-item">Branch Name: {{person.branch.branchName}}</li>
+              </ul>
+              
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      

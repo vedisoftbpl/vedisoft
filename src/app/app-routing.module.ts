@@ -49,7 +49,7 @@ const routes: Routes = [
   { path: 'person', component: PersonComponent },
   { path: 'college', component: CollegeComponent },
   { path: 'addCollege', component: AddCollegeComponent },
-  { path: 'branches', component: BranchesComponent },
+  { path: 'branches', component: BranchesComponent, canActivate: [RouterGuardService] },
   { path: 'branchForm/:id', component: BranchFormComponent },
   { path: 'session', component: SessionComponent },
   { path: 'sessionform/:id/:isEnabled', component: SessionFormComponent },

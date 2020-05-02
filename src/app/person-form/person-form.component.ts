@@ -22,7 +22,7 @@ export class PersonFormComponent implements OnInit {
 
   ngOnInit() {
     this.id = this.router.snapshot.params['id']
-    this.branch = new Branch(1, "", "", "", "", "", "", "", ["Rohit Ahuja"], "", "", new Date(), "");
+    this.branch = new Branch(2, "", "", "", "", "", "", "", ["Rohit Ahuja"], "", "", new Date(), "");
     this.person = new Person(this.id, 1, "", "", "", "", 0, new Date(), "", new Date(), new Date(), new Date(), "", "", 0, new Date(), "", "",
     "", "", "", "", "", "", this.branch, [""], "");
     if(this.id != -1) {
@@ -31,17 +31,30 @@ export class PersonFormComponent implements OnInit {
           this.person = data
         }
       )
+
     }
+    
   }
 
   addPerson() {
-    this.person.branch.branchId = this.branch.branchId
+    
+    if(this.person.personId == -1) {
     this.personService.addPerson(this.person).subscribe(
       data => {
         console.log(data);
         this.route.navigate(['/person']);
       }
     )
+    }
+    else {
+      
+      this.personService.updatePerson(this.person, this.id).subscribe(
+        data => {
+          console.log(data)
+          this.route.navigate(["person"])
+        }
+      )
+    }
   }
 
 }

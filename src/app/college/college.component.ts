@@ -44,6 +44,7 @@ export class CollegeComponent implements OnInit, OnDestroy {
     this.collegeData.getAllColleges().subscribe(
       response =>{
         this.colleges = response
+        this.dtTrigger.next()
       },
       error =>{
         console.log(error)

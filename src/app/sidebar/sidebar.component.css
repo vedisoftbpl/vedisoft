@@ -4,6 +4,7 @@
     margin-left:45px;
     margin-top: 15px;
     margin-bottom: 15px;
+    position: relative;
     }
 }
 @media only screen and (min-width: 1200px) {
@@ -17,6 +18,7 @@
 .main-sidebar {
     height: 250%;
     width: 270px;
+    position: absolute;
     }
 
 .report {

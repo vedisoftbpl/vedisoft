@@ -26,8 +26,9 @@
                             <td>{{branch.branchId}}</td>
                             <td>{{branch.branchName}}</td>
                             <td>{{branch.city}}</td>
-                            <td><button (click)="editBranchDetails(branch.id)" class="btn btn-primary">EDIT</button>/
-                                <button (click)="viewBranchDetails(branch.id)" class="btn btn-warning">VIEW</button>
+                            <td><button (click)="editBranch(branch.branchId)" class="btn btn-primary">EDIT</button>/
+                                <button (click)="getBranchById(branch)" type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalScrollable">
+                                    VIEW</button>
                             </td>
                             <!-- <td><button (click)="deleteTodo(todo.id)" class="btn btn-warning">Delete</button></td> -->
                         </tr>
@@ -51,3 +52,44 @@
 
         <!--container end.//-->
     </div>
+
+
+    <!-- Button trigger modal -->
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalScrollableTitle">Vedisoft Branch</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Branch ID: {{branch.branchId}}</li>
+            <li class="list-group-item">Branch Name: {{branch.branchName}}</li>
+            <li class="list-group-item">Branch Prefix: {{branch.branchPrefix}}</li>
+            <li class="list-group-item">Plot Number: {{branch.plotNo}}</li>
+            <li class="list-group-item">Locality: {{branch.locality}}</li>
+            <li class="list-group-item">Street: {{branch.street}}</li>
+            <li class="list-group-item">City: {{branch.city}}</li>
+            <li class="list-group-item">State: {{branch.state}}</li>
+            <li class="list-group-item">Branch Manager: {{branch.branchManager}}</li>
+            <li class="list-group-item">Contact Number: {{branch.branchContactNo}}</li>
+            <li class="list-group-item">Courses Offered: {{branch.multipleCourses}}</li>
+            <li class="list-group-item">Established Date: {{branch.estbDate | date}}</li>
+            <li class="list-group-item">Latitude Longitude: {{branch.latLong}}</li>
+          </ul>
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  

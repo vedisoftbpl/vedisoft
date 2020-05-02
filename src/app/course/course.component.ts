@@ -30,6 +30,7 @@ export class CourseComponent implements OnInit ,OnDestroy {
 
     courses:Course[]
     username = ' '
+    course: Course = new Course(1, "", 1, "", "")
 
   ngOnInit() {
     this.dtOptions = {
@@ -40,7 +41,7 @@ export class CourseComponent implements OnInit ,OnDestroy {
 
     this.username = sessionStorage.getItem('authenticatedUser')
     this.refreshCourses();
-    this.dtTrigger.next()
+    
     // this.dtTrigger.subscribe();
   }
 
@@ -48,6 +49,7 @@ export class CourseComponent implements OnInit ,OnDestroy {
     this.courseData.getAllCourses().subscribe(
       response => {
         this.courses = response
+        this.dtTrigger.next()
       }
     )
 
@@ -62,13 +64,9 @@ export class CourseComponent implements OnInit ,OnDestroy {
 
   editCourseDetails(id){
     this.router.navigate(['courseform',id,1])
-
-
   }
-  viewCourseDetails(id){
-    this.router.navigate(['courseform',id,1])
-
-
+  viewCourseDetails(course){
+    this.course = course;
   }
   deleteCourseDetails(id){
     this.courseData.deleteCourse(id).subscribe(
@@ -79,6 +77,7 @@ export class CourseComponent implements OnInit ,OnDestroy {
         console.log(error)
       }
     )
+    this.dtTrigger.unsubscribe();
 
 
   }
