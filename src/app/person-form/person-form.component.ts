@@ -3,6 +3,7 @@ import { Person } from '../person/person.component';
 import { PersonService } from '../service/data/person.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Branch } from '../branches/branches.component';
+import { PersonType } from '../person-type/person-type.component';
 
 @Component({
   selector: 'app-person-form',
@@ -15,6 +16,7 @@ export class PersonFormComponent implements OnInit {
   person: Person
   id: number
   branch: Branch
+  personType: PersonType
   
   
   constructor(private router:ActivatedRoute,
@@ -24,7 +26,7 @@ export class PersonFormComponent implements OnInit {
     this.id = this.router.snapshot.params['id']
     this.branch = new Branch(2, "", "", "", "", "", "", "", ["Rohit Ahuja"], "", "", new Date(), "");
     this.person = new Person(this.id, 1, "", "", "", "", 0, new Date(), "", new Date(), new Date(), new Date(), "", "", 0, new Date(), "", "",
-    "", "", "", "", "", "", this.branch, [""], "");
+    "", "", "", "", "", "", this.branch, [""], this.personType);
     if(this.id != -1) {
       this.personService.getPersonById(this.id).subscribe(
         data => {
