@@ -32,7 +32,9 @@ export class PersonComponent implements OnInit, OnDestroy {
   dtOptions: DataTables.Settings = {};
 
   persons: Person[]
-  person: Person = null;
+  person: Person = new Person(1, 1, "", "", "", "", 1, new Date(), "", new Date(), new Date(), new Date(), "", "", 1, new Date(), "", 
+  "", "", "", "", "", "", "", new Branch(1, "", "", "", "", "", "", "", [""], "", "", new Date(), ""), [""], new PersonType(1, 1, new Date(),
+  1, new Date, "", ""));
   //  = [
   //   new Person(1, 54, "C112", "20200908", "Bhopal", "01012358996", 123, new Date(), "Faculty", new Date(), new Date(), new Date(), 
   //   "abc@gmail.com", "key", 123, new Date(), "Sonagiri", "0103AC", "Lokesh", "1010", "45", "MP", "Dalal Street", "lokesh", "Indrapuri", 
