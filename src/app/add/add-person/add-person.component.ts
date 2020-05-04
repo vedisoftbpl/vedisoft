@@ -14,9 +14,8 @@ export class AddPersonComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.branch = new Branch(1, "", "", "", "", "", "", "", ["Rohit Ahuja"], "", "", new Date(), "");
-    this.person = new Person(null, null, "", "", "", "", null, new Date(), "", new Date(), new Date(), new Date(), "", "", null, 
-    new Date(), "", "", "", "", "", "", "", "",this.branch, [], null);
+    // this.person = new Person(null, null, "", "", "", "", null, new Date(), "", new Date(), new Date(), new Date(), "", "", null, 
+    // new Date(), "", "", "", "", "", "", "", "", "", [], null);
   }
 
 }

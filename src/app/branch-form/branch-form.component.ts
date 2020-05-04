@@ -29,18 +29,24 @@ export class BranchFormComponent implements OnInit {
 
   addBranch() {
     console.log(this.branch)
+    if(this.branch.branchId == -1) {
     this.branchService.addBranch(this.branch).subscribe(
       data => {
         console.log(data);
         this.route.navigate(['/branches']);
       }
     )
+   }
+   else{
+     this.branchService.updateBranch(this.branch, this.id).subscribe(
+       data => {
+         this.route.navigate(['/branches'])
+       }
+     )
+   }
   }
   getBranchById(id) {
     this.branchService.getBranchById(id);
   }
-  updateBranch() {
-    this.branchService.updateBranch(this.branch, this.id);
-  }
-
+  
 }

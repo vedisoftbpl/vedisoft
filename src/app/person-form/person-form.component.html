@@ -125,9 +125,14 @@
 
                                 <label>Branch ID</label>
                                 <div class="alert alert-warning" *ngIf='branchId.invalid'></div>
-                                <input [(ngModel)]="branch.branchId" class="form-control" type="text" required
+                                <input [(ngModel)]="person.branch.branchId" class="form-control" type="text" required
                                     placeholder="ID of the branch" name="locality" #branchId="ngModel">
                             </div>
+                            <label>Person Type ID</label>
+                                <div class="alert alert-warning" *ngIf='branchId.invalid'></div>
+                                <input [(ngModel)]="person.personType.pid" class="form-control" type="text" required
+                                    placeholder="Person Type Id" name="locality" #personTypeId="ngModel">
+                            
 
 
                         </form>

@@ -8,12 +8,13 @@
 
 
 
-    <nav class="navbar navbar-light bg-light justify-content-center" *ngIf='!isEnabled'>
+    <nav class="navbar navbar-light bg-light justify-content-center" >
 
         <form class="form-inline" (ngSubmit)='!studentForm.invalid && searchStudent()' #studentForm="ngForm">
+            <label for="name">Name :&nbsp;&nbsp;</label>
             <div class="alert alert-warning mainNavBarTop" *ngIf='search.touched && search.invalid'>Please enter valid
                 input.</div>
-            <input [(ngModel)]="studentName" class="form-control mr-sm-2" type="search" placeholder="Search Student"
+            <input [(ngModel)]="studentName" id="name" class="form-control mr-sm-2" type="search" placeholder="Search Student"
                 aria-label="Search" required #search='ngModel' name="search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
@@ -24,30 +25,39 @@
 
         <div class="row justify-content-center pt-6">
             <article class="card-body col-md-11">
-                <table [dtOptions]="dtOptions" datatable class="table" *ngIf="isEnabled">
+
+                <table [dtOptions]="dtOptions" datatable class="table">
                     <thead>
                         <tr>
-                            <th>Registration ID</th>
-                            <th>Name</th>
-                            <th>Address</th>
-                            <th>Mobile</th>
-                            <th>Course</th>
+                            <th>#</th>
+                            <th>Batch</th>
+                            <th>Fee Status</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let student of students">
-                            <td>{{student.registrationId}}</td>
-                            <td>{{student.name}}</td>
-                            <td>{{student.laddress}}</td>
-                            <td>{{student.pno}}</td>
-                            <td>{{student.course}}</td>
-                            <!-- <td><button (click)="showStudents()" class="btn btn-primary">Show Students</button></td> -->
-                            <!-- <td><button (click)="deleteTodo(todo.id)" class="btn btn-warning">Delete</button></td> -->
+                        <tr>
+                            <td>1</td>
+                            <td>JAVA 2020</td>
+                            <td>Paid</td>
+                            <td><button class="btn btn-success">Allot Batch</button> /
+                                <button class="btn btn-warning">Add Installment</button> /
+                                <button class="btn btn-success">Certificate Request</button></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>C C++</td>
+                            <td>Pending</td>
+                            <td><button class="btn btn-success">Allot Batch</button> /
+                                <button class="btn btn-warning">Add Installment</button> /
+                                <button class="btn btn-success">Certificate Request</button></td>
                         </tr>
                     </tbody>
                 </table>
+
+
             </article>
-        </div> <!-- row.//--
+        </div> <!-- row.//-->
 
     </div>
 
