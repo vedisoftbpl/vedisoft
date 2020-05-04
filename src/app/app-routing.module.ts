@@ -23,7 +23,7 @@ import { DaybookComponent } from './reports/daybook/daybook.component';
 import { GstComponent } from './reports/gst/gst.component';
 import { RouterGuardService } from './service/router-guard.service';
 import { WelcomeComponent } from './welcome/welcome.component';
-import { StudentComponent } from './queries/student/student.component';
+import { StudentComponent } from './student/student.component';
 
 import { CollegeWiseStudentsComponent } from './reports/college-wise-students/college-wise-students.component';
 import { BranchwiseCollectionComponent } from './reports/branchwise-collection/branchwise-collection.component';
@@ -35,7 +35,7 @@ import { BranchWiseStudentEnrollmentsComponent } from './reports/branch-wise-stu
 import { AllotComponent } from './allot/allot.component';
 import { SessionWiseStudentComponent } from './reports/session-wise-student/session-wise-student.component';
 import { PersonFormComponent } from './person-form/person-form.component';
-import { StudentReportComponent } from './student-report/student-report.component';
+import { StudentReportComponent } from './queries/student-report/student-report.component';
 
 
 
@@ -60,13 +60,16 @@ const routes: Routes = [
   { path: 'batchform/:id/:isEnabled', component: BatchFormComponent },
   { path: 'fees', component: FeesComponent },
   { path: 'feesform/:id/:isEnabled', component: FeesFormComponent },
-  { path: 'queries/printreceipt', component: PrintReceiptComponent },
+
+  
 
 
   { path: 'certi', component: CertiRequestComponent, canActivate: [RouterGuardService] },
   { path: 'installments', component: InstallmentComponent, canActivate: [RouterGuardService] },
   { path: 'allot', component: AllotComponent, canActivate: [RouterGuardService] },
-  { path: 'student-report', component: StudentReportComponent, canActivate: [RouterGuardService] },
+  
+  { path: 'queries/student-report', component: StudentReportComponent, canActivate: [RouterGuardService] },
+  { path: 'queries/printreceipt', component: PrintReceiptComponent },
 
 
   { path: 'certi', component: CertiRequestComponent, canActivate: [RouterGuardService] },
@@ -84,15 +87,15 @@ const routes: Routes = [
   { path: 'batchform/:id/:isEnabled', component: BatchFormComponent, canActivate: [RouterGuardService] },
   { path: 'fees', component: FeesComponent, canActivate: [RouterGuardService] },
   { path: 'feesform/:id/:isEnabled', component: FeesFormComponent, canActivate: [RouterGuardService] },
+  { path: 'student', component: StudentComponent, canActivate: [RouterGuardService] },
 
 
   { path: 'queries/printreceipt', component: PrintReceiptComponent, canActivate: [RouterGuardService] },
-  { path: 'queries/student', component: StudentComponent, canActivate: [RouterGuardService] },
+  { path: 'queries/student-report', component: StudentComponent, canActivate: [RouterGuardService] },
 
 
   { path: 'reports/daybook', component: DaybookComponent },
   { path: 'reports/gst', component: GstComponent },
-  { path: 'reports/collegewisestudents', component: CollegeWiseStudentsComponent },
   { path: 'reports/branchwiseCollection', component: BranchwiseCollectionComponent, canActivate: [RouterGuardService] },
   { path: 'reports/facultywiseCollection', component: FacultywiseCollectionComponent, canActivate: [RouterGuardService] },
   { path: 'reports/sessionwiseCollection', component: SessionwiseCollectionComponent, canActivate: [RouterGuardService] },
@@ -103,12 +106,6 @@ const routes: Routes = [
   { path: 'reports/collegewisestudents', component: CollegeWiseStudentsComponent, canActivate: [RouterGuardService] },
   { path: 'reports/collegewisestudents', component: CollegeWiseStudentsComponent},
   { path: 'welcome', component: WelcomeComponent, canActivate: [RouterGuardService]},
-  { path: 'queries/student', component: StudentComponent, canActivate: [RouterGuardService]},
-  { path: 'reports/branchwiseCollection', component: BranchwiseCollectionComponent, canActivate: [RouterGuardService]},
-  { path: 'reports/facultywiseCollection', component: FacultywiseCollectionComponent, canActivate: [RouterGuardService]},
-  { path: 'reports/sessionwiseCollection', component: SessionwiseCollectionComponent, canActivate: [RouterGuardService]},
-  { path: 'reports/coursewiseCollection', component: CoursewiseCollectionComponent, canActivate: [RouterGuardService]},
-  { path: 'reports/badDebts', component: BadDebtsComponent, canActivate: [RouterGuardService]},
   { path: 'personForm/:id', component: PersonFormComponent, canActivate: [RouterGuardService]}
 
 ];

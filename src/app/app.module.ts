@@ -30,7 +30,7 @@ import { FeesFormComponent } from './fees-form/fees-form.component';
 import { PrintReceiptComponent } from './queries/print-receipt/print-receipt.component';
 import { WelcomeComponent } from './welcome/welcome.component'
 import { HttpIntercepterBasicAuthService } from './service/http/http-intercepter-basic-auth.service';
-import { StudentComponent } from './queries/student/student.component';
+import { StudentComponent } from './student/student.component';
 import { DaybookComponent } from './reports/daybook/daybook.component';
 import { GstComponent } from './reports/gst/gst.component';
 
@@ -45,7 +45,7 @@ import { BadDebtsComponent } from './reports/bad-debts/bad-debts.component';
 import { AllotComponent } from './allot/allot.component';
 import { SessionWiseStudentComponent } from './reports/session-wise-student/session-wise-student.component';
 import { PersonFormComponent } from './person-form/person-form.component';
-import { StudentReportComponent } from './student-report/student-report.component';
+import { StudentReportComponent } from './queries/student-report/student-report.component';
 
 
 

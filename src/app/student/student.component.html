@@ -1,0 +1,65 @@
+<div class="wrapper">
+
+    <div class="container-fluid flu mb-5">
+        <div class="service">
+            <h1 class="logo pt-5">STUDENT</h1>
+        </div>
+    </div>
+
+
+
+    <nav class="navbar navbar-light bg-light justify-content-center" >
+
+        <form class="form-inline" (ngSubmit)='!studentForm.invalid && searchStudent()' #studentForm="ngForm">
+            <label for="name">Name :&nbsp;&nbsp;</label>
+            <div class="alert alert-warning mainNavBarTop" *ngIf='search.touched && search.invalid'>Please enter valid
+                input.</div>
+            <input [(ngModel)]="studentName" id="name" class="form-control mr-sm-2" type="search" placeholder="Search Student"
+                aria-label="Search" required #search='ngModel' name="search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </nav>
+
+
+    <div class="container mb-5 pb-5 pt-3 mt-3">
+
+        <div class="row justify-content-center pt-6">
+            <article class="card-body col-md-11">
+
+                <table [dtOptions]="dtOptions" datatable class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Batch</th>
+                            <th>Fee Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>JAVA 2020</td>
+                            <td>Paid</td>
+                            <td><button class="btn btn-success">Allot Batch</button> /
+                                <button class="btn btn-warning">Add Installment</button> /
+                                <button class="btn btn-success">Certificate Request</button></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>C C++</td>
+                            <td>Pending</td>
+                            <td><button class="btn btn-success">Allot Batch</button> /
+                                <button class="btn btn-warning">Add Installment</button> /
+                                <button class="btn btn-success">Certificate Request</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+            </article>
+        </div> <!-- row.//-->
+
+    </div>
+
+    <!--container end.//-->
+</div>
