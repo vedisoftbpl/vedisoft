@@ -4,10 +4,12 @@ import { Subject } from 'rxjs';
 import { DataTableDirective } from 'angular-datatables';
 import { Session, SessionComponent } from '../session/session.component';
 import { BatchDataService } from '../service/data/batch-data.service';
+import { Branch } from '../branches/branches.component';
+import { Course } from '../course/course.component';
 export class Batch {
   constructor(
     public batchId:number,
-    public branchId:number,
+    // public branchId:number,
     public code:string,
     public createdBy:number,
     public creationDate:Date,
@@ -19,9 +21,9 @@ export class Batch {
     public sdate:Date,
     public status:string,
     public timings:string,
-    public branch:string,
-    public course:number,
-    public session:string,
+    public branch:Branch,
+    public course:Course,
+    public session:Session,
     
   ){}
 }
@@ -58,8 +60,10 @@ export class BatchComponent implements OnInit,OnDestroy {
 
   refreshBatch(){
     this.batchService.getAllBatches().subscribe(
-      response =>{
-        this.batchList = response
+      data =>{
+        // console.log(data)
+        this.batchList = data
+        // console.log(this.batchList[0])
       },
       error =>{
         console.log(error)

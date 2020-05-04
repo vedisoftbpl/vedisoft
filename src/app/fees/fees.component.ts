@@ -2,10 +2,25 @@ import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { DataTableDirective } from 'angular-datatables';
+import { Batch } from '../batch/batch.component';
+import { Branch } from '../branches/branches.component';
+import { FeeDataService } from '../service/data/fee-data.service';
 
 export class Fees {
   constructor(
-    public batchId: number, public feeAmount: number, public dueDate: Date, public mode: String) {
+    public id:number,
+    public createdBy:number,
+    public creationDate:Date,
+    public dueDate: Date,
+    public extra1:string,
+    public extra2:number,
+    public famt: number,
+    public lastCreationBy:number,
+    public lastCreationDate:Date,
+    public mode1: String,
+    public branch:any,
+    public batch:any
+       ) {
 
   }
 }
@@ -23,14 +38,33 @@ export class FeesComponent implements OnInit, OnDestroy {
   dtOptions:DataTables.Settings = {}
 
   feesList: Fees[]
-  constructor(private router: Router) { }
+  batch:Batch;
+  constructor(private router: Router, private feeData:FeeDataService) { }
 
   ngOnInit() {
-this.dtOptions = {pagingType: 'full_numbers', lengthMenu:[5,10,15,20]}
+    this.dtTrigger.next();
+    this.dtOptions = {
+      pagingType: 'full_numbers',
+      lengthMenu: [ 5, 10, 15, 20 ],
+    };
 
-    this.feesList = [new Fees(1, 90000.68, new Date(), "training")
-      , new Fees(2, 50000, new Date(), "merit"),
-    new Fees(3, 90000.68, new Date(), "training")]
+    this.refreshColleges();
+    this.dtTrigger.next()
+  }
+
+  refreshColleges(){
+    this.feeData.getAllFees().subscribe(
+      response =>{
+        console.log(response)
+        this.feesList = response
+        console.log(this.feesList)
+        this.batch = this.feesList[0].batch
+      },
+      error =>{
+        console.log(error)
+      }
+    )
+
   }
 
   public editFeesDetails(batchId) {

@@ -22,7 +22,7 @@
 
                                 <label>Faculty</label>
                                 <div class="alert alert-warning" *ngIf='faculty.invalid && faculty.touched'>Please select faculty name.</div>
-                                <select name="faculty"  [(ngModel)]="batch.faculty" class="form-control" required #faculty="ngModel">
+                                <select name="faculty"  [(ngModel)]="batch.facultyId" class="form-control" required #faculty="ngModel">
                                     <option value="1">Rohit Ahuja</option>
                                     <option value="2">Ram</option>
                                     <option value="3">Raveesh</option>
@@ -35,11 +35,9 @@
 
                                 <label>Course</label>
                                 <div class="alert alert-warning" *ngIf='course.invalid && course.touched'>Please enter course name.</div>
-                                <select name="course"  [(ngModel)]="batch.course" class="form-control" required #course="ngModel">
-                                    <option value="JAVA">Java</option>
-                                    <option value="C++">C++</option>
-                                    <option value="Python">Python</option>
-                                    <option value="Spring">Spring</option>
+                                <select name="course"  [(ngModel)]="batch.course.id" class="form-control" required #course="ngModel">
+                                    
+                                    <option *ngFor="let course of courseList" [value]="course.id">{{course.certiTitle}}</option>
                                 </select>
                             </div> <!-- form-group end.// -->
 
@@ -55,7 +53,7 @@
 
                                 <label>Starting Date</label>
                                 <div class="alert alert-warning" *ngIf='startDate.invalid && startDate.touched'>Please enter starting date.</div>
-                                <input [ngModel]="batch.startDate|date:'yyyy-MM-dd'" (ngModelChange)="batch.startDate=$event" class="form-control" type="date" required
+                                <input [ngModel]="batch.sdate|date:'yyyy-MM-dd'" (ngModelChange)="batch.sdate=$event" class="form-control" type="date" required
                                     placeholder="startDate" name="startDate" #startDate="ngModel">
                             </div>
 
@@ -71,7 +69,7 @@
 
                                 <label>End Date</label>
                                 <div class="alert alert-warning" *ngIf='endDate.invalid && endDate.touched'>Please enter ending date.</div>
-                                <input [ngModel]="batch.endDate|date:'yyyy-MM-dd'" (ngModelChange)="batch.endDate=$event" class="form-control" type="date" required
+                                <input [ngModel]="batch.enddate|date:'yyyy-MM-dd'" (ngModelChange)="batch.enddate=$event" class="form-control" type="date" required
                                     placeholder="endDate" name="endDate" #endDate="ngModel">
                             </div>
 
@@ -79,10 +77,8 @@
 
                                 <label>Sessions</label>
                                 <div class="alert alert-warning" *ngIf='session.invalid && session.touched'>Please select session.</div>
-                                <select [(ngModel)]="batch.session" class="form-control"name="session" required #session="ngModel">
-                                    <option value="ABC">s1</option>
-                                    <option value="xyz">s2</option>
-                                    <option value="s3">s3</option>
+                                <select [(ngModel)]="batch.session.sessionId" class="form-control"name="session" required #session="ngModel">
+                                    <option *ngFor="let session of sessionList" [value]="session.sessionId">{{session.sessionName}}</option>
                                 </select>
                             </div>
 
@@ -94,13 +90,24 @@
                                     placeholder="status" name="status" #status="ngModel">
                             </div>
 
-                            <div class="form-group">
+                            <!-- <div class="form-group">
 
                                 <label>Branch</label>
                                 <div class="alert alert-warning" *ngIf='branch.invalid && branch.touched'>Please enter branch name.</div>
-                                <input [(ngModel)]="batch.branch" class="form-control" type="text" required
+                                <input [(ngModel)]="batch.branch.branchName" class="form-control" type="text" required
                                     placeholder="branch" name="branch" #branch="ngModel">
-                            </div>
+                            </div> -->
+
+                            <div class="form-group">
+                                
+
+                                <label>Branch</label>
+                                <div class="alert alert-warning" *ngIf='branch.invalid && branch.touched'>Please select branch name.</div>
+                                <select name="branch"  [(ngModel)]="batch.branch.branchId" class="form-control" required #branch="ngModel">
+                                    
+                                    <option *ngFor="let branch of branchList" [value]="branch.branchId">{{branch.branchName}}</option>
+                                </select>
+                            </div> <!-- form-group end.// -->
                             
                     <div class="border-top card-body text-center"><button type="submit"
                         class="btn btn-success">Submit</button></div>

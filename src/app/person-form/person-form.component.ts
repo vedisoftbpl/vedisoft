@@ -24,10 +24,11 @@ export class PersonFormComponent implements OnInit {
     this.id = this.router.snapshot.params['id']
     this.branch = new Branch(1, "", "", "", "", "", "", "", ["Rohit Ahuja"], "", "", new Date(), "");
     this.person = new Person(this.id, 1, "", "", "", "", 0, new Date(), "", new Date(), new Date(), new Date(), "", "", 0, new Date(), "", "",
-    "", "", "", "", "", "", this.branch, [""], "");
+    "", "", "", "", "", "", this.branch, [], "");
     if(this.id != -1) {
       this.personService.getPersonById(this.id).subscribe(
         data => {
+          console.log(data)
           this.person = data
         }
       )

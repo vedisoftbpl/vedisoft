@@ -21,8 +21,8 @@ export class BatchDataService {
   }
 
   addBatch(batch){
-    console.log(batch)
-    return this.http.post(`${API_URL}/vedisoft/batch/formSubmit`,1)
+    // console.log(batch)
+    return this.http.post(`${API_URL}/vedisoft/batch/formSubmit`,batch)
   }
 
   updateBatch(batch,id){

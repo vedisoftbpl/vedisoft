@@ -11,18 +11,20 @@
                     <thead>
                         <tr>
                             <th>S.No</th>
-                            <th>Batch</th>
+                            <!-- <th>Batch</th> -->
                             <th>Amount</th>
                             <th>Due Date</th>
+                            <th>Mode</th>
                             <th>Edit</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr *ngFor="let fees of feesList">
-                            <td>{{fees.batchId}}</td>
-                            <td>{{fees.feeAmount}}</td>
+                            <td>{{fees.id}}</td>
+                            <!-- <td>{{batch.batchId}}</td> -->
+                            <td>{{fees.famt}}</td>
                             <td>{{fees.dueDate}}</td>
-                            <td>{{fees.mode}}</td>
+                            <td>{{fees.mode1}}</td>
                             <td>
                                 <button (click)="editFeesDetails(fees.batchId)" class="btn btn-primary">Edit</button>
                             </td>
