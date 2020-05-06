@@ -30,29 +30,23 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Batch</th>
+                            <th>Name</th>
+                            <th>Branch</th>
                             <th>Fee Status</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>JAVA 2020</td>
-                            <td>Paid</td>
+                        <tr *ngFor = "let student of students">
+                            <td>{{student.registrationId}}</td>
+                            <td>{{student.name}}</td>
+                            <td>{{student.branchBean.branchName}}</td>
+                            <td>{{student.branchBean.branchName}}</td>
                             <td><button class="btn btn-success">Allot Batch</button> /
                                 <button class="btn btn-warning">Add Installment</button> /
                                 <button class="btn btn-success">Certificate Request</button></td>
                         </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>C C++</td>
-                            <td>Pending</td>
-                            <td><button class="btn btn-success">Allot Batch</button> /
-                                <button class="btn btn-warning">Add Installment</button> /
-                                <button class="btn btn-success">Certificate Request</button></td>
-                        </tr>
-                    </tbody>
+                                           </tbody>
                 </table>
 
 
