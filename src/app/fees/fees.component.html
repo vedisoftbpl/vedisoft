@@ -7,7 +7,7 @@
     <div class="container mb-5 pb-5 pt-3 mt-3">
         <div class="row justify-content-center pt-6">
             <article class="card-body col-md-11">
-                <table [dtOptions]="dtOptions" datatable class="table">
+                <table datatable [dtOptions]="dtOptions" [dtTrigger] = "dtTrigger" class="table">
                     <thead>
                         <tr>
                             <th>S.No</th>
@@ -26,7 +26,7 @@
                             <td>{{fees.dueDate}}</td>
                             <td>{{fees.mode1}}</td>
                             <td>
-                                <button (click)="editFeesDetails(fees.batchId)" class="btn btn-primary">Edit</button>
+                                <button (click)="editFeesDetails(fees.id)" class="btn btn-primary">Edit</button>
                             </td>
                         </tr>
                     </tbody>

@@ -17,7 +17,7 @@ export class Batch {
     public enddate:string,
     public facultyId:number,
     public lastUpdatedBy:number,
-    public lastUpdatationDate:Date,
+    public lastUpdationDate:Date,
     public sdate:Date,
     public status:string,
     public timings:string,
@@ -61,9 +61,9 @@ export class BatchComponent implements OnInit,OnDestroy {
   refreshBatch(){
     this.batchService.getAllBatches().subscribe(
       data =>{
-        // console.log(data)
+        
         this.batchList = data
-        // console.log(this.batchList[0])
+        this.dtTrigger.next();
       },
       error =>{
         console.log(error)

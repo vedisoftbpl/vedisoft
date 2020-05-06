@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { API_URL } from 'src/app/app.constants';
-import { Branch } from 'src/app/branches/branches.component';
 import { HttpClient } from '@angular/common/http';
 import { Batch } from 'src/app/batch/batch.component';
 
