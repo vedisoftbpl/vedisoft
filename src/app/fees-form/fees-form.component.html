@@ -19,16 +19,27 @@
 
                                 <label>Batch Id</label>
 
-                                <input [(ngModel)]="fees.batchId" type="text" class="form-control"
+                                <input [(ngModel)]="fee.batch.batchId" type="text" class="form-control"
                                     placeholder="Batch Id" name="batchId">
 
                             </div> <!-- form-group end.// -->
+                            
+
+                            <div class="form-group">
+
+                                <label>Branch Id</label>
+
+                                <input [(ngModel)]="fee.branch.branchId" type="text" class="form-control"
+                                    placeholder="Branch Id" name="branchId">
+
+                            </div>
+
 
                             <div class="form-group">
 
                                 <label>Fees Amount</label>
 
-                                <input [(ngModel)]="fees.feeAmount" type="text" class="form-control"
+                                <input [(ngModel)]="fee.famt" type="text" class="form-control"
                                     placeholder="Fees Amount" name="feeAmount">
 
 
@@ -38,8 +49,8 @@
 
                                 <label>Due Date</label>
 
-                                <input [ngModel]="fees.dueDate|date:'yyyy-MM-dd'" (ngModelChange)="fees.dueDate=$event"
-                                    type="text" class="form-control" placeholder="Due Date" name="dueDate">
+                                <input [ngModel]="fee.dueDate | date:'yyyy-MM-dd'" (ngModelChange)="fees.dueDate=$event"
+                                    type="date" class="form-control" placeholder="Due Date" name="dueDate">
 
 
                             </div> <!-- form-group end.// -->
@@ -49,13 +60,13 @@
                                 <label>Mode</label><br>
                                 <div class="form-check form-check-inline">
                                     <input type="radio" class="form-check-input" id="merit" name="merit"
-                                        [(ngModel)]="fees.mode" value="merit">
+                                        [(ngModel)]="fee.mode1" value="merit">
                                     <label class="form-check-label" for="merit">Merit</label>
                                 </div>
 
                                 <div class="form-check form-check-inline">
                                     <input type="radio" class="form-check-input" id="training" name="training"
-                                        [(ngModel)]="fees.mode" value="training">
+                                        [(ngModel)]="fee.mode1" value="training">
                                     <label class="form-check-label" for="training">Training</label>
                                 </div>
 
@@ -64,7 +75,7 @@
 
                     </article> <!-- card-body end .// -->
 
-                    <div class="border-top card-body text-center"><button type="submit"
+                    <div class="border-top card-body text-center"><button type="submit" (click) = "addFee()"
                             class="btn btn-success">Submit</button></div>
                 </div> <!-- card.// -->
             </div> <!-- col.//-->

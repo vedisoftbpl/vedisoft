@@ -60,7 +60,7 @@ const routes: Routes = [
   { path: 'batch', component: BatchComponent },
   { path: 'batchform/:id/:isEnabled', component: BatchFormComponent },
   { path: 'fees', component: FeesComponent },
-  { path: 'feesform/:id/:isEnabled', component: FeesFormComponent },
+  { path: 'feesform/:id', component: FeesFormComponent },
 
   
 
@@ -87,7 +87,7 @@ const routes: Routes = [
   { path: 'batch', component: BatchComponent, canActivate: [RouterGuardService] },
   { path: 'batchform/:id/:isEnabled', component: BatchFormComponent, canActivate: [RouterGuardService] },
   { path: 'fees', component: FeesComponent, canActivate: [RouterGuardService] },
-  { path: 'feesform/:id/:isEnabled', component: FeesFormComponent, canActivate: [RouterGuardService] },
+  { path: 'feesform/:id', component: FeesFormComponent, canActivate: [RouterGuardService] },
   { path: 'student', component: StudentComponent, canActivate: [RouterGuardService] },
   { path: 'studentform/:id/:isEnabled', component: StudentFormComponent, canActivate: [RouterGuardService] },
 

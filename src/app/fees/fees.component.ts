@@ -18,8 +18,8 @@ export class Fees {
     public lastCreationBy:number,
     public lastCreationDate:Date,
     public mode1: String,
-    public branch:any,
-    public batch:any
+    public branch:Branch,
+    public batch:Batch
        ) {
 
   }
@@ -57,8 +57,7 @@ export class FeesComponent implements OnInit, OnDestroy {
       response =>{
         console.log(response)
         this.feesList = response
-        console.log(this.feesList)
-        this.batch = this.feesList[0].batch
+        this.dtTrigger.next()
       },
       error =>{
         console.log(error)
@@ -67,13 +66,13 @@ export class FeesComponent implements OnInit, OnDestroy {
 
   }
 
-  public editFeesDetails(batchId) {
-    this.router.navigate(['feesform', batchId, 1])
+  public editFeesDetails(id) {
+    this.router.navigate(['feesform', id])
   }
 
   public addFeesDetails() {
     console.log("called")
-    this.router.navigate(['feesform', -1, 1])
+    this.router.navigate(['feesform', -1])
   }
 
   ngOnDestroy(){
