@@ -53,7 +53,7 @@ export class PersonComponent implements OnInit, OnDestroy {
 
   persons: Person[]
   person: Person = new Person(1, 1, "", "", "", "", 1, new Date(), "", new Date(), new Date(), new Date(), "", "", 1, new Date(), "", 
-  "", "", "", "", "", "", "", new Branch(1, "", "", "", "", "", "", "", [""], "", "", new Date(), ""), [""], new PersonType(1, 1, new Date(),
+  "", "", "", "", "", "", "",new Branch(1, "", "", "", "", "", "", "", 0, "", "", new Date(),"",0,new Date(),"",0,0,new Date() ), [""], new PersonType(1, 1, new Date(),
   1, new Date, "", ""));
   //  = [
   //   new Person(1, 54, "C112", "20200908", "Bhopal", "01012358996", 123, new Date(), "Faculty", new Date(), new Date(), new Date(), 

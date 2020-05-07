@@ -36,8 +36,8 @@ export class SessionWiseStudentComponent implements OnInit {
     this.sessionList = [new Session(1, "abc", new Date(), new Date(), 1, new Date(), 54, new Date()), new Session(1, "abc", new Date(), new Date(), 1, new Date(), 54, new Date()),
     new Session(1, "abc", new Date(), new Date(), 1, new Date(), 54, new Date())]
     this.branches = [
-        new Branch(1, "M.P. NAGAR", "mpn", "3rd Floor, 275", "above Andhra Bank, Near Time Coaching", "Zone-II, Maharana Pratap Nagar", "Bhopal", " Madhya Pradesh",["Rohit Ahuja"],"1234556778","JAVA,C++,C",new Date(),"23.2524° N, 77.4646° E"),
-        new Branch(2, "Indrapuri", "ind", "219-B", " near Gaurav Dairy, Indrapuri C sector", "Sector C, Indrapuri", "Bhopal", "Madhya Pradesh",["Rohit Ahuja"],"1234556778","JAVA,C++,C",new Date(),"23.2524° N, 77.4646° E")
+        // new Branch(1, "M.P. NAGAR", "mpn", "3rd Floor, 275", "above Andhra Bank, Near Time Coaching", "Zone-II, Maharana Pratap Nagar", "Bhopal", " Madhya Pradesh",["Rohit Ahuja"],"1234556778","JAVA,C++,C",new Date(),"23.2524° N, 77.4646° E"),
+        // new Branch(2, "Indrapuri", "ind", "219-B", " near Gaurav Dairy, Indrapuri C sector", "Sector C, Indrapuri", "Bhopal", "Madhya Pradesh",["Rohit Ahuja"],"1234556778","JAVA,C++,C",new Date(),"23.2524° N, 77.4646° E")
       ]
     this.dtOptions = {
       pagingType: 'full_numbers',

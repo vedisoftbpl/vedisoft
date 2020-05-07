@@ -15,11 +15,18 @@ export class Branch {
       public street: string,
       public city: string,
        public state: string,
-       public branchManager: string[],
+       public branchManagerId: number,
        public branchContactNo: string,
        public multipleCourses: string,
       public estbDate: Date,
-      public latLong: string
+      public lat: string,
+      // public longi:string,
+      public createdBy:number,
+      public creationDate:Date,
+      public extra1:string,
+      public extra2:number,
+      public lastUpdatedBy:number,
+      public lastUpdationDate:Date
       ) { }
 }
 // export class BranchList{
@@ -52,7 +59,7 @@ export class BranchesComponent implements OnInit,OnDestroy {
     // branches:Branch[] = this.branchL.branches
 
     branches: Branch[];
-    branch: Branch = new Branch(1, "", "", "", "", "", "", "", [""], "", "", new Date(), "");
+    branch: Branch = new Branch(1, "", "", "", "", "", "", "", 0, "", "", new Date(),"",0,new Date(),"",0,0,new Date() )
 
   ngOnInit() {
     this.dtOptions = {

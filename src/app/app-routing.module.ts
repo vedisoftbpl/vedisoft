@@ -36,6 +36,7 @@ import { AllotComponent } from './allot/allot.component';
 import { SessionWiseStudentComponent } from './reports/session-wise-student/session-wise-student.component';
 import { PersonFormComponent } from './person-form/person-form.component';
 import { StudentReportComponent } from './queries/student-report/student-report.component';
+import { StudentFormComponent } from './student-form/student-form.component';
 
 
 
@@ -88,6 +89,7 @@ const routes: Routes = [
   { path: 'fees', component: FeesComponent, canActivate: [RouterGuardService] },
   { path: 'feesform/:id/:isEnabled', component: FeesFormComponent, canActivate: [RouterGuardService] },
   { path: 'student', component: StudentComponent, canActivate: [RouterGuardService] },
+  { path: 'studentform/:id/:isEnabled', component: StudentFormComponent, canActivate: [RouterGuardService] },
 
 
   { path: 'queries/printreceipt', component: PrintReceiptComponent, canActivate: [RouterGuardService] },

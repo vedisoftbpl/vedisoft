@@ -46,6 +46,7 @@ import { AllotComponent } from './allot/allot.component';
 import { SessionWiseStudentComponent } from './reports/session-wise-student/session-wise-student.component';
 import { PersonFormComponent } from './person-form/person-form.component';
 import { StudentReportComponent } from './queries/student-report/student-report.component';
+import { StudentFormComponent } from './student-form/student-form.component';
 
 
 
@@ -88,7 +89,8 @@ import { StudentReportComponent } from './queries/student-report/student-report.
     AllotComponent,
     SessionWiseStudentComponent,
     PersonFormComponent,
-    StudentReportComponent
+    StudentReportComponent,
+    StudentFormComponent
 
   ],
   imports: [

@@ -17,7 +17,7 @@ export class BranchFormComponent implements OnInit {
 
   ngOnInit() {
     this.id = this.router.snapshot.params['id']
-    this.branch = new Branch(this.id, "", "", "", "", "", "", "", ["Rohit Ahuja"], "", "", new Date(), "");
+    this.branch = new Branch(1, "", "", "", "", "", "", "", 0, "", "", new Date(),"",0,new Date(),"",0,0,new Date() )
     if(this.id != -1){ 
       console.log('else working')
       this.branchService.getBranchById(this.id).subscribe(

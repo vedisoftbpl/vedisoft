@@ -8,36 +8,37 @@ import { StudentDataService } from '../service/data/student-data.service';
 
 export class Student {
   constructor(public registrationId: number, 
-    public branch: string, 
+    public branch: string, //
     public campus: string, 
-    public cardNo: number,
+    public cardNo: number,//
     public company: string, 
     public course: string, 
     public createdBy: number, 
     public creationDate: Date, 
-    public dob: Date, 
-    public doj: Date, 
-    public email: string, 
-    public enquiry_id: number, 
+    public dob: Date, //
+    public doj: Date, //
+    public email: string, //
+    public enquiryId: number, 
     public extra3: string, 
-    public fatherName: string, 
+    public fatherName: string, //
     public flag: string, 
-    public laddress: string, 
-    public lastUpdadtedBy: number, 
+    public laddress: string, //
+    public lastUpdatedBy: number, 
     public lastUpdationDate: Date, 
-    public mno:number,
-    public name: string, 
-    public package1: string, 
-    public paddress:string, 
-    public parentOccupation: string, 
-    public password: string, 
-    public pno: string,
+    public mno:number,//
+    public name: string, //
+    public package1: string,// 
+    public paddress:string, //
+    public parentOccupation: string,// 
+    public password: string, //
+    public pno: string,//
     public regId: string, 
     public registrationDate: Date, 
-    public sem: String, 
-    public whatsappNo: string, 
-    public branchBean: Branch,
-    public collegeList: College) { }
+    public sem: String, //
+    public whatsappNo: string, //
+    public branchBean: Branch,//
+    public collegeList: College//
+    ) { }
 }
 
 @Component({
@@ -73,6 +74,7 @@ export class StudentComponent implements OnInit, OnDestroy {
   refreshStudent(){
     this.studentData.getAllStudents().subscribe(
       data=>{
+        console.log(data)
         this.students = data
         this.dtTrigger.next()
       },
@@ -89,5 +91,8 @@ export class StudentComponent implements OnInit, OnDestroy {
     this.dtTrigger.unsubscribe();
   }
 
+  addStudent(){
+    this.router.navigate(['studentform',-1,1])
+  }
 
 }

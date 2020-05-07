@@ -24,7 +24,7 @@ export class PersonFormComponent implements OnInit {
 
   ngOnInit() {
     this.id = this.router.snapshot.params['id']
-    this.branch = new Branch(2, "", "", "", "", "", "", "", ["Rohit Ahuja"], "", "", new Date(), "");
+    this.branch = new Branch(1, "", "", "", "", "", "", "", 0, "", "", new Date(),"",0,new Date(),"",0,0,new Date() )
     this.personType = new PersonType(1, 1, new Date(), 1, new Date(), "", "")
     this.person = new Person(this.id, 1, "", "", "", "", 0, new Date(), "", new Date(), new Date(), new Date(), "", "", 0, new Date(), "", "",
     "", "", "", "", "", "", this.branch, [""], this.personType);

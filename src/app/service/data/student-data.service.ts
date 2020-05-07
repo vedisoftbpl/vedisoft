@@ -18,8 +18,8 @@ export class StudentDataService {
     return this.http.get<Student>(`${API_URL}/vedisoft/student/${id}`)
   }
 
-  addNewStudent(student){
-    return this.http.post(`${API_URL}/vedisoft/student/formSubmit`,student)
+  addNewStudent(uploadData){
+    return this.http.post(`${API_URL}/vedisoft/student/formSubmit`,uploadData)
   }
 
   updateStudent(student,id){

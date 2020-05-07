@@ -31,7 +31,7 @@ export class BatchFormComponent implements OnInit {
   ngOnInit() {
     this.id = this.router.snapshot.params['id']
     this.isEnabled = this.router.snapshot.params['isEnabled']
-    this.branch = new Branch(-1, "", "", "", "", "", "", "", [], "", "", new Date(), "");
+    this.branch = new Branch(1, "", "", "", "", "", "", "", 0, "", "", new Date(),"",0,new Date(),"",0,0,new Date() )
     this.course = new Course(-1,"",0,"","")
     this.session = new Session(-1,"",new Date(),new Date(),0,new Date(),0,new Date()) 
     this.batch = new Batch(-1,"",0,new Date(),"","",0,0,new Date(),new Date(),"","",this.branch,this.course,this.session)

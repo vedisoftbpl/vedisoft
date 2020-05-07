@@ -1,0 +1,212 @@
+<div class="main-header">
+    <div class="container-fluid flu mb-5">
+        <div class="service">
+            <h1 class="logo pt-5">Student</h1>
+        </div>
+    </div>
+
+
+
+    <div class="container mb-5 pb-5 pt-3 mt-3">
+        <div class="row justify-content-center pt-6">
+
+            <div class="col-md-10">
+
+                <div class="card">
+
+                    <article class="card-body">
+
+                        <form #studentForm="ngForm">
+
+                            <div class="form-group">
+                                <div class="alert alert-warning" *ngIf='studentName.touched && studentName.invalid'>Please enter student name.</div>
+                                <label>Student Name</label>
+
+                                <input [(ngModel)]="student.name" type="text" class="form-control"
+                                    placeholder="Student Name" name="name" #studentName = "ngModel" required>
+
+                            </div> <!-- form-group end.// -->
+
+                            <div class="form-group">
+                                <div class="alert alert-warning" *ngIf='studentFatherName.touched && studentFatherName.invalid'>Please enter father's name.</div>
+                                <label>Father Name</label>
+
+                                <input [(ngModel)]="student.fatherName" type="text" class="form-control"
+                                    placeholder="Father's Name" name="name" #studentFatherName = "ngModel" required>
+
+                            </div> <!-- form-group end.// -->
+
+                            <div class="form-group">
+                                
+
+                                <label>College</label>
+                                <div class="alert alert-warning" *ngIf='college.invalid && college.touched'>Please enter college name.</div>
+                                <select name="college"  [(ngModel)]="student.collegeList.id" class="form-control" required #college="ngModel">
+                                    
+                                    <option *ngFor="let college of collegesList" [value]="college.id">{{college.name}}</option>
+                                </select>
+                            </div> <!-- form-group end.// -->
+
+
+                            <div class="form-group">
+
+                                <label>Semester</label>
+                                <div class="alert alert-warning" *ngIf='sem.invalid && sem.touched'>semester</div>
+                                <input [(ngModel)]="student.sem" class="form-control" type="text" required
+                                    placeholder="Semester." name="sem" #sem = "ngModel">
+                            </div> <!-- form-group end.// -->
+
+                            <div class="form-group">
+
+                                <label>Current Address</label>
+                                <div class="alert alert-warning" *ngIf='laddress.invalid && laddress.touched'>enter address</div>
+                                <input [(ngModel)]="student.laddress" class="form-control" type="text" required
+                                    placeholder="Enter Address" name="laddress" #laddress="ngModel">
+                            </div> <!-- form-group end.// -->
+
+                            <div class="form-group">
+
+                                <label>Parmanent Address</label>
+                                <div class="alert alert-warning" *ngIf='paddress.invalid && paddress.touched'>enter address</div>
+                                <input [(ngModel)]="student.paddress" class="form-control" type="text" required
+                                    placeholder="Enter Parmanent Address" name="paddress" #paddress="ngModel">
+                            </div> <!-- form-group end.// -->
+
+                            <div class="form-group">
+
+                                <label>Card Number</label>
+                                <div class="alert alert-warning" *ngIf='cardNo.invalid && cardNo.touched'></div>
+                                <input [(ngModel)]="student.cardNo" class="form-control" type="text" required
+                                    placeholder="Card Number" name="cardNo" #cardNo="ngModel">
+                            </div>
+
+                            <div class="form-group">
+
+                                <label>Mobile Number</label>
+                                <div class="alert alert-warning" *ngIf='mobileNo.invalid && mobileNo.touched'></div>
+                                <input [(ngModel)]="student.mno" class="form-control" type="text" required
+                                    placeholder="Mobile number" name="mobileNo" #mobileNo="ngModel">
+                            </div>
+                            <div class="form-group">
+
+                                <label>Phone Number</label>
+                                <div class="alert alert-warning" *ngIf='phoneNo.invalid && phoneNo.touched'></div>
+                                <input [(ngModel)]="student.pno" class="form-control" type="text" required
+                                    placeholder="Phone number" name="phoneNo" #phoneNo="ngModel">
+                            </div>
+
+                            <div class="form-group">
+
+                                <label>whatsapp Number</label>
+                                <div class="alert alert-warning" *ngIf='wNo.invalid && wNo.touched'></div>
+                                <input [(ngModel)]="student.whatsappNo" class="form-control" type="text" required
+                                    placeholder="Whatsapp number" name="wNo" #wNo="ngModel">
+                            </div>
+
+                            <div class="form-group">
+
+                                <label>Parent's Occupation</label>
+                                <div class="alert alert-warning" *ngIf='poccupation.invalid && poccupation.touched'></div>
+                                <input [(ngModel)]="student.parentOccupation" class="form-control" type="text" required
+                                    placeholder="Parent's Occupation" name="poccupation" #poccupation="ngModel">
+                            </div>
+
+                            <div class="form-group">
+
+                                <label>Branch</label>
+                                <div class="alert alert-warning" *ngIf='branch.invalid && branch.touched'></div>
+                                <input [(ngModel)]="student.branch" class="form-control" type="text" required
+                                    placeholder="Branch" name="branch" #branch="ngModel">
+                            </div>
+                            <div class="form-group">
+
+                                <label>Campus</label>
+                                <div class="alert alert-warning" *ngIf='campus.invalid && campus.touched'></div>
+                                <input [(ngModel)]="student.campus" class="form-control" type="text" required
+                                    placeholder="campus" name="campus" #campus="ngModel">
+                            </div>
+                            <div class="form-group">
+
+                                <label>Company</label>
+                                <div class="alert alert-warning" *ngIf='company.invalid && company.touched'></div>
+                                <input [(ngModel)]="student.company" class="form-control" type="text" required
+                                    placeholder="company" name="company" #company="ngModel">
+                            </div>
+                            <div class="form-group">
+
+                                <label>Package</label>
+                                <div class="alert alert-warning" *ngIf='package.invalid && package.touched'></div>
+                                <input [(ngModel)]="student.package1" class="form-control" type="text" required
+                                    placeholder="Package" name="package" #package="ngModel">
+                            </div>
+
+                            <div class="form-group">
+
+                                <label>Date of Birth</label>
+                                <div class="alert alert-warning" *ngIf='dob.invalid && dob.touched'></div>
+                                <input [ngModel]="student.dob|date:'yyyy-MM-dd' " (ngModelChange)="student.dob= $event" class="form-control" type="date" required
+                                    placeholder="dob" name="dob" #dob="ngModel">
+                            </div>
+
+                            
+
+                                <div class="form-group">
+
+                                    <label>Date of Joining</label>
+                                    <div class="alert alert-warning" *ngIf='doj.invalid && doj.touched'></div>
+                                    <input [ngModel]="student.doj|date:'yyyy-MM-dd' "
+                                        (ngModelChange)="student.doj= $event" class="form-control" type="date" required
+                                        placeholder="Date of Joining" name="doj" #doj="ngModel">
+                                </div>    
+                                    
+
+                            <div class="form-group">
+
+                                <label>E-Mail</label>
+                                <div class="alert alert-warning" *ngIf='email.invalid && email.touched'></div>
+                                <input [(ngModel)]="student.email" class="form-control" type="email" required
+                                    placeholder="E-Mail" name="email" #email="ngModel">
+                            </div>
+
+                            <div class="form-group">
+
+                                <label>Password</label>
+                                <div class="alert alert-warning" *ngIf='password.invalid && password.touched'></div>
+                                <input [(ngModel)]="student.password" class="form-control" type="password" required
+                                    placeholder="Enter Password" name="password" #password="ngModel">
+                            </div>
+                            
+
+                            <div class="form-group">
+                                
+
+                                <label>Branch</label>
+                                <div class="alert alert-warning" *ngIf='branch.invalid && branch.touched'>Please select branch name.</div>
+                                <select name="branch"  [(ngModel)]="student.branchBean.branchId" class="form-control" required #branch="ngModel">
+                                    
+                                    <option *ngFor="let branch of branchList" [value]="branch.branchId">{{branch.branchName}}</option>
+                                </select>
+                            </div> <!-- form-group end.// -->  
+                            
+                            <div class="form-group">
+                                <label for="profileImage">Upload Image</label>  
+                                <input  class="form-control" accept="image/*" type="file" name="uploadData" (change)="selectFile($event)">   
+                        </div>
+                        </form>
+
+                    </article> <!-- card-body end .// -->
+
+                    <div class="border-top card-body text-center"><button type="submit" (click) = "addStudent()"
+                            class="btn btn-success">Submit</button></div>
+                    
+
+
+                </div> <!-- card.// -->
+            </div> <!-- col.//-->
+
+
+        </div> <!-- row.//-->
+
+
+    </div>
+</div>
