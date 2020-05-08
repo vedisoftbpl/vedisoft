@@ -26,7 +26,7 @@ export class FeesFormComponent implements OnInit {
   constructor(private route: ActivatedRoute, private feeData: FeeDataService, private router: Router) { }
 
   ngOnInit() {
-    this.branch = new Branch(-1, "", "", "", "", "", "", "", [""], "", "", new Date(), "")
+    this.branch = new Branch(1, "", "", "", "", "", "", "", 0, "", "", new Date(),"",0,new Date(),"",0,0,new Date() )
     this.course = new Course(-1,"",0,"","")
     this.session = new Session(-1,"",new Date(),new Date(),0,new Date(),0,new Date()) 
     this.batch = new Batch(-1,"",0,new Date(),"","",0,0,new Date(),new Date(),"","",null,null,null)

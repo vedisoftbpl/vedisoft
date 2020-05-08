@@ -55,20 +55,7 @@ export class PersonComponent implements OnInit, OnDestroy {
   person: Person = new Person(1, 1, "", "", "", "", 1, new Date(), "", new Date(), new Date(), new Date(), "", "", 1, new Date(), "", 
   "", "", "", "", "", "", "",new Branch(1, "", "", "", "", "", "", "", 0, "", "", new Date(),"",0,new Date(),"",0,0,new Date() ), [""], new PersonType(1, 1, new Date(),
   1, new Date, "", ""));
-  //  = [
-  //   new Person(1, 54, "C112", "20200908", "Bhopal", "01012358996", 123, new Date(), "Faculty", new Date(), new Date(), new Date(), 
-  //   "abc@gmail.com", "key", 123, new Date(), "Sonagiri", "0103AC", "Lokesh", "1010", "45", "MP", "Dalal Street", "lokesh", "Indrapuri", 
-  //   [100, 210],  new PersonType(1, 20200908, new Date(), 20200908, new Date(), "Front Office Incharge", "ADMIN")),
-    
-  //   new Person(2, 78, "C113", "20201228", "Bhopal", "01012358996", 456, new Date(), "Manager", new Date(), new Date(), new Date(), 
-  //   "123c@gmail.com", "key", 789, new Date(), "Indrapuri", "0102BH", "Mukesh", "1010", "46", "MP", "Dalal Street", "mukesh", "Indrapuri", 
-  //   [100, 210], new PersonType(2, 20201010, new Date(), 20201228, new Date(), "Manager", "ADMIN")),
-    
-  //   new Person(3, 53, "C114", "20201119", "Bhopal", "01012358996", 799, new Date(), "Incharge", new Date(), new Date(), new Date(), 
-  //   "788@gmail.com", "key", 456, new Date(), "MP Nagar", "01015Av", "rakesh", "1010", "47", "MP", "Dalal Street", "rakesh", "Indrapuri", 
-  //   [100, 210],new PersonType(3, 20201228, new Date(), 20201119, new Date(), "Faculty", "ADMIN")),
-  // ]
-
+  
   ngOnInit() {
     
     this.dtOptions = {
