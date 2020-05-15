@@ -4,6 +4,8 @@ import { PersonService } from '../service/data/person.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Branch } from '../branches/branches.component';
 import { PersonType } from '../person-type/person-type.component';
+import { BranchesService } from '../service/data/branches.service';
+import { PersonTypeService } from '../service/data/person-type.service';
 
 @Component({
   selector: 'app-person-form',
@@ -17,10 +19,11 @@ export class PersonFormComponent implements OnInit {
   id: number
   branch: Branch
   personType: PersonType
-  
+  branches: Branch[]
+  personTypes: PersonType[]
   
   constructor(private router:ActivatedRoute,
-    private route:Router, private personService: PersonService) { }
+    private route:Router, private personService: PersonService, private branchService: BranchesService, private personTypeService: PersonTypeService) { }
 
   ngOnInit() {
     this.id = this.router.snapshot.params['id']
@@ -36,8 +39,11 @@ export class PersonFormComponent implements OnInit {
       )
 
     }
-    
+    this.getAllBranches();
+    this.getAllPersonTypes()
   }
+
+
 
   addPerson() {
     
@@ -58,6 +64,23 @@ export class PersonFormComponent implements OnInit {
         }
       )
     }
+  }
+
+  getAllBranches() {
+    this.branchService.getAllBranches().subscribe(
+      response => {
+        this.branches = response
+      }
+    )
+  }
+
+  getAllPersonTypes() {
+  this.personTypeService.getAllPersonTypes().subscribe(
+        response => {
+          this.personTypes = response
+
+        }
+      )
   }
 
 }

@@ -122,16 +122,26 @@
                             
 
                             <div class="form-group">
+                                
 
-                                <label>Branch ID</label>
-                                <div class="alert alert-warning" *ngIf='branchId.invalid'></div>
-                                <input [(ngModel)]="person.branch.branchId" class="form-control" type="text" required
-                                    placeholder="ID of the branch" name="locality" #branchId="ngModel">
-                            </div>
-                            <label>Person Type ID</label>
-                                <div class="alert alert-warning" *ngIf='branchId.invalid'></div>
-                                <input [(ngModel)]="person.personType.pid" class="form-control" type="text" required
-                                    placeholder="Person Type Id" name="locality" #personTypeId="ngModel">
+                                <label>Branch</label>
+                                <div class="alert alert-warning" *ngIf='branch.invalid && branch.touched'></div>
+                                <select name="branch"  [(ngModel)]="person.branch.branchId" class="form-control" required #branch="ngModel">
+                                    
+                                    <option *ngFor="let branch of branches" [value]="branch.branchId">{{branch.branchName}}</option>
+                                </select>
+                            </div> <!-- form-group end.// -->
+
+                            <div class="form-group">
+                                
+
+                                <label>Person Type ID</label>
+                                <div class="alert alert-warning" *ngIf='personType.invalid'></div>
+                                <select name="branch"  [(ngModel)]="person.personType.pid" class="form-control" required #personType="ngModel">
+                                    
+                                    <option *ngFor="let personType of personTypes" [value]="personType.pid">{{personType.personType}}</option>
+                                </select>
+                            </div> <!-- form-group end.// -->
                             
 
 

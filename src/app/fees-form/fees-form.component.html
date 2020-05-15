@@ -17,22 +17,29 @@
 
                             <div class="form-group">
 
-                                <label>Batch Id</label>
+                                
 
-                                <input [(ngModel)]="fee.batch.batchId" type="text" class="form-control"
-                                    placeholder="Batch Id" name="batchId">
 
+                                <label>Batch ID</label>
+                                <div class="alert alert-warning" *ngIf='batch.invalid'></div>
+                                <select name="batch"  [(ngModel)]="fee.batch.batchId" class="form-control" required #catch="ngModel">
+                                    
+                                    <option *ngFor="let batch of batches" [value]="batch.batchId">Batch Code: {{batch.code}} Course: {{batch.course.certiTitle}}</option>
+                                </select>
+                            </div> <!-- form-group end.// -->
+                                
+                            <div class="form-group">
+
+                                <label>Branch ID</label>
+                                <div class="alert alert-warning" *ngIf='branch.invalid'></div>
+                                <select name="branch"  [(ngModel)]="fee.branch.branchId" class="form-control" required #branch="ngModel">
+                                    
+                                    <option *ngFor="let branch of branches" [value]="branch.branchId">{{branch.branchName}}</option>
+                                </select>
                             </div> <!-- form-group end.// -->
                             
 
-                            <div class="form-group">
-
-                                <label>Branch Id</label>
-
-                                <input [(ngModel)]="fee.branch.branchId" type="text" class="form-control"
-                                    placeholder="Branch Id" name="branchId">
-
-                            </div>
+                            
 
 
                             <div class="form-group">

@@ -6,6 +6,8 @@ import { Branch } from '../branches/branches.component';
 import { Batch } from '../batch/batch.component';
 import { Course } from '../course/course.component';
 import { Session } from '../session/session.component';
+import { BranchesService } from '../service/data/branches.service';
+import { BatchDataService } from '../service/data/batch-data.service';
 
 
 @Component({
@@ -22,8 +24,11 @@ export class FeesFormComponent implements OnInit {
   private fee:Fees
   private course: Course
   private session: Session
+  branches: Branch[];
+  batches: Batch[];
 
-  constructor(private route: ActivatedRoute, private feeData: FeeDataService, private router: Router) { }
+  constructor(private route: ActivatedRoute, private feeData: FeeDataService, private router: Router, private branchService: BranchesService,
+    private batchService: BatchDataService) { }
 
   ngOnInit() {
     this.branch = new Branch(1, "", "", "", "", "", "", "", 0, "", "", new Date(),"",0,new Date(),"",0,0,new Date() )
@@ -40,6 +45,8 @@ export class FeesFormComponent implements OnInit {
         }
       )
     }
+    this.getAllBatches();
+    this.getAllBranches();
   }
 
   addFee() {
@@ -64,6 +71,21 @@ export class FeesFormComponent implements OnInit {
        )
      }
 
+  }
+  getAllBranches() {
+    this.branchService.getAllBranches().subscribe(
+      response => {
+        this.branches = response
+      }
+    )
+  }
+
+  getAllBatches() {
+    this.batchService.getAllBatches().subscribe(
+      response => {
+        this.batches = response
+      }
+    )
   }
 
 }
