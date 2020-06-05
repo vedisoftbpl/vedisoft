@@ -16,30 +16,32 @@ export class BranchwiseCollectionComponent implements OnInit, OnDestroy {
 
   constructor() { }
 
-  branchwiseCollections : BranchwiseCollection[] = [
-    new BranchwiseCollection(1, "Aman", "MP Nagar", "080809898", "JAVA", "1Z089", 5000, "Online", "Rohit Sir"),
-    new BranchwiseCollection(2, "Aashray", "Indrapuri", "080809810", "Python", "1P089", 3000, "Cash", "Rohit Sir")
-  ]
+  branchName: String;
+
+  // branchwiseCollections : BranchwiseCollection[] = [
+  //   new BranchwiseCollection(1, "Aman", "MP Nagar", "080809898", "JAVA", "1Z089", 5000, "Online", "Rohit Sir"),
+  //   new BranchwiseCollection(2, "Aashray", "Indrapuri", "080809810", "Python", "1P089", 3000, "Cash", "Rohit Sir")
+  // ]
 
   dtTrigger: Subject<any> = new Subject();
   @ViewChild(DataTableDirective, { static: false })
   datatableElement: DataTableDirective;
   dtOptions: DataTables.Settings = {};
   isEnabled: boolean = false;
-  branch;
+  
 
   ngOnInit() {
   }
 
 
-  search() {
-    this.dtOptions = {
-      pagingType: 'full_numbers',
-      lengthMenu: [5, 10, 15, 20],
-      search: {search: this.branch}
-    };
-    this.isEnabled = true;
-  }
+  // search() {
+  //   this.dtOptions = {
+  //     pagingType: 'full_numbers',
+  //     lengthMenu: [5, 10, 15, 20],
+  //     search: {search: this.branch}
+  //   };
+  //   this.isEnabled = true;
+  // }
 
   ngOnDestroy() {
     this.dtTrigger.unsubscribe();

@@ -25,4 +25,8 @@ export class StudentDataService {
   updateStudent(student,id){
     return this.http.put(`${API_URL}/vedisoft/student/formEdit/${id}`,student)
   }
+
+  getStudentsByCollege(branchId, dates) {
+    return this.http.post(`${API_URL}/vedisoft/student/collegeWise/${branchId}`, dates)
+  }
 }

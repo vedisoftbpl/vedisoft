@@ -97,7 +97,7 @@ const routes: Routes = [
 
 
   { path: 'reports/daybook', component: DaybookComponent },
-  { path: 'reports/gst', component: GstComponent },
+  { path: 'reports/gst', component: GstComponent, canActivate: [RouterGuardService] },
   { path: 'reports/branchwiseCollection', component: BranchwiseCollectionComponent, canActivate: [RouterGuardService] },
   { path: 'reports/facultywiseCollection', component: FacultywiseCollectionComponent, canActivate: [RouterGuardService] },
   { path: 'reports/sessionwiseCollection', component: SessionwiseCollectionComponent, canActivate: [RouterGuardService] },
