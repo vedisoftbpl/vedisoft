@@ -47,6 +47,7 @@ import { SessionWiseStudentComponent } from './reports/session-wise-student/sess
 import { PersonFormComponent } from './person-form/person-form.component';
 import { StudentReportComponent } from './queries/student-report/student-report.component';
 import { StudentFormComponent } from './student-form/student-form.component';
+import { BatchwiseCollectionComponent } from './reports/batchwise-collection/batchwise-collection.component';
 
 
 
@@ -90,7 +91,8 @@ import { StudentFormComponent } from './student-form/student-form.component';
     SessionWiseStudentComponent,
     PersonFormComponent,
     StudentReportComponent,
-    StudentFormComponent
+    StudentFormComponent,
+    BatchwiseCollectionComponent
 
   ],
   imports: [

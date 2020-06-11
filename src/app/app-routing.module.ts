@@ -37,6 +37,7 @@ import { SessionWiseStudentComponent } from './reports/session-wise-student/sess
 import { PersonFormComponent } from './person-form/person-form.component';
 import { StudentReportComponent } from './queries/student-report/student-report.component';
 import { StudentFormComponent } from './student-form/student-form.component';
+import { BatchwiseCollectionComponent } from './reports/batchwise-collection/batchwise-collection.component';
 
 
 
@@ -108,7 +109,8 @@ const routes: Routes = [
   { path: 'reports/collegewisestudents', component: CollegeWiseStudentsComponent, canActivate: [RouterGuardService] },
   { path: 'reports/collegewisestudents', component: CollegeWiseStudentsComponent},
   { path: 'welcome', component: WelcomeComponent, canActivate: [RouterGuardService]},
-  { path: 'personForm/:id', component: PersonFormComponent, canActivate: [RouterGuardService]}
+  { path: 'personForm/:id', component: PersonFormComponent, canActivate: [RouterGuardService]},
+  { path: 'reports/batchWiseCollection', component: BatchwiseCollectionComponent, canActivate: [RouterGuardService]}
 
 ];
 

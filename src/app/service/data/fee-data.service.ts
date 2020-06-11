@@ -31,4 +31,7 @@ export class FeeDataService {
   deleteFee(id){
     return this.http.delete(`${API_URL}/vedisoft/fee/formDelete/${id}`)
   }
+  getFeeByBatchId(batchId) {
+    return this.http.get<Fees[]>(`${API_URL}/vedisoft/fee/batch/${batchId}`)
+  }
 }
