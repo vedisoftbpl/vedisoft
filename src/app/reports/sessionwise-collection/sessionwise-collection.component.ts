@@ -1,53 +1,79 @@
 import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
-import { Subject } from 'rxjs';
-import { DataTableDirective } from 'angular-datatables';
 
-export class SessionwiseCollection {
-  constructor(public id: number, public student: String, public session: String, public registrationNumber: String, public course: String,
-  public batch: String, public amount: number, public mode: String, public receivedBy: string) {}
-}
+import { Branch } from 'src/app/branches/branches.component';
+import { RouterGuardService } from 'src/app/service/router-guard.service';
+import { BranchesService } from 'src/app/service/data/branches.service';
+import { SessionDataService } from 'src/app/service/data/session-data.service';
+import { SessionwiseCollectionService } from 'src/app/service/data/sessionwise-collection.service';
+import { Session } from 'src/app/session/session.component';
+import { summaryFileName } from '@angular/compiler/src/aot/util';
 
 @Component({
   selector: 'app-sessionwise-collection',
   templateUrl: './sessionwise-collection.component.html',
   styleUrls: ['./sessionwise-collection.component.css']
 })
-export class SessionwiseCollectionComponent implements OnInit, OnDestroy {
+export class SessionwiseCollectionComponent implements OnInit {
 
-  constructor() { }
+  constructor(private routeGuardService: RouterGuardService, private branchService: BranchesService, private sessionService: SessionDataService,
+    private sessionWiseCollectionService: SessionwiseCollectionService) { }
 
-  sessionwiseCollections : SessionwiseCollection[] = [
-    new SessionwiseCollection(1, "Aman", "2019", "202002020", "JAVA", "1Z089", 5000, "Online", "Rohit Sir"),
-    new SessionwiseCollection(2, "Aashray", "2020", "201902019", "Python", "1P089", 3000, "Cash", "Rohit Sir")
-  ]
-
-  dtTrigger: Subject<any> = new Subject();
-  @ViewChild(DataTableDirective, { static: false })
-  datatableElement: DataTableDirective;
-  dtOptions: DataTables.Settings = {};
+  
   isEnabled: boolean = false;
-  session;
+  allEnabled: boolean = false;
+  sessions: Session[]
+  session : Session
+  branches: Branch[]
+  
+  branchId = 0
+  sessionWiseCollection
+  todaysDate = new Date()
+  
 
   ngOnInit() {
+    this.getAllSessions()
+    this.getAllBranches()
+   
+     
   }
 
-  search() {
-    this.dtOptions = {
-      pagingType: 'full_numbers',
-      lengthMenu: [5, 10, 15, 20],
-      search: {search: this.session},
-      columnDefs:[
-        {
-          targets: 3,
-          searchable: false
-        }
-      ]
-    };
+  getData() {
+    this.sessionWiseCollectionService.getBatchWiseCollection(this.session.sessionId).subscribe(
+      response => {
+        this.sessionWiseCollection = response
+      }
+    )
+    if(this.branchId == 0) {
+      this.allEnabled = true
+    }
+    else{
+      this.allEnabled = false
+    }
     this.isEnabled = true;
   }
-
-  ngOnDestroy() {
-    this.dtTrigger.unsubscribe();
+  getAllBranches() {
+    this.branchService.getAllBranches().subscribe(
+      response => {
+        this.branches = response
+      }
+    )
   }
+  getAllSessions() {
+    this.sessionService.getAllSessions().subscribe(
+      response => {
+        this.sessions = response
+        this.session = response[response.length - 1]
+      }
+    )
+
+  }
+  getTotal() {
+    let sum = 0
+    for(let i = 0; i < this.sessionWiseCollection.length; i++) {
+      sum += this.sessionWiseCollection[i][2]
+    }
+    return sum;
+  }
+  
 
 }

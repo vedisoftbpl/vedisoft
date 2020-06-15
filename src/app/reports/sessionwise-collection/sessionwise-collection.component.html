@@ -5,16 +5,22 @@
         </div>
     </div>
 
-    <nav class="navbar navbar-light bg-light justify-content-center" *ngIf='!isEnabled'>
+    <nav class="navbar navbar-light bg-light justify-content-center">
 
-        <form class="form-inline" (ngSubmit)='search()'>
-            <label for="session">Session: </label>
-        <select name="session" [(ngModel)] = "session" class="select">
-            <option value="2018">2018</option>
-            <option value="2019">2019</option>
-            <option value="2020">2020</option>
-        </select>    
+        <form class="form-inline" (ngSubmit)='getData()'>
             
+            <label>Session: </label>
+            <select class="border border-primary" [(ngModel)]="session" name="sessiongroup">
+                <option *ngFor="let s of sessions" [ngValue]="s">{{s.sessionName}} From: {{s.startDate}} To: {{s.endDate}} </option>
+            </select>
+            &nbsp;&nbsp;&nbsp;
+        
+            <label>Branch: </label>
+            <select class="border border-primary" [(ngModel)]="branchId" name="branchgroup">
+                <option value="0">All</option>
+                <option *ngFor="let b of branches" [value]="b.branchId">Name: {{b.branchName}}</option>
+            </select>
+        
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Go</button>
         </form>
     </nav>
@@ -23,34 +29,26 @@
         <div class="row justify-content-center pt-6">
             
             <article class="card-body col-md-11">
-                <table  *ngIf="isEnabled" [dtOptions]="dtOptions" datatable class="table" >
-                    <thead>
+                <table  *ngIf="isEnabled" class="table table-striped" >
+                    <thead class="bg-dark">
                         <tr>
-                            <th>Id</th>
-                            <th>Student</th>
-                            <th>Session</th>
-                            <th>Registration number</th>
-                            <th>Course</th>
-                            <th>Batch</th>
+                            <th>Branch</th>
                             <th>Amount</th>
-                            <th>Mode</th>
-                            <th>Received By</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let sessionwiseCollection of sessionwiseCollections">
-                            <td>{{sessionwiseCollection.id}}</td>
-                            <td>{{sessionwiseCollection.student}}</td>
-                            <td>{{sessionwiseCollection.session}}</td>
-                            <td>{{sessionwiseCollection.registrationNumber}}</td>
-                            <td>{{sessionwiseCollection.course}}</td>
-                            <td>{{sessionwiseCollection.batch}}</td>
-                            <td>{{sessionwiseCollection.amount}}</td>
-                            <td>{{sessionwiseCollection.mode}}</td>
-                            <td>{{sessionwiseCollection.receivedBy}}</td>
+                        <tr *ngFor="let s of sessionWiseCollection">
+                            <td *ngIf="allEnabled || s[0] == branchId">{{s[1]}}</td>
+                            <td *ngIf="allEnabled || s[0] == branchId">Rs {{s[2]}}</td>
                         </tr>
                         <!-- <tr><td>Total Rs.</td></tr> -->
                     </tbody>
+                    <tfoot>
+                        <tr >
+                            <th>Total: </th>
+                            <td>Rs {{getTotal()}}</td>
+                         </tr>
+                    </tfoot>
                 </table>
             </article>
         </div>
