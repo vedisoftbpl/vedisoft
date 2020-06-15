@@ -5,14 +5,22 @@
         </div>
     </div>
 
-    <nav class="navbar navbar-light bg-light justify-content-center" *ngIf='!isEnabled'>
+    <nav class="navbar navbar-light bg-light justify-content-center">
 
-        <form class="form-inline" (ngSubmit)='search()'>
+        <form class="form-inline" (ngSubmit)='getData()'>
             <label for="branch">Branch: </label>
-        <select name="branch" [(ngModel)] = "branch" class="select">
-            <option value="MP Nagar">MP Nagar</option>
-            <option value="Indrapuri">Indrapuri</option>
+        <select name="branch" [(ngModel)] = "branchId" class="select">
+            <option value="0">All</option>
+            <option *ngFor="let b of branches" [value]="b.branchId">Name: {{b.branchName}}</option>
         </select>    
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <label for="fdate">From Date :&nbsp;&nbsp;</label> 
+        <input class="border border-primary" type="date" name="fdate" id="fdate" [ngModel]="from | date:'yyyy-MM-dd'"
+                        (ngModelChange)="this.from= $event">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <label>To Date :</label> &nbsp;&nbsp;&nbsp;
+        <input class="border border-primary" type="date" name="tdate" id="tdate"
+                        [ngModel]="to | date:'yyyy-MM-dd'" (ngModelChange)="this.to= $event">&nbsp;&nbsp;
             
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Go</button>
         </form>
@@ -22,34 +30,25 @@
         <div class="row justify-content-center pt-6">
             
             <article class="card-body col-md-11">
-                <table  *ngIf="isEnabled" [dtOptions]="dtOptions" datatable class="table" >
-                    <thead>
+                <table  *ngIf="isEnabled" class="table table-striped" >
+                    <thead class="bg-dark">
                         <tr>
-                            <th>Id</th>
-                            <th>Student</th>
                             <th>Branch</th>
-                            <th>Registration number</th>
-                            <th>Course</th>
-                            <th>Batch</th>
                             <th>Amount</th>
-                            <th>Mode</th>
-                            <th>Received By</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let branchwiseCollection of branchwiseCollections">
-                            <td>{{branchwiseCollection.id}}</td>
-                            <td>{{branchwiseCollection.student}}</td>
-                            <td>{{branchwiseCollection.branch}}</td>
-                            <td>{{branchwiseCollection.registrationNumber}}</td>
-                            <td>{{branchwiseCollection.course}}</td>
-                            <td>{{branchwiseCollection.batch}}</td>
-                            <td>{{branchwiseCollection.amount}}</td>
-                            <td>{{branchwiseCollection.mode}}</td>
-                            <td>{{branchwiseCollection.receivedBy}}</td>
+                        <tr *ngFor="let b of branchWiseCollection">
+                            <td *ngIf="allEnabled || b[0] == branchId">{{b[1]}}</td>
+                            <td *ngIf="allEnabled || b[0] == branchId">Rs {{b[2]}}</td>
                         </tr>
-                        <!-- <tr><td>Total Rs.</td></tr> -->
                     </tbody>
+                    <tfoot>
+                        <tr >
+                            <th>Total: </th>
+                            <td>Rs {{getTotal()}}</td>
+                         </tr>
+                    </tfoot>
                 </table>
             </article>
         </div>

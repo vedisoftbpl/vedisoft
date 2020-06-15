@@ -1,51 +1,73 @@
 import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
-import { Subject } from 'rxjs';
-import { DataTableDirective } from 'angular-datatables';
-
-export class BranchwiseCollection {
-  constructor(public id: number, public student: String, public branch: String, public registrationNumber: String, public course: String,
-  public batch: String, public amount: number, public mode: String, public receivedBy: string) {}
-}
+import { Branch } from 'src/app/branches/branches.component';
+import { RouterGuardService } from 'src/app/service/router-guard.service';
+import { BranchesService } from 'src/app/service/data/branches.service';
+import { BranchwiseCollectionService } from 'src/app/service/data/branchwise-collection.service';
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-branchwise-collection',
   templateUrl: './branchwise-collection.component.html',
   styleUrls: ['./branchwise-collection.component.css']
 })
-export class BranchwiseCollectionComponent implements OnInit, OnDestroy {
+export class BranchwiseCollectionComponent implements OnInit {
 
-  constructor() { }
+  constructor(private routeGuardService: RouterGuardService, private branchService: BranchesService,
+    private branchWiseCollectionService: BranchwiseCollectionService) { }
 
-  branchName: String;
+  branchId
+  branches: Branch[]
+  from: Date
+  to: Date
+  dates : Date[]
+  branchWiseCollection
+  allEnabled: boolean
+  isEnabled: boolean
 
-  // branchwiseCollections : BranchwiseCollection[] = [
-  //   new BranchwiseCollection(1, "Aman", "MP Nagar", "080809898", "JAVA", "1Z089", 5000, "Online", "Rohit Sir"),
-  //   new BranchwiseCollection(2, "Aashray", "Indrapuri", "080809810", "Python", "1P089", 3000, "Cash", "Rohit Sir")
-  // ]
-
-  dtTrigger: Subject<any> = new Subject();
-  @ViewChild(DataTableDirective, { static: false })
-  datatableElement: DataTableDirective;
-  dtOptions: DataTables.Settings = {};
-  isEnabled: boolean = false;
-  
 
   ngOnInit() {
+    this.from = new Date()
+    this.to = new Date()
+    this.getAllBranches()
+  }
+
+  getData() {
+    this.dates = [this.from, this.to]
+    console.log(this.dates)
+    this.branchWiseCollectionService.getBranchWiseCollection(this.dates).subscribe(
+      response => {
+        this.branchWiseCollection = response
+        console.log(response)
+      }
+    )
+    if(this.branchId == 0) {
+      this.allEnabled = true
+    }
+    else{
+      this.allEnabled = false
+    }
+    this.isEnabled = true;
+  }
+  getAllBranches() {
+    this.branchService.getAllBranches().subscribe(
+      response => {
+        this.branches = response
+      }
+    )
+  }
+
+  getTotal() {
+    let sum = 0
+    for(let i = 0; i < this.branchWiseCollection.length; i++) {
+      if(this.branchId == this.branchWiseCollection[i][0] || this.allEnabled)
+        sum += this.branchWiseCollection[i][2]
+    }
+    return sum;
   }
 
 
-  // search() {
-  //   this.dtOptions = {
-  //     pagingType: 'full_numbers',
-  //     lengthMenu: [5, 10, 15, 20],
-  //     search: {search: this.branch}
-  //   };
-  //   this.isEnabled = true;
-  // }
 
-  ngOnDestroy() {
-    this.dtTrigger.unsubscribe();
-  }
+  
 
 
 }
