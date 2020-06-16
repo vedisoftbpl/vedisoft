@@ -1,19 +1,26 @@
 <div class="wrapper">
     <div class="container-fluid flu mb-5">
         <div class="service">
-            <h1 class="logo pt-5">COURSE-WISE FEE COLLECTION</h1>
+            <h1 class="logo pt-5">COURSEWISE FEE COLLECTION</h1>
         </div>
     </div>
 
-    <nav class="navbar navbar-light bg-light justify-content-center" *ngIf='!isEnabled'>
+    <nav class="navbar navbar-light bg-light justify-content-center">
 
-        <form class="form-inline" (ngSubmit)='search()'>
-            <label for="course">Course: </label>
-        <select name="course" [(ngModel)] = "course" class="select">
-            <option value="JAVA">JAVA</option>
-            <option value="C++">C/C++</option>
-            <option value="Python">Python</option>
+        <form class="form-inline" (ngSubmit)='getData()'>
+            <label for="branch">Branch: </label>
+        <select name="branch" [(ngModel)] = "branchId" class="select">
+            <option value="0">All</option>
+            <option *ngFor="let b of branches" [value]="b.branchId">Name: {{b.branchName}}</option>
         </select>    
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <label for="fdate">From Date :&nbsp;&nbsp;</label> 
+        <input class="border border-primary" type="date" name="fdate" id="fdate" [ngModel]="from | date:'yyyy-MM-dd'"
+                        (ngModelChange)="this.from= $event">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <label>To Date :</label> &nbsp;&nbsp;&nbsp;
+        <input class="border border-primary" type="date" name="tdate" id="tdate"
+                        [ngModel]="to | date:'yyyy-MM-dd'" (ngModelChange)="this.to= $event">&nbsp;&nbsp;
             
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Go</button>
         </form>
@@ -23,32 +30,25 @@
         <div class="row justify-content-center pt-6">
             
             <article class="card-body col-md-11">
-                <table  *ngIf="isEnabled" [dtOptions]="dtOptions" datatable class="table" >
-                    <thead>
+                <table  *ngIf="isEnabled" class="table table-striped" >
+                    <thead class="bg-dark">
                         <tr>
-                            <th>Id</th>
-                            <th>Student</th>
-                            <th>Registration number</th>
                             <th>Course</th>
-                            <th>Batch</th>
                             <th>Amount</th>
-                            <th>Mode</th>
-                            <th>Received By</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let coursewiseCollection of coursewiseCollections">
-                            <td>{{coursewiseCollection.id}}</td>
-                            <td>{{coursewiseCollection.student}}</td>
-                            <td>{{coursewiseCollection.registrationNumber}}</td>
-                            <td>{{coursewiseCollection.course}}</td>
-                            <td>{{coursewiseCollection.batch}}</td>
-                            <td>{{coursewiseCollection.amount}}</td>
-                            <td>{{coursewiseCollection.mode}}</td>
-                            <td>{{coursewiseCollection.receivedBy}}</td>
+                        <tr *ngFor="let c of courseWiseCollection">
+                            <td>{{c[1]}}</td>
+                            <td>Rs {{c[2]}}</td>
                         </tr>
-                        <!-- <tr><td>Total Rs.</td></tr> -->
                     </tbody>
+                    <tfoot>
+                        <tr >
+                            <th>Total: </th>
+                            <td>Rs {{getTotal()}}</td>
+                         </tr>
+                    </tfoot>
                 </table>
             </article>
         </div>

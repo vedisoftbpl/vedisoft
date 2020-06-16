@@ -1,19 +1,20 @@
 <div class="wrapper">
     <div class="container-fluid flu mb-5">
         <div class="service">
-            <h1 class="logo pt-5">FACULTY-WISE FEE COLLECTION</h1>
+            <h1 class="logo pt-5">FACULTYWISE FEE COLLECTION</h1>
         </div>
     </div>
 
-    <nav class="navbar navbar-light bg-light justify-content-center" *ngIf='!isEnabled'>
+    <nav class="navbar navbar-light bg-light justify-content-center">
 
-        <form class="form-inline" (ngSubmit)='search()'>
-            <label for="faculty">Faculty: </label>
-        <select name="faculty" [(ngModel)] = "faculty" class="select">
-            <option value="Rohit">Rohit Sir</option>
-            <option value="Jeetendra">Jeetendra Sir</option>
-            <option value="Pankaj">Pankaj Sir</option>
-        </select>    
+        <form class="form-inline" (ngSubmit)='getData()'>
+        <label for="fdate">From Date :&nbsp;&nbsp;</label> 
+        <input class="border border-primary" type="date" name="fdate" id="fdate" [ngModel]="from | date:'yyyy-MM-dd'"
+                        (ngModelChange)="this.from= $event">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <label>To Date :</label> &nbsp;&nbsp;&nbsp;
+        <input class="border border-primary" type="date" name="tdate" id="tdate"
+                        [ngModel]="to | date:'yyyy-MM-dd'" (ngModelChange)="this.to= $event">&nbsp;&nbsp;
             
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Go</button>
         </form>
@@ -23,34 +24,25 @@
         <div class="row justify-content-center pt-6">
             
             <article class="card-body col-md-11">
-                <table  *ngIf="isEnabled" [dtOptions]="dtOptions" datatable class="table" >
-                    <thead>
+                <table  *ngIf="isEnabled" class="table table-striped" >
+                    <thead class="bg-dark">
                         <tr>
-                            <th>Id</th>
-                            <th>Student</th>
                             <th>Faculty</th>
-                            <th>Registration number</th>
-                            <th>Course</th>
-                            <th>Batch</th>
                             <th>Amount</th>
-                            <th>Mode</th>
-                            <th>Received By</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let facultywiseCollection of facultywiseCollections">
-                            <td>{{facultywiseCollection.id}}</td>
-                            <td>{{facultywiseCollection.student}}</td>
-                            <td>{{facultywiseCollection.faculty}}</td>
-                            <td>{{facultywiseCollection.registrationNumber}}</td>
-                            <td>{{facultywiseCollection.course}}</td>
-                            <td>{{facultywiseCollection.batch}}</td>
-                            <td>{{facultywiseCollection.amount}}</td>
-                            <td>{{facultywiseCollection.mode}}</td>
-                            <td>{{facultywiseCollection.receivedBy}}</td>
+                        <tr *ngFor="let f of facultyWiseCollection">
+                            <td>{{f[0]}}</td>
+                            <td>Rs {{f[1]}}</td>
                         </tr>
-                        <!-- <tr><td>Total Rs.</td></tr> -->
                     </tbody>
+                    <tfoot>
+                        <tr >
+                            <th>Total: </th>
+                            <td>Rs {{getTotal()}}</td>
+                         </tr>
+                    </tfoot>
                 </table>
             </article>
         </div>

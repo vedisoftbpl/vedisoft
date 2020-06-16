@@ -1,16 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Subject } from 'rxjs';
-import { DataTableDirective } from 'angular-datatables';
 import { Session } from 'src/app/session/session.component';
 import { Branch } from 'src/app/branches/branches.component';
-
-export class BranchWiseStudent {
-  public constructor(
-    public session: Session, public branchName: String
-  ) {
-
-  }
-}
+import { BranchesService } from 'src/app/service/data/branches.service';
+import { RouterGuardService } from 'src/app/service/router-guard.service';
+import { BranchwiseStudentsService } from 'src/app/service/data/branchwise-students.service';
+import { SessionDataService } from 'src/app/service/data/session-data.service';
+import { BatchDataService } from 'src/app/service/data/batch-data.service';
+import { Batch } from 'src/app/batch/batch.component';
 
 @Component({
   selector: 'app-branch-wise-student-enrollments',
@@ -20,33 +16,77 @@ export class BranchWiseStudent {
 export class BranchWiseStudentEnrollmentsComponent implements OnInit {
 
 
-  sessionList: Session[];
-  session: Session;
-  branches: Branch[];
-  branch: Branch;
+  constructor(private routeGuardService: RouterGuardService, private branchService: BranchesService,
+    private branchwiseStudentsService: BranchwiseStudentsService, private sessionService: SessionDataService,
+    private batchService: BatchDataService) { }
 
-  dtTrigger: Subject<any> = new Subject();
-  @ViewChild(DataTableDirective, { static: false })
-  datatableElement: DataTableDirective;
-  dtOptions: DataTables.Settings = {};
+  branchId
+  branches: Branch[]
+  batches: Batch[]
+  sessions: Session[]
+  session: Session
+  from: Date
+  to: Date
+  dates : Date[]
+  branchWiseStudents
+  isEnabled: boolean
 
-  constructor() { }
 
   ngOnInit() {
-    this.sessionList = [new Session(1, "abc", new Date(), new Date(), 1, new Date(), 54, new Date()), new Session(1, "abc", new Date(), new Date(), 1, new Date(), 54, new Date()),
-    new Session(1, "abc", new Date(), new Date(), 1, new Date(), 54, new Date())]
-    this.branches = [
-        // new Branch(1, "M.P. NAGAR", "mpn", "3rd Floor, 275", "above Andhra Bank, Near Time Coaching", "Zone-II, Maharana Pratap Nagar", "Bhopal", " Madhya Pradesh",["Rohit Ahuja"],"1234556778","JAVA,C++,C",new Date(),"23.2524° N, 77.4646° E"),
-        // new Branch(2, "Indrapuri", "ind", "219-B", " near Gaurav Dairy, Indrapuri C sector", "Sector C, Indrapuri", "Bhopal", "Madhya Pradesh",["Rohit Ahuja"],"1234556778","JAVA,C++,C",new Date(),"23.2524° N, 77.4646° E")
-      ]
-    this.dtOptions = {
-      pagingType: 'full_numbers',
-      lengthMenu: [5, 10, 15, 20],
-    };
+    this.from = new Date()
+    this.to = new Date()
+    this.getAllBranches()
+    this.getAllBatches()
+    this.getAllSessions()
   }
 
-  public getSession() {
-    console.log("k");
+  getData() {
+    this.dates = [this.session.startDate, this.session.endDate]
+    console.log(this.dates)
+    this.branchwiseStudentsService.getBranchWiseStudents(this.branchId, this.dates).subscribe(
+      response => {
+        this.branchWiseStudents = response
+        console.log(response)
+      }
+    )
+    this.isEnabled = true;
+  }
+  getAllBranches() {
+    this.branchService.getAllBranches().subscribe(
+      response => {
+        this.branches = response
+      }
+    )
+  }
+  getAllBatches() {
+    this.batchService.getAllBatches().subscribe(
+      response => {
+        this.batches = response
+      }
+    )
+  }
+  getAllSessions() {
+    this.sessionService.getAllSessions().subscribe(
+      response => {
+        this.sessions = response
+      }
+    )
+  }
+  getBatchCode(batchId) {
+    let code
+    for(let i = 0; i < this.batches.length; i++) {
+        if(batchId == this.batches[i].batchId)
+          code = this.batches[i].code
+    }
+    return code;
+  }
+  getBatchDates(batchId) {
+    let dates
+    for(let i = 0; i < this.batches.length; i++) {
+        if(batchId == this.batches[i].batchId)
+          dates = "(" + this.batches[i].sdate.toString() + "-" + this.batches[i].enddate.toString() + ")" + "-" + this.batches[i].timings
+    }
+    return dates;
   }
 
 }

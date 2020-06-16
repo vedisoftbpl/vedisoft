@@ -6,7 +6,7 @@ import { BranchesService } from 'src/app/service/data/branches.service';
 import { SessionDataService } from 'src/app/service/data/session-data.service';
 import { SessionwiseCollectionService } from 'src/app/service/data/sessionwise-collection.service';
 import { Session } from 'src/app/session/session.component';
-import { summaryFileName } from '@angular/compiler/src/aot/util';
+
 
 @Component({
   selector: 'app-sessionwise-collection',
@@ -70,6 +70,7 @@ export class SessionwiseCollectionComponent implements OnInit {
   getTotal() {
     let sum = 0
     for(let i = 0; i < this.sessionWiseCollection.length; i++) {
+      if(this.branchId == this.sessionWiseCollection[i][0] || this.allEnabled)
       sum += this.sessionWiseCollection[i][2]
     }
     return sum;

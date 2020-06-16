@@ -1,53 +1,49 @@
 import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
-import { Subject } from 'rxjs';
-import { DataTableDirective } from 'angular-datatables';
+import { RouterGuardService } from 'src/app/service/router-guard.service';
+import { FacultywiseCollectionService } from 'src/app/service/data/facultywise-collection.service';
 
-export class FacultywiseCollection {
-  constructor(public id: number, public student: String, public faculty: String, public registrationNumber: String, public course: String,
-  public batch: String, public amount: number, public mode: String, public receivedBy: string) {}
-}
+
 
 @Component({
   selector: 'app-facultywise-collection',
   templateUrl: './facultywise-collection.component.html',
   styleUrls: ['./facultywise-collection.component.css']
 })
-export class FacultywiseCollectionComponent implements OnInit, OnDestroy {
+export class FacultywiseCollectionComponent implements OnInit {
 
-  constructor() { }
+  constructor(private routeGuardService: RouterGuardService,
+    private facultyWiseCollectionService: FacultywiseCollectionService) { }
 
-  facultywiseCollections : FacultywiseCollection[] = [
-    new FacultywiseCollection(1, "Aman", "Rohit Sir", "080809898", "JAVA", "1Z089", 5000, "Online", "Rohit Sir"),
-    new FacultywiseCollection(2, "Aashray", "Pankaj Sir", "080809810", "Python", "1P089", 3000, "Cash", "Rohit Sir")
-  ]
-
-  dtTrigger: Subject<any> = new Subject();
-  @ViewChild(DataTableDirective, { static: false })
-  datatableElement: DataTableDirective;
-  dtOptions: DataTables.Settings = {};
-  isEnabled: boolean = false;
-  faculty;
+  
+  from: Date
+  to: Date
+  dates : Date[]
+  facultyWiseCollection
+  isEnabled: boolean = false
 
   ngOnInit() {
+    this.from = new Date()
+    this.to = new Date()
   }
 
-  search() {
-    this.dtOptions = {
-      pagingType: 'full_numbers',
-      lengthMenu: [5, 10, 15, 20],
-      search: {search: this.faculty},
-      columnDefs:[
-        {
-          targets: 8,
-          searchable: false
-        }
-      ]
-    };
-    this.isEnabled = true;
+  getData() {
+    this.dates = [this.from, this.to]
+    console.log(this.dates)
+    this.facultyWiseCollectionService.getFacultyWiseCollection(this.dates).subscribe(
+      response => {
+        this.facultyWiseCollection = response
+        console.log(response)
+      }
+    )
+    this.isEnabled = true
   }
 
-  ngOnDestroy() {
-    this.dtTrigger.unsubscribe();
+  getTotal() {
+    let sum = 0
+    for(let i = 0; i < this.facultyWiseCollection.length; i++) {
+        sum += this.facultyWiseCollection[i][1]
+    }
+    return sum;
   }
 
 }

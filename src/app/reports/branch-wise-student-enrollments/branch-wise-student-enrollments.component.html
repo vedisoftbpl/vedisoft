@@ -1,50 +1,43 @@
 <div class="wrapper">
     <div class="container-fluid flu mb-5">
         <div class="service">
-            <h1 class="logo pt-5">Branch Wise Students Enrollment</h1>
+            <h1 class="logo pt-5">BRANCHWISE STUDENT ENROLLMENTS</h1>
         </div>
     </div>
+
+    <nav class="navbar navbar-light bg-light justify-content-center">
+
+        <form class="form-inline" (ngSubmit)='getData()'>
+        <label for="branch">Branch: </label>&nbsp;
+        <select name="branch" [(ngModel)] = "branchId" class="select">
+            <option value="0">All</option>
+            <option *ngFor="let b of branches" [value]="b.branchId">Name: {{b.branchName}}</option>
+        </select>    
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <label for="session">Session: </label>&nbsp;
+        <select name="session" [(ngModel)] = "session" class="select">
+            <option *ngFor="let s of sessions" [ngValue]="s">{{s.sessionName}} From: {{s.startDate}} To: {{s.endDate}}</option>
+        </select>    
+        &nbsp;&nbsp;
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Go</button>
+        </form>
+    </nav>
+
     <div class="container mb-5 pb-5 pt-3 mt-3">
         <div class="row justify-content-center pt-6">
+            
             <article class="card-body col-md-11">
-                <div class="shadow-none p-3 mb-5 bg-light rounded">
-                    <div class="row">
-                        <div class="col-3">
-                            <label>Session :</label>
-                        </div>
-                        <div class="col-9">
-                            <select style="width: 50%;" class="border border-primary" [(ngModel)]="this.sessionList"
-                                name="session">
-                                <option *ngFor="let s of sessionList" value="s.startDate">{{s.startDate}}</option>
-                            </select><br><br>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-3">
-                            <label>Branch :</label>
-                        </div>
-                        <div class="col-9">
-                            <select style="width: 50%;" class="border border-primary" [(ngModel)]="this.branches"
-                                name="branch">
-                                <option value="All">All</option>
-                                <option *ngFor="let b of branches" value="b.branchName">{{b.branchName}}</option>
-                            </select>
-                        </div>
-                    </div>
-                </div><br>
-                <table [dtOptions]="dtOptions" datatable class="table">
-                    <thead>
+                <table  *ngIf="isEnabled" class="table table-striped" >
+                    <thead class="bg-dark">
                         <tr>
-                            <th>&nbsp;</th>
-                            <th>M.P. Nagar</th>
-                            <th>Indrapuri</th>
+                            <th>Batch</th>
+                            <th>Students</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let session of sessionList">
-                            <td>Month 1</td>
-                            <td>10</td>
-                            <td>20</td>
+                        <tr *ngFor="let b of branchWiseStudents">
+                            <td>Code: {{getBatchCode(b[0])}} - {{getBatchDates(b[0])}}</td>
+                            <td>{{b[1]}}</td>
                         </tr>
                     </tbody>
                 </table>

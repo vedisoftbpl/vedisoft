@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Subject } from 'rxjs';
-import { DataTableDirective } from 'angular-datatables';
+import { Branch } from 'src/app/branches/branches.component';
+import { RouterGuardService } from 'src/app/service/router-guard.service';
+import { BranchesService } from 'src/app/service/data/branches.service';
+import { CoursewiseCollectionService } from 'src/app/service/data/coursewise-collection.service';
 
 export class CoursewiseCollection {
   constructor(public id: number, public student: String, public registrationNumber: String, public course: String,
@@ -14,34 +16,50 @@ export class CoursewiseCollection {
 })
 export class CoursewiseCollectionComponent implements OnInit {
 
-  constructor() { }
+  constructor(private routeGuardService: RouterGuardService, private branchService: BranchesService,
+    private courseWiseCollectionService: CoursewiseCollectionService) { }
 
-  coursewiseCollections : CoursewiseCollection[] = [
-    new CoursewiseCollection(1, "Aman", "202002020", "JAVA", "1Z089", 5000, "Online", "Rohit Sir"),
-    new CoursewiseCollection(2, "Aashray", "201902019", "C/C++", "1P089", 3000, "Cash", "Rohit Sir")
-  ]
+  branchId
+  branches: Branch[]
+  from: Date
+  to: Date
+  dates : Date[]
+  courseWiseCollection
+  allEnabled: boolean
+  isEnabled: boolean
 
-  dtTrigger: Subject<any> = new Subject();
-  @ViewChild(DataTableDirective, { static: false })
-  datatableElement: DataTableDirective;
-  dtOptions: DataTables.Settings = {};
-  isEnabled: boolean = false;
-  course;
 
   ngOnInit() {
+    this.from = new Date()
+    this.to = new Date()
+    this.getAllBranches()
   }
 
-  search() {
-    this.dtOptions = {
-      pagingType: 'full_numbers',
-      lengthMenu: [5, 10, 15, 20],
-      search: {search: this.course},
-    };
+  getData() {
+    this.dates = [this.from, this.to]
+    console.log(this.dates)
+    this.courseWiseCollectionService.getCourseWiseCollection(this.branchId, this.dates).subscribe(
+      response => {
+        this.courseWiseCollection = response
+        console.log(response)
+      }
+    )
     this.isEnabled = true;
   }
+  getAllBranches() {
+    this.branchService.getAllBranches().subscribe(
+      response => {
+        this.branches = response
+      }
+    )
+  }
 
-  ngOnDestroy() {
-    this.dtTrigger.unsubscribe();
+  getTotal() {
+    let sum = 0
+    for(let i = 0; i < this.courseWiseCollection.length; i++) {
+        sum += this.courseWiseCollection[i][2]
+    }
+    return sum;
   }
 
 }
