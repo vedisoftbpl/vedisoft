@@ -87,7 +87,9 @@ export class StudentComponent implements OnInit, OnDestroy {
   allocateBatch(id){
     this.router.navigate(['allot',id]);
   }
-
+  addInstallment(id){
+    this.router.navigate(['installment',id]);
+  }
   searchStudent() {
   }
 

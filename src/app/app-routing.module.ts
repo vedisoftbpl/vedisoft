@@ -67,7 +67,7 @@ const routes: Routes = [
 
 
   { path: 'certi', component: CertiRequestComponent, canActivate: [RouterGuardService] },
-  { path: 'installments', component: InstallmentComponent, canActivate: [RouterGuardService] },
+  { path: 'installment/:id', component: InstallmentComponent, canActivate: [RouterGuardService] },
   { path: 'allot/:id', component: AllotComponent, canActivate: [RouterGuardService] },
   
   { path: 'queries/student-report', component: StudentReportComponent, canActivate: [RouterGuardService] },

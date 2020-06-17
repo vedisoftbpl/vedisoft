@@ -61,10 +61,6 @@ export class AllotComponent implements OnInit {
 
   }
 
-  setbatch(){
-    
-  }
-  
 
   getAllBatches() {
     this.batchService.getAllBatches().subscribe(
