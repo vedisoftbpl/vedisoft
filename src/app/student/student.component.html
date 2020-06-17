@@ -42,7 +42,7 @@
                             <td>{{student.name}}</td>
                             <td>{{student.branchBean.branchName}}</td>
                             <td>{{student.mno}}</td>
-                            <td><button class="btn btn-success">Allot Batch</button> /
+                            <td><button class="btn btn-success" (click)="allocateBatch(student.registrationId)">Allot Batch</button> /
                                 <button class="btn btn-warning">Add Installment</button> /
                                 <button class="btn btn-success">Certificate Request</button></td>
                         </tr>

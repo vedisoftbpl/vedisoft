@@ -1,0 +1,36 @@
+<div class="main-header">
+    <div class="container-fluid flu mb-5">
+        <div class="service">
+            <h1 class="logo pt-5">Allot Batch</h1>
+        </div>
+    </div>
+    <div class="container mb-5 pb-5 pt-3 mt-3">
+        <div class="row justify-content-center pt-6">
+
+            <div class="col-md-10">
+
+                <div class="card">
+
+                    <article class="card-body">
+
+                        <form #AllotForm="ngForm">
+
+                            <div class="form-group">
+                                <label>Batch ID</label>
+                                <div class="alert alert-warning" *ngIf='batch.invalid'></div>
+                                <select name="batch"  [(ngModel)]="studentBatch.batch.batchId" class="form-control" required #catch="ngModel">
+                                    
+                                    <option *ngFor="let batch of batches" [value]="batch.batchId">Batch Code: {{batch.code}} Course: {{batch.course.certiTitle}}</option>
+                                </select>
+                            </div> <!-- form-group end.// -->
+                                
+                            
+                        </form>
+
+                    </article> <!-- card-body end .// -->
+
+                    <div class="border-top card-body text-center"><button type="submit" (click) = "allotBatch()"
+                            class="btn btn-success">Submit</button></div>
+                </div> <!-- card.// -->
+            </div> <!-- col.//-->
+        </div>
