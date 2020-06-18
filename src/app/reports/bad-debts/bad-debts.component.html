@@ -5,16 +5,20 @@
         </div>
     </div>
 
-    <nav class="navbar navbar-light bg-light justify-content-center" *ngIf='!isEnabled'>
+    <nav class="navbar navbar-light bg-light justify-content-center">
 
-        <form class="form-inline" (ngSubmit)='search()'>
-            <label for="session">Session: </label>
-        <select name="session" [(ngModel)] = "session" class="select">
-            <option value="2018">2018</option>
-            <option value="2019">2019</option>
-            <option value="2020">2020</option>
+        <form class="form-inline" (ngSubmit)='getData()'>
+        <label for="branch">Branch: </label>&nbsp;
+        <select name="branch" [(ngModel)] = "branchId" class="select">
+            <option value="0">All</option>
+            <option *ngFor="let b of branches" [value]="b.branchId">Name: {{b.branchName}}</option>
         </select>    
-            
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <label for="session">Session: </label>&nbsp;
+        <select name="session" [(ngModel)] = "session" class="select">
+            <option *ngFor="let s of sessions" [ngValue]="s">{{s.sessionName}} From: {{s.startDate}} To: {{s.endDate}}</option>
+        </select>    
+        &nbsp;&nbsp;
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Go</button>
         </form>
     </nav>
@@ -23,37 +27,24 @@
         <div class="row justify-content-center pt-6">
             
             <article class="card-body col-md-11">
-                <table  *ngIf="isEnabled" [dtOptions]="dtOptions" datatable class="table" >
-                    <thead>
+                <table  *ngIf="isEnabled" class="table table-striped" >
+                    <thead class="bg-dark">
                         <tr>
-                            <th>Id</th>
-                            <th>Student</th>
-                            <th>Session</th>
-                            <th>Registration number</th>
-                            <th>Course</th>
                             <th>Batch</th>
-                            <th>Total Fee</th>
-                            <th>Paid Fee</th>
                             <th>Bad Debt</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let badDebt of badDebts">
-                            <td>{{badDebt.id}}</td>
-                            <td>{{badDebt.student}}</td>
-                            <td>{{badDebt.session}}</td>
-                            <td>{{badDebt.registrationNumber}}</td>
-                            <td>{{badDebt.course}}</td>
-                            <td>{{badDebt.batch}}</td>
-                            <td>{{badDebt.totalFee}}</td>
-                            <td>{{badDebt.paidFee}}</td>
-                            <td>{{badDebt.badDebt}}</td>
+                        <tr *ngFor="let b of badDebts">
+                            <td>Code: {{getBatchCode(b[0])}} - {{getBatchDates(b[0])}}</td>
+                            <td class="red">Rs {{b[1]}}</td>
                         </tr>
-                        
-                        <!-- <tr><td>Total Rs.</td></tr> -->
                     </tbody>
-                    <tfoot class="tfoot">
-                     Total Bad Debt : {{badDebtTotal}}
+                    <tfoot>
+                        <tr >
+                            <th>Total: </th>
+                            <td class="red">Rs {{getTotal()}}</td>
+                         </tr>
                     </tfoot>
                 </table>
             </article>

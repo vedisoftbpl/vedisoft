@@ -11,3 +11,6 @@ select {
     font-weight: bold;
     width: 700px;
 }
+.red {
+    color: red;
+}
