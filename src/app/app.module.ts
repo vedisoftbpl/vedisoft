@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import{HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { DataTablesModule } from 'angular-datatables';
+import { ChartsModule } from 'ng2-charts';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -48,6 +49,7 @@ import { PersonFormComponent } from './person-form/person-form.component';
 import { StudentReportComponent } from './queries/student-report/student-report.component';
 import { StudentFormComponent } from './student-form/student-form.component';
 import { BatchwiseCollectionComponent } from './reports/batchwise-collection/batchwise-collection.component';
+import { GstChartComponent } from './charts/gst-chart/gst-chart.component';
 
 
 
@@ -92,7 +94,8 @@ import { BatchwiseCollectionComponent } from './reports/batchwise-collection/bat
     PersonFormComponent,
     StudentReportComponent,
     StudentFormComponent,
-    BatchwiseCollectionComponent
+    BatchwiseCollectionComponent,
+    GstChartComponent
 
   ],
   imports: [
@@ -101,7 +104,8 @@ import { BatchwiseCollectionComponent } from './reports/batchwise-collection/bat
     FormsModule,
     DataTablesModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ChartsModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS , useClass: HttpIntercepterBasicAuthService , multi:true}

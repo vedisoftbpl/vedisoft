@@ -1,0 +1,39 @@
+<div class="wrapper">
+    <div class="container-fluid flu mb-5">
+        <div class="service">
+            <h1 class="logo pt-5">GST Chart</h1>
+        </div>
+    </div>
+    <div class="container mb-5 pb-5 pt-3 mt-3" *ngIf='!isEnabled'>
+        <div class="row justify-content-center pt-6">
+            <article class="card-body col-md-11">
+                <div class="shadow-none p-3 mb-5 bg-light rounded">
+                    <div class="justify-content-center text-center"> 
+                    <label for="fdate">From Date :&nbsp;&nbsp;</label> 
+                    <input class="border border-primary" type="date" name="fdate" id="fdate" [ngModel]="fromDate | date:'yyyy-MM-dd'"
+                        (ngModelChange)="this.fromDate= $event">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <label>To Date :</label> &nbsp;&nbsp;&nbsp;
+                    <input class="border border-primary" type="date" name="tdate" id="tdate"
+                        [ngModel]="toDate | date:'yyyy-MM-dd'" (ngModelChange)="this.toDate= $event">&nbsp;&nbsp;
+                    <button class="btn btn-outline-primary btn-md size" (click)="getGST()">Go</button>
+                    </div>
+                </div>
+                </article>
+                </div>
+    </div>
+    
+    <div *ngIf='isEnabled'>
+        <canvas baseChart
+            [chartType]="chartType"
+            [datasets]="chartDatasets"
+            [labels]="chartLabels"
+            [colors]="chartColors"
+            [options]="chartOptions"
+            [legend]="true"
+            (chartHover)="chartHovered($event)"
+            (chartClick)="chartClicked($event)">
+        </canvas>
+      </div>
+    
+</div>
