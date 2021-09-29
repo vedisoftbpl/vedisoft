@@ -23,7 +23,7 @@
     "bootstrap": "^4.3.1",
     "chart.js": "^2.9.3",
     "chartjs-plugin-labels": "^1.1.0",
-    "datatables.net": "^1.10.20",
+    "datatables.net": "^1.11.3",
     "datatables.net-dt": "^1.10.20",
     "jquery": "^3.5.0",
     "ng2-charts": "^2.3.2",
